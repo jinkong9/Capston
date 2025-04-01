@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import style from './join.module.css';
-import DDlogo from "/DDlogo.webp";
+// import DDlogo from "/DDlogo.webp";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

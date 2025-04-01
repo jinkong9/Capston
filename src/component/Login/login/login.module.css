@@ -1,0 +1,160 @@
+@import 'pretendard/dist/web/static/pretendard.css';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCF5E7;
+    height: 100vh;
+}
+
+.con{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #F7F7F7;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .loginbox{
+    text-align: center;
+    background-color: #FFFFFF;
+    padding: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.headertext{
+    padding-bottom: 1em;
+    font-size: 32px;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.inputbox{
+    width: 25em;
+    height: 6vh;
+    padding: 10px;
+    margin-bottom: 1em;
+    background-color: #F2F2F2;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.submitbutton{
+    width: 15em;
+    height: 50px;
+    margin-top: 75px;
+    padding: 10px;
+    background-color: #A18363;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'Pretendard', sans-serif;
+    cursor: pointer;
+}
+
+.lodingmessage{
+    font-size: 16px;
+    color: #555;
+}
+
+.findbutton{
+    width: 15em;
+    height: 50px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #F9DCBA;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'Pretendard', sans-serif;
+    cursor: pointer;
+}
+
+.logo {
+    width: 4em;
+    height: 4em;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8em;
+}
+
+.loginwrite {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-bottom: 0.4em;
+}
+
+.logincon {
+    display: flex;
+    align-items: center;
+    width: 30em;
+    height: 2.5em;
+    margin-bottom: 0.6em;
+    background-color: #F2F2F2;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 0.9em;
+    padding-left: 12px;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+}
+
+.logincon:focus {
+    outline: none;
+    border-color: #F9DCBA;
+    box-shadow: 0 0 5px rgba(249, 220, 186, 0.5);
+}
+
+.loginbox {
+    background-color: #F9DCBA;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    margin-top: 0.8em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.loginbox:hover {
+    background-color: #f5d0a8;
+    transform: scale(1.05);
+}
+
+.joinbox {
+    background-color: #F9DCBA;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    margin-top: 0.8em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.joinbox:hover {
+    background-color: #f5d0a8;
+    transform: scale(1.05);
+}
