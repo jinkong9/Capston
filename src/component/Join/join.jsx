@@ -57,7 +57,7 @@ export default function Join() {
 
   return (
     <div className={style.container}>
-      <img className={style.logo} src={DDlogo} alt='메인로고'></img>
+      {/* <img className={style.logo} src={DDlogo} alt='메인로고'></img> */}
       <h3 className={style.joinwrite}>회원가입</h3>
       <div>
       <div>
