@@ -1,0 +1,74 @@
+.MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 100vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+  margin-top: 4%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+
+}
+.DaliyTitleText{
+
+    height: 5vh;
+    font-weight: bold;
+    font-size: 2.7vh;
+    text-align: center;
+    margin-top: 2%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    height: 10vh;
+    margin-top: 14vw;
+    margin-left: 12vw;
+    text-align: center;
+    font-size: 2vh;
+  }
+  .DaliyDateText{
+    margin-left: 6vw;
+  }
+  .DaliyContentText{
+    margin-left: 1.5vw
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 3vw;
+    gap: 2vw;
+    height: 20%;
+    margin-top: 3vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+  
