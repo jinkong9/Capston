@@ -71,4 +71,21 @@ body{
     border-radius: 1vw;
     
   }
-  
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+
+
+}

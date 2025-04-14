@@ -6,28 +6,59 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './main.module.css'
 import Nav from "../nav/nav"
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Main() {
 
   const navigate=useNavigate();
   const [text,setText]=useState("일기 주제 텍스트")
-  const [diaryList,setDiaryList]=useState([]);
+  const [diaryList,setDiaryList]=useState([
+    {name:"예환",title:"안녕",date:"2025.03.26",conetent:"오늘의 날씨가 너무 좋아용"},
+    {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
+    {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
+    {name:"성진",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
+
+  ]);
+
 
   useEffect(()=>{
-  const fetchData=async()=>{
-    //get 가정
-    const response=[
-      {name:"예환",title:"안녕",date:"2025.03.26",conetent:"오늘의 날씨가 너무 좋아용"},
-      {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-      {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-      {name:"성진",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-     
-    ];
-    setDiaryList(response.slice(0, 4)); 
-  }
-  fetchData();
+    const getData=async()=>{
+      try{
+        const response= await axios.get("https://kingfish-welcome-tiger.ngrok-free.app/themes/today",{
+          headers:{
+            "ngrok-skip-browser-warning": 1234, 
+          }
+        })
+        console.log("렌덤주제 서버응답 :",response.data.theme)
+        setText(response.data.theme)
+       
+      }
+    catch(error){
+      console.error("get요청 실패",error) 
+    }
+    }
+    getData();
   },[])
+
+  /*useEffect(()=>{
+    const fetchData=async()=>{
+     try{
+      const response=await axios.get("api주소/diaries/recent?offset=0")
+      console.log(response.data)
+       
+    
+     setDiaryList(response.slice(0, 4)); 
+     }
+    catch(error){
+      console.error("최근 사용자 일기 get 에러" ,error)
+    }
+    };
+    fetchData();
+    },[])
+  
+  */
+  
 
   const settings={
     dots:true,
@@ -42,6 +73,10 @@ function Main() {
   const GoToUserListPage=()=>{
     navigate("/user-diaries");
   }
+
+  const GoToWritePage=()=>{
+    navigate("/write-diary");
+  }
   return (
    
     <>
@@ -54,7 +89,7 @@ function Main() {
     <div className={styles.HeadBox}>
       <h3 className={styles.HeadBoxText}>{text}</h3>
       <p className={styles.Prompt}>이 주제로 일기를 작성할까요?</p>
-      <div className={styles.WriteButton}>일기 작성하기 
+      <div onClick={()=>{GoToWritePage()}} className={styles.WriteButton}>일기 작성하기 
       <img  className={styles.ButtonImage} src='/pen.png'></img>
       </div>
     </div>
