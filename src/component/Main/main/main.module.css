@@ -3,6 +3,7 @@ body{
   height: 190vh;
   overflow-x: hidden; 
 }
+
 .SubNavBox{
   
   display: flex;
@@ -113,6 +114,10 @@ background-color: #F5E7D2;
   color: black;
 }
 .DaliyBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin-top: 1%;
   margin-left: 2vw;
   border-radius: 20px;
@@ -129,27 +134,37 @@ background-color: #F5E7D2;
   margin: auto;
 }
 .DaliyTitleText{
-
+  position: absolute;;
   height: 5vh;
   font-weight: bold;
   font-size: 2.7vh;
-  text-align: center;
-  margin-top: 2%;
-
+  margin-top: -5%;
+ 
+}
+.DaliyDateText{
+  position: absolute;
+  margin-left: 12%;
+  margin-bottom: 2.2%;
 
 }
 .DaliyTitle2Text{
-  height: 10vh;
-  margin-top: 14vw;
-  margin-left: 12vw;
-  text-align: center;
-  font-size: 2vh;
+  margin-top: -2.2%;
+  position: absolute;
 }
-.DaliyDateText{
-  margin-left: 6vw;
+
+.Line{
+
+  margin-top: -2%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
 }
 .DaliyContentText{
-  margin-left: 1.5vw
+  position: absolute;
+  margin-top: 1%;
+  margin-right: 8%;
+ 
 }
 .UserInfoButton{
   display: flex;

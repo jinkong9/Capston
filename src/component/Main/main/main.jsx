@@ -7,6 +7,7 @@ import styles from './main.module.css'
 import Nav from "../nav/nav"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Writediary from '../../Writediary/writediary';
 
 
 function Main() {
@@ -14,10 +15,7 @@ function Main() {
   const navigate=useNavigate();
   const [text,setText]=useState("일기 주제 텍스트")
   const [diaryList,setDiaryList]=useState([
-    {name:"예환",title:"안녕",date:"2025.03.26",conetent:"오늘의 날씨가 너무 좋아용"},
-    {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-    {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-    {name:"성진",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
+    
 
   ]);
 
@@ -25,11 +23,7 @@ function Main() {
   useEffect(()=>{
     const getData=async()=>{
       try{
-        const response= await axios.get("https://kingfish-welcome-tiger.ngrok-free.app/themes/today",{
-          headers:{
-            "ngrok-skip-browser-warning": 1234, 
-          }
-        })
+        const response= await axios.get("https://daisy.wisoft.io/yehwan/app1/themes/today",)
         console.log("렌덤주제 서버응답 :",response.data.theme)
         setText(response.data.theme)
        
@@ -41,14 +35,14 @@ function Main() {
     getData();
   },[])
 
-  /*useEffect(()=>{
+  useEffect(()=>{
     const fetchData=async()=>{
      try{
-      const response=await axios.get("api주소/diaries/recent?offset=0")
-      console.log(response.data)
-       
-    
-     setDiaryList(response.slice(0, 4)); 
+      const response=await axios.get("https://daisy.wisoft.io/yehwan/app1/diaries/recent")
+      console.log(response.data.diaries)
+      setDiaryList(response.data.diaries)
+      
+
      }
     catch(error){
       console.error("최근 사용자 일기 get 에러" ,error)
@@ -57,7 +51,7 @@ function Main() {
     fetchData();
     },[])
   
-  */
+    
   
 
   const settings={
@@ -75,7 +69,7 @@ function Main() {
   }
 
   const GoToWritePage=()=>{
-    navigate("/write-diary");
+    navigate("/write-diary",{state:{theme:text}});
   }
   return (
    
@@ -94,7 +88,8 @@ function Main() {
       </div>
     </div>
    </header>
-    
+   
+
    <main className={styles.MainContainer}>
     <h2 className={styles.MainText}>최근 사람들이 쓴 일기에요!</h2>
     <div onClick={()=>GoToUserListPage()} className={styles.UserInfoButton}>사용자 둘러보기</div>
@@ -102,11 +97,12 @@ function Main() {
       {diaryList.map((diary,index)=>(
       <div key={index}>
         <div  className={styles.DaliyBox}>
-          <p className={styles.DaliyTitleText}>{diary.name}님의 일기</p>
+          <p className={styles.DaliyTitleText}>{diary.author.full_name}님의 일기</p>
           <span className={styles.DaliyTitle2Text}>{diary.title}</span>
-          <span className={styles.DaliyDateText}>{diary.date}</span>
-          <hr></hr>
-          <div className={styles.DaliyContentText}>{diary.conetent}</div>
+          <span className={styles.DaliyDateText}>{new Date(diary.created_at).toLocaleDateString("ko-KR")}</span>
+          <div className={styles.Line}></div>
+          <div className={styles.DaliyContentText}> {diary.content.length>10? diary.content.substring(0,10)+"...":diary.content}
+      </div>
       </div>
       </div>
 

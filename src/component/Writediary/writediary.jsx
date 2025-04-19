@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { use, useState } from 'react';
 import axios from 'axios';
+import styles from "./writediary.module.css"
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function Writediary() {
+  const {state} =useLocation()
+  const navigate=useNavigate();
+
   const [inputData, setInputData] = useState({
     title: "",
     content: ""
   });
-
+  const [name,setName]=useState("정필성")
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,29 +25,41 @@ function Writediary() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
+    if (inputData.content.trim().length < 10) {
+      alert("내용은 최소 10자 이상 입력해야 합니다.");
+    
+      return;
+    }
+ 
     try {
       const response = await axios.post(
-        "https://kingfish-welcome-tiger.ngrok-free.app/me/diaries", 
+        "https://daisy.wisoft.io/yehwan/app1/me/diaries", 
         {
           use_theme: true,
           title: inputData.title,
           content: inputData.content,
-        },
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "1234", 
-          }
         }
+     
       );
       console.log("일기 작성 성공:", response.data);
+      alert("제출 완료 ")
+      goToMainPage()
     } catch (error) {
       console.error("일기 작성 실패:", error);
     }
   };
-
+  const goToMainPage=()=>{
+    navigate("/")
+  }
   return (
-    <form onSubmit={handleSubmit}>
+    
+    <div className={styles.BodyContainer}>
+    <div className={styles.RandomBox}>
+       <h3>{state.theme}</h3> 
+    </div>
+    <form onSubmit={handleSubmit} className={styles.FormCotainer}>
       <input
+        className={styles.InputTtitle}
         name='title'
         type="text"
         placeholder="제목"
@@ -49,16 +67,25 @@ function Writediary() {
         onChange={handleChange}
       />
       <br />
+      <div className={styles.MyInfoBox}>
+         <div className={styles.NameBox}>{name}</div>
+         <div className={styles.DayBox}>2025.04.30</div>
+      </div>
+      <div className={styles.Line}></div>
+      <br />
       <textarea
+        className={styles.InputText}
         name='content'
-        placeholder="내용"
+        placeholder="내용을 입력해 주세요"
         value={inputData.content}
         onChange={handleChange}
       />
       <br />
-      <button type="submit">제출</button>
+      <button className={styles.SubmitButton} type="submit">저장하기</button>
     </form>
+    </div>
   );
+ 
 }
 
 export default Writediary;
