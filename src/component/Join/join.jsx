@@ -7,52 +7,50 @@ import axios from 'axios';
 export default function Join() {
 
   const [info, setInfo] = useState({
-    name : "",
-    id : "",
+    email : "",
+    full_name : "",
     password : "",
     passwordconfirm : "",
-    email : ""
   });
   const [agree, setAgree] = useState("");
   const [join, setJoin] = useState("");
   const navigate = useNavigate();
 
-  //useEffect(() => {
-  //  if (info.name && !/^[가-힣]+$/.test(info.name)) {
-  //    alert('한글만 입력해주세요');
-  //  }
-  //}, [info.name]);
-
-  //useEffect(() => {
-  //  if (info.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(info.email)) {
-  //    alert('올바른 이메일을 입력해주세요');
-  //  }
-  // }, [info.email]); useForm 사용 -> useEffect 줄이기 
-
-  // const handleJoin = async () => {
-  //  if (!info.name || !info.age || !info.id || !info.password || !info.email) {
-  //    alert("모든 필드를 입력해주세요.");
-  //    return;
-  //  }
+  const handleJoin = async (e) => {
+    e.preventDefault();
+   if (!info.email || !info.full_name || !info.password || !info.passwordconfirm) {
+     alert("모든 칸에 입력해주세요.");
+     return;
+   }
 
     if (info.password !== info.passwordconfirm) {
       alert ("비밀번호를 확인해주세요 !");
       return;
     }
 
-  // if (agree !== "true") {
-  //    alert("개인정보 수집에 동의해야 합니다.");
-  //    return;
-  //  }
+  if (agree !== "true") {
+     alert("개인정보 수집에 동의해야 합니다.");
+     return;
+   }
 
-  //  try {
-  //    await axios.post('UserData API', info);
-  //    alert("회원가입이 완료되었습니다!");
-  //    navigate('/');
-  //  } catch (err) {
-  //    alert("회원가입에 실패했습니다. 다시 시도해주세요.");
-  //  }
-  //};
+   try {
+     await axios.post('https://daisy.wisoft.io/yehwan/app1/auth/register', {
+      email : info.email,
+      full_name : info.full_name,
+      password : info.password
+     });
+     alert("회원가입이 완료되었습니다!");
+     navigate('/');
+   } catch (err) {
+    if (err.response) {
+      console.log("서버 응답:", err.response.data);
+      alert(`에러: ${err.response.data.message || "회원가입 실패"}`);
+    } else {
+      console.log("네트워크 에러 또는 기타 문제:", err);
+      alert("서버 연결 실패");
+    }
+  }
+  };
   // 이름은 한국어만, email 제대로안하면 오류뛰어
 
   return (
@@ -62,7 +60,7 @@ export default function Join() {
       <div>
       <div>
         <input className={style.joincon}
-        type="text"
+        type="email"
         id = "email"
         name="emailbox"
         placeholder="e-mail"
@@ -76,20 +74,19 @@ export default function Join() {
         <div>
         <input className={style.joincon}
         type="text"
-        id = "id"
-        name="idbox"
-        placeholder="아이디"
-        value={info.id}
-        onChange={(e)=>{ setInfo({
+        id = "name"
+        name="namebox"
+        placeholder="name"
+        value={info.full_name}
+        onChange={(e)=>{setInfo({
           ...info,
-          id : e.target.value
-        })
-        }}
+          full_name : e.target.value
+        })}}
         > 
         </input></div><br></br>
         <div>
         <input className={style.joincon}
-        type="text"
+        type="password"
         id = "pw"
         name="pwbox"
         placeholder="비밀번호"
@@ -102,13 +99,14 @@ export default function Join() {
         </input></div><br></br>
         <div>
         <input className={style.joincon}
-        type="text"
+        type="password"
         id = "pwconfirm"
         name="pwbox"
         placeholder="비밀번호 확인"
+        value={info.passwordconfirm}
         onChange={(e)=>{setInfo({
           ...info,
-          password : e.target.value
+          passwordconfirm : e.target.value
         })}}
         > 
         </input></div><br></br>
@@ -146,8 +144,7 @@ export default function Join() {
        <br></br>
         <button 
         className={style.agreebox}
-        onClick={()=>{ setJoin("true") }}
-        >회원가입</button>
+        onClick={handleJoin}>회원가입</button>
       </div>
     </div>
   )

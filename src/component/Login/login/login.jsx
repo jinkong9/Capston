@@ -3,24 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 // import DDlogo from "/DDlogo.webp";
 import style from './login.module.css';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
  
 export default function Login() {
-  const [login, setLogin] = useState('Login');
   const [info, setInfo] = useState({
-    id : '',
+    email : '',
     password : ''
 })
   const navigate = useNavigate();
-
-  // const fetchData = async () => {
-  //   try{
-  //     const res = await axios.get("비밀번호 찾는곳");
-  //     setData(res.data);
-  //   } catch(err){
-  //     console.error("Error", err);
-  //   }
-  // };
+  const [cookie, setCookie] = useCookies(['accessToken']);
 
   // useEffect(()=>{
   //   if (login == 'Success') {
@@ -28,24 +20,25 @@ export default function Login() {
   //   }
   // },[login, navigate]);
 
-  // const successLogin = async () => {
-  //   setLogin('Wait');
-
-  //   try{
-  //     const res = await axios.post('login API', info);
-
-  //     if (res.data.success) {
-  //       setLogin('Success');
-  //     } else {
-  //       setLogin('Login');
-  //       alert('회원정보를 다시 입력하세요. !');
-  //     }
-  //   } catch (err) {
-  //     setLogin('Login');
-  //     alert('로그인 오류.');
-  //   }
-  // }
-
+  const handleLogin = async(e) =>{
+    try{
+      e.preventDefault();
+      const res = await axios.post("https://daisy.wisoft.io/yehwan/app1/auth/login", {
+        email : info.email,
+        password : info.password
+      })
+    const token = res.data.token;
+    setCookie('accessToken', token, {
+    path : '/',
+    maxAge : 3600
+    //secure : true https일때
+  })
+  console.log("data",res.data);
+  navigate('/');
+    } catch(err) {
+      console.log("Login error:", err.response ? err.response.data : err.message);
+    }
+}
 
   return (
     <div className={style.container}>
@@ -56,14 +49,14 @@ export default function Login() {
       <div>
         <div>
         <input className={style.inputbox} 
-        type="text" 
-        id="id" 
-        name="idbox" 
-        placeholder='아이디를 입력하세요.'
+        type="email" 
+        id="email" 
+        name="emailbox" 
+        placeholder='이메일을 입력하세요.'
         onChange={(e)=> {
           setInfo({
             ...info,
-            id : e.target.value,
+            email : e.target.value,
           });
         }}
         ></input>
@@ -82,12 +75,9 @@ export default function Login() {
         ></input></div>
       </div>
      <button className={style.submitbutton}
-     onClick={()=>{
-      setLogin('Wait');
-
-    }}> {login}
-     </button>
-     {login === 'Wait' && <p className={style.loginbox}>로그인 중...</p>}
+     type="submit"
+     onClick={handleLogin}> 
+      Login</button>
      <div>
       <Link to ="/findinfo">
      <button className={style.findbutton}>Find Password</button>

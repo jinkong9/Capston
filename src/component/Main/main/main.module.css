@@ -1,0 +1,232 @@
+body{
+  background-color:  #FCF5E7;
+  height: 190vh;
+  overflow-x: hidden; 
+}
+
+.SubNavBox{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120vw;
+  height: 5vh;
+  background-color: #A18363;
+  position: absolute;
+  margin-top: 2.9%;
+  margin-left: -2%;
+  
+}
+.SubText{
+ color: white;
+ font-weight:bold ;
+ font-size: 1.2em;
+ margin-left: -13%;
+ -webkit-text-stroke-color: #BDB1B1;
+ -webkit-text-stroke-width: 0.2px;
+}
+.Header{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+  gap: 2%;
+}
+.HeadText{
+  font-size: 3vh;
+  color: black;
+  margin-top: 2%;
+  
+
+}
+.HeadBox{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36vw;
+  height: 30vh;
+  background-color: #F5E7D2;
+}
+.HeadBoxText{
+  position: relative;
+  color: #7B5D43;
+  font-size: 3.3vh;
+  margin-top: 8%;
+  height: 9vh;
+  width: 31vw;
+  text-align: center;
+}
+
+.WriteButton{
+  
+  background-size: 14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2vh;
+  -webkit-text-stroke-color: #BDB1B1;
+  -webkit-text-stroke-width: 0.1px;
+  background-color: #7B5D43;
+  width: 10vw;
+  height: 5.5vh;
+  border-radius: 13px;
+  margin-top: auto;
+  margin-bottom: 2%;
+  padding-right: 0.5vw;
+  cursor: pointer;
+  
+}
+.Prompt{
+
+  font-size: 1.4vh;
+
+}
+
+.ButtonImage{
+  margin-left: 3%;
+  margin-right: -20%;
+  height: 2.6vh;
+}
+.MainContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+  
+  position: relative;
+  height: 45vh;
+  width: 100vw;
+  gap: 20%;
+  
+
+background-color: #F5E7D2;
+}
+.MainText{
+ margin-top: -5%;
+ margin-left: -2%;
+ font-size: 3vh;
+  color: black;
+}
+.DaliyBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+
+}
+.SliderContainer {
+  width: 100vw;
+  height: 40vh;
+  margin: auto;
+}
+.DaliyTitleText{
+  position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 2.7vh;
+  margin-top: -5%;
+ 
+}
+.DaliyDateText{
+  position: absolute;
+  margin-left: 12%;
+  margin-bottom: 2.2%;
+
+}
+.DaliyTitle2Text{
+  margin-top: -2.2%;
+  position: absolute;
+}
+
+.Line{
+
+  margin-top: -2%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.DaliyContentText{
+  position: absolute;
+  margin-top: 1%;
+  margin-right: 8%;
+ 
+}
+.UserInfoButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 88%;
+  margin-bottom: 26%;
+  width: 8vw;
+  height: 5vh;
+  background-color: #7B5D43;
+  border-radius: 13px;
+  color: white;
+  cursor: pointer;
+
+}
+.footerCnontainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #F9DCBA;
+  width: 108vw;
+  height: 35vh;
+}
+.FooterTitleText{
+  margin-top: 10%;
+  margin-left: 37vw;
+}
+.FooterBox{
+  margin-left: -10vw;
+  margin-top: 3vh;
+  width: 21vw;
+  height: 27vh;
+  background-color: white;
+  border-radius: 4vw;
+}
+.FooterImg1{
+  width: 5.6vw;
+  margin-left: 7.5vw;
+  margin-top: 1vh;
+
+}
+.FooterImg2{
+  margin-left: 8.2vw;
+  margin-top: 1vh;
+}
+.FooterImg3{
+  margin-left: 8.2vw;
+  margin-top: 1.3vh;
+}
+.Footertext1{
+  margin-top: 3vh;
+  font-size: 1vw;
+  text-align: center;
+}
+.Footertext2{
+  margin-top: 4.1vh;
+  font-size: 1vw;
+  text-align: center;
+}
+.Footertext3{
+  margin-top: 4.1vh;
+  font-size: 1vw;
+  text-align: center;
+}
