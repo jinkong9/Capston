@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from './login.module.css';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import moment from "moment";
 
  
 export default function Login() {
@@ -11,30 +12,42 @@ export default function Login() {
     email : '',
     password : ''
 })
-  const navigate = useNavigate();
-  const [cookie, setCookie] = useCookies(['accessToken']);
+  const api = axios.create({
+    baseURL: 'https://daisy.wisoft.io/yehwan/app1',
+    withCredentials: true
+  })
 
-  // useEffect(()=>{
-  //   if (login == 'Success') {
-  //     navigate('/');
-  //   }
-  // },[login, navigate]);
+  const [accessToken, setaccessToken] = useState(null);
+  const navigate = useNavigate();
+  const [cookie, setCookie] = useCookies(['refreshToken']);
+
+  useEffect(() => {
+    api.interceptors.request.use((config)=>{
+      if(accessToken){
+        config.headers['Authorization'] = `Bearer ${accessToken}`;
+      }
+      return config;
+    })
+  },[accessToken])
+
 
   const handleLogin = async(e) =>{
     try{
       e.preventDefault();
-      const res = await axios.post("https://daisy.wisoft.io/yehwan/app1/auth/login", {
+      const res = await api.post("/auth/login", {
         email : info.email,
         password : info.password
       })
     const token = res.data.token;
-    setCookie('accessToken', token, {
-    path : '/',
-    maxAge : 3600
-    //secure : true https일때
-  })
-  console.log("data",res.data);
-  navigate('/');
+   setaccessToken(token)
+   setCookie('refreshToken', res.data.refreshToken,{
+    path: '/',
+    maxAge : 60 * 60 * 24 * 7,
+    secure: true,
+    sameSite: 'none'
+   })
+  console.log("success",res.data);
+  // navigate('/');
     } catch(err) {
       console.log("Login error:", err.response ? err.response.data : err.message);
     }

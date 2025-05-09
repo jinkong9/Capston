@@ -14,26 +14,18 @@ function Main() {
 
   const navigate=useNavigate();
   const [text,setText]=useState("일기 주제 텍스트")
+  const [titleState,setTitleState]=useState({tittleState: ""})
   const [diaryList,setDiaryList]=useState([
     
 
   ]);
 
 
+
   useEffect(()=>{
     const getData=async()=>{
       try{
-        const response= await axios.get("https://daisy.wisoft.io/yehwan/app1/themes/today",
-          {
-          use_theme: true,
-          title: inputData.title,
-          content: inputData.content
-          },
-          {
-             headers: {
-            "ngrok-skip-browser-warning": "1234"
-          }}
-        );
+        const response= await axios.get("https://daisy.wisoft.io/yehwan/app1/themes/today",)
         console.log("렌덤주제 서버응답 :",response.data.theme)
         setText(response.data.theme)
        
@@ -48,12 +40,7 @@ function Main() {
   useEffect(()=>{
     const fetchData=async()=>{
      try{
-      const response=await axios.get("https://kingfish-welcome-tiger.ngrok-free.app/diaries/recent",
-        {
-          headers: {
-         "ngrok-skip-browser-warning": "1234"
-       }}
-      )
+      const response=await axios.get("https://daisy.wisoft.io/yehwan/app1/diaries/recent")
       console.log(response.data.diaries)
       setDiaryList(response.data.diaries)
       
@@ -65,7 +52,7 @@ function Main() {
     };
     fetchData();
     },[])
-    
+  
     
   
 
@@ -89,7 +76,7 @@ function Main() {
   return (
    
     <>
-   <Nav />
+   <Nav></Nav>
    <div className={styles.SubNavBox}>
      <p className={styles.SubText}>오늘은 무슨 이야기를 들려주시나요?</p>
    </div>
