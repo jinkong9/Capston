@@ -1,0 +1,48 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background-color: #FCF5E7;
+}
+
+.maintext{
+    font-family: 'Pretendard', sans-serif;
+    font-size: 2em;
+    background-color: #F5E7D2;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em
+}
+
+.inputwrap{
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FCF5E7;
+}
+
+.inputbox{
+    width: 20em;
+    height: 3em;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding-left: 1em;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.inputtext{
+    font-family: 'Pretendard', sans-serif;
+}
+
+.submit{
+    background-color: #7B5D43;
+    font-family: 'Pretendard', sans-serif;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 2em;
+    
+}
