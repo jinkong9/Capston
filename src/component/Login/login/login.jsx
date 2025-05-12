@@ -21,14 +21,14 @@ export default function Login() {
   const navigate = useNavigate();
   const [cookie, setCookie] = useCookies(['refreshToken']);
 
-  useEffect(() => {
-    api.interceptors.request.use((config)=>{
-      if(accessToken){
-        config.headers['Authorization'] = `Bearer ${accessToken}`;
-      }
-      return config;
-    })
-  },[accessToken])
+  // useEffect(() => {
+  //   api.interceptors.request.use((config)=>{
+  //     if(accessToken){
+  //       config.headers['Authorization'] = `Bearer ${accessToken}`;
+  //     }
+  //     return config;
+  //   })
+  // },[accessToken])
 
 
   const handleLogin = async(e) =>{
@@ -38,14 +38,14 @@ export default function Login() {
         email : info.email,
         password : info.password
       })
-    const token = res.data.token;
-   setaccessToken(token)
-   setCookie('refreshToken', res.data.refreshToken,{
-    path: '/',
-    maxAge : 60 * 60 * 24 * 7,
-    secure: true,
-    sameSite: 'none'
-   })
+    // const token = res.data.token;
+  //  setaccessToken(token)
+  //  setCookie('refreshToken', res.data.refreshToken,{
+  //   path: '/',
+  //   maxAge : 60 * 60 * 24 * 7,
+  //   secure: true,
+  //   sameSite: 'none'
+  //  })
   console.log("success",res.data);
   // navigate('/');
     } catch(err) {
