@@ -67,7 +67,7 @@
 }
 /* 토요일 텍스트 */
 :global(.react-calendar__month-view__weekdays__weekday abbr[title="토요일"]) {
-color: blue;
+color: rgb(34, 34, 206);
 }
 
 /* 일요일 텍스트 */
