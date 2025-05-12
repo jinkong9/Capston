@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import styles from './nav.module.css'
 import { useNavigate } from 'react-router-dom'
+import { useCookies } from 'react-cookie';
 
 function Nav() {
   const navigate=useNavigate();
@@ -10,7 +11,12 @@ function Nav() {
   const GoToMainPage=()=>{
     navigate("/")
   }
+  const [ ,removeCookie] = useCookies(['accessToken']);
  
+   const deleteCookie = ()=> {
+     removeCookie('accessToken',{ path: '/' });
+     console.log('로그아웃완료');
+   }
   return (
    
     <>
@@ -19,12 +25,13 @@ function Nav() {
         Day Daliys
       </p>
       <div className={styles.nametext}>
-        님 환영합니다!
+        채유라님 환영합니다!
       </div>
       <div className={styles.MyInfoText}>
         내정보
       </div>
-      <div className={styles.LogOutText}>
+      <div className={styles.LogOutText}
+      onClick={deleteCookie}>
         로그아웃
       </div>
     </nav>
