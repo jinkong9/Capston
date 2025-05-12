@@ -4,6 +4,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import styles from './main.module.css'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Writediary from '../../WriteDiary/writediary';
+import Nav from '../../Nav/nav';
 import Nav from "../nav/nav"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -25,6 +29,17 @@ function Main() {
   useEffect(()=>{
     const getData=async()=>{
       try{
+        const response= await axios.get("https://daisy.wisoft.io/yehwan/app1/themes/today",
+          {
+          use_theme: true,
+          title: inputData.title,
+          content: inputData.content
+          },
+          {
+             headers: {
+            "ngrok-skip-browser-warning": "1234"
+          }}
+        );
         const response= await axios.get("https://daisy.wisoft.io/yehwan/app1/themes/today",)
         console.log("렌덤주제 서버응답 :",response.data.theme)
         setText(response.data.theme)
@@ -40,6 +55,12 @@ function Main() {
   useEffect(()=>{
     const fetchData=async()=>{
      try{
+      const response=await axios.get("https://kingfish-welcome-tiger.ngrok-free.app/diaries/recent",
+        {
+          headers: {
+         "ngrok-skip-browser-warning": "1234"
+       }}
+      )
       const response=await axios.get("https://daisy.wisoft.io/yehwan/app1/diaries/recent")
       console.log(response.data.diaries)
       setDiaryList(response.data.diaries)
@@ -52,7 +73,6 @@ function Main() {
     };
     fetchData();
     },[])
-  
     
   
 
@@ -76,6 +96,7 @@ function Main() {
   return (
    
     <>
+   <Nav />
    <Nav></Nav>
    <div className={styles.SubNavBox}>
      <p className={styles.SubText}>오늘은 무슨 이야기를 들려주시나요?</p>

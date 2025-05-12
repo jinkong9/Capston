@@ -1,0 +1,112 @@
+/* 전체체 */
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCF5E7;
+    height: 100vh;
+}
+
+.logo {
+    width: 5em; /* 작게 조정 */
+    height: 5em;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+/* 회원가입 글자 */
+.joinwrite {
+    font-size: 1.2em; /* 조금 줄이기 */
+    font-weight: bold;
+    padding-bottom: 0.5em;
+}
+/* 회원가입 요소 박스 */
+.joincon {
+    display: flex;
+    margin-left: 5em;
+    align-items: center;
+    justify-content: center;
+    width: 18em; /* 줄여서 화면에 맞춤 */
+    height: 2.5em;
+    margin-bottom: 0.8em;
+    background-color: #F2F2F2;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 0.9em;
+    padding-left: 12px;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+}
+
+.agreement {
+  margin: 20px 0;
+}
+
+.agreementHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.agreementTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: bold;
+}
+
+.agreementTitle label {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.agreementButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.agreeButton,.disagreeButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  background: none;
+  color: #333;
+}
+
+.agreeButton input[type="checkbox"], .disagreeButton input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.agreeButton:hover,.disagreeButton:hover {
+  background-color: #F9DCBA;
+}
+
+.agreebox {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  background-color: #F9DCBA;
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.agreebox:hover {
+  background-color: #F9DCBA;
+}

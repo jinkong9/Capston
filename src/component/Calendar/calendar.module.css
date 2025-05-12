@@ -1,0 +1,76 @@
+/* calendar.module.css */
+/* 캘린더 전체 */
+:global(.react-calendar) {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  border: 1px solid black;
+  border-radius: 50px;
+  font-family: 'Pretendard', sans-serif;
+  padding: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+/* 월 바꾸는 방향표 부분 */
+:global(.react-calendar__navigation) {
+  text-align: center;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5em;
+}
+/* 현재 연/월 텍스트 */
+:global(.react-calendar__navigation__label) {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+/* 각 날짜 타일 */
+:global(.react-calendar__tile) {
+  height: 10em;
+  background: #ebd1c6;
+  border: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+  transition: background 0.2s;
+  border-radius: 8px;
+}
+/* 현재 날짜 타일 */
+:global(.react-calendar__tile--now) {
+  background: #d0d694;
+  font-weight: bold;
+  border-radius: 8px;
+}
+/* 선택된 날짜 */
+:global(.react-calendar__tile--active) {
+  background: #ec0c0c;
+  color: white;
+  border-radius: 8px;
+}
+/* 마우스 올렸을 때 */
+:global(.react-calendar__tile:hover) {
+  background: #af6584;
+}
+/* 월화수목금토일 텍스트 */
+:global(.react-calendar__month-view__weekdays) {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1em;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+}
+/* 토요일 텍스트 */
+:global(.react-calendar__month-view__weekdays__weekday abbr[title="토요일"]) {
+color: blue;
+}
+
+/* 일요일 텍스트 */
+:global(.react-calendar__month-view__weekdays__weekday:last-child abbr) {
+color: red;
+}
