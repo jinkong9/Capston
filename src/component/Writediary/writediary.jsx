@@ -13,6 +13,7 @@ function Writediary() {
     content: ""
   });
   const [name,setName]=useState("정필성")
+  const [themeState, setThemeState]=useState(true)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +36,7 @@ function Writediary() {
       const response = await axios.post(
         "https://daisy.wisoft.io/yehwan/app1/me/diaries", 
         {
-          use_theme: true,
+          use_theme: themeState,
           title: inputData.title,
           content: inputData.content,
         }
@@ -51,11 +52,22 @@ function Writediary() {
   const goToMainPage=()=>{
     navigate("/")
   }
+  const checkClickEvent=()=>{
+    setThemeState(prev=>!prev)
+    console.log(themeState)
+  }
   return (
     
     <div className={styles.BodyContainer}>
+    { themeState &&(
     <div className={styles.RandomBox}>
        <h3>{state.theme}</h3> 
+    </div>
+
+)}
+  <div className={styles.Checkbox}>
+    <input type='checkbox' onClick={checkClickEvent} />
+    <label>자유 주제로 작성하기</label>
     </div>
     <form onSubmit={handleSubmit} className={styles.FormCotainer}>
       <input
