@@ -9,8 +9,8 @@ import MyCalendar from './component/Calendar/calendar';
 import Changepw from './component/Changepw/changepw';
 import UserDiaryList from './component/UserDiaryList/userdiarylist';
 import Writediary from './component/WriteDiary/writediary';
-
-
+import UserDiaryList from './component/UserDiaryList/userdiarylist';
+import Writediary from './component/Writediary/writediary';
 function App() {
  
 
@@ -18,12 +18,16 @@ function App() {
    <BrowserRouter>
    <Routes>
     <Route path="/" element={<Main/>}/>
+
     <Route path="/join" element={<Join/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/calendar" element={<MyCalendar />}/>
     <Route path="/changepw" element={<Changepw />}/>
     <Route path="/user-diaries" element={<UserDiaryList/>}/>
     <Route path="/write-diary" element={<Writediary />}/>
+    <Route path="/user-diaries" element={<UserDiaryList/>}/>
+    <Route path="/write-diary" element={<Writediary/>}/>
+
 
    </Routes>
    </BrowserRouter>

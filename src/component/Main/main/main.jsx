@@ -8,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Writediary from '../../WriteDiary/writediary';
 import Nav from '../../Nav/nav';
+import Nav from "../nav/nav"
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Writediary from '../../Writediary/writediary';
 
 
 function Main() {
@@ -34,6 +38,7 @@ function Main() {
             "ngrok-skip-browser-warning": "1234"
           }}
         );
+        const response= await axios.get("https://daisy.wisoft.io/yehwan/app1/themes/today",)
         console.log("렌덤주제 서버응답 :",response.data.theme)
         setText(response.data.theme)
        
@@ -54,6 +59,7 @@ function Main() {
          "ngrok-skip-browser-warning": "1234"
        }}
       )
+      const response=await axios.get("https://daisy.wisoft.io/yehwan/app1/diaries/recent")
       console.log(response.data.diaries)
       setDiaryList(response.data.diaries)
       
@@ -65,7 +71,6 @@ function Main() {
     };
     fetchData();
     },[])
-    
     
   
 
@@ -90,6 +95,7 @@ function Main() {
    
     <>
    <Nav />
+   <Nav></Nav>
    <div className={styles.SubNavBox}>
      <p className={styles.SubText}>오늘은 무슨 이야기를 들려주시나요?</p>
    </div>
