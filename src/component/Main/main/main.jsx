@@ -14,10 +14,12 @@ function Main() {
 
   const navigate=useNavigate();
   const [text,setText]=useState("일기 주제 텍스트")
+  const [titleState,setTitleState]=useState({tittleState: ""})
   const [diaryList,setDiaryList]=useState([
     
 
   ]);
+
 
 
   useEffect(()=>{
