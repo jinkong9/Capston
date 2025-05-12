@@ -8,8 +8,6 @@ import Join from './component/Join/join';
 import MyCalendar from './component/Calendar/calendar';
 import Changepw from './component/Changepw/changepw';
 import UserDiaryList from './component/UserDiaryList/userdiarylist';
-import Writediary from './component/WriteDiary/writediary';
-import UserDiaryList from './component/UserDiaryList/userdiarylist';
 import Writediary from './component/Writediary/writediary';
 function App() {
  

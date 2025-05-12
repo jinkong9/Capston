@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "../Nav/nav";
-import Nav from "../Main/nav/nav";
 import styles from "./userdiarylist.module.css"
 import { useState,useEffect } from 'react'
 
@@ -73,4 +72,4 @@ const [sortState,setSortState]=useState("new");
     )
 }
 export default UserDiaryList;
-export default UserDiaryList;
+
