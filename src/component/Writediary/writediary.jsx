@@ -4,11 +4,12 @@ import styles from "./writediary.module.css"
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
+
+
 function Writediary() {
   const {state} =useLocation()
   const navigate=useNavigate();
-  const [titleState,setTitleState]=useState(true)
-
+  
 
   const [inputData, setInputData] = useState({
     title: "",
@@ -16,8 +17,8 @@ function Writediary() {
   });
   const [name,setName]=useState("정필성")
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setInputData({
       ...inputData,
       [name]: value
@@ -37,7 +38,7 @@ function Writediary() {
       const response = await axios.post(
         "https://daisy.wisoft.io/yehwan/app1/me/diaries", 
         {
-          use_theme: {titleState},
+          use_theme: true,
           title: inputData.title,
           content: inputData.content,
         }
@@ -51,20 +52,13 @@ function Writediary() {
     }
   };
   const goToMainPage=()=>{
-    navigate("/") 
+    navigate("/")
   }
-  console.log(titleState)
   return (
     
     <div className={styles.BodyContainer}>
-      {titleState&&(
-       <div className={styles.RandomBox}>
+    <div className={styles.RandomBox}>
        <h3>{state.theme}</h3> 
-    </div>
- )}
-    <div className='TtitleStateBox'>
-    <input className={styles.ToggleButton} type='checkbox'  onClick={()=>setTitleState(prev=>!prev)} />자유주제로 작성하기
-  
     </div>
     <form onSubmit={handleSubmit} className={styles.FormCotainer}>
       <input

@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     color: #7B5D43;
-    width: 31vw;
+    width: 30vw;
     height: 10vh;
     background-color: #F5E7D2;
     font-size: 1.25em;
@@ -71,6 +71,3 @@
     font-size: 1em;
     margin-top: 72vh;
 }  
-.ToggleButton{
-  margin-top: 10%;
-}
