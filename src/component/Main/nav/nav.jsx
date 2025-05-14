@@ -8,9 +8,12 @@ function Nav() {
   const navigate=useNavigate();
 
   const GoToMainPage=()=>{
+    navigate("/main")
+  }
+  
+  const GoToLoginPage=()=>{
     navigate("/")
   }
- 
   return (
    
     <>
@@ -19,12 +22,12 @@ function Nav() {
         Day Daliys
       </p>
       <div className={styles.nametext}>
-        님 환영합니다!
+       님 환영합니다!
       </div>
       <div className={styles.MyInfoText}>
         내정보
       </div>
-      <div className={styles.LogOutText}>
+      <div onClick={GoToLoginPage} className={styles.LogOutText}>
         로그아웃
       </div>
     </nav>

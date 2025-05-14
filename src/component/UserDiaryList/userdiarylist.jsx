@@ -2,31 +2,17 @@ import React from "react";
 import Nav from "../Nav/nav";
 import styles from "./userdiarylist.module.css"
 import { useState,useEffect } from 'react'
+import { useLocation } from "react-router-dom";
 
 function UserDiaryList (){
+const {state}=useLocation();
 
 const [searchKeyword,SetSearchKeyword]=useState("")
 const [diaryList,setDiaryList]=useState([]);
 const [sortState,setSortState]=useState("new");
 
- useEffect(()=>{
-  const fetchData=async()=>{
 
-    //get 가정
-    const response=[
-      {name:"예환",title:"안녕",date:"2025.03.26",conetent:"오늘의 날씨가 너무 좋아용"},
-      {name:"필성",title:"성진",date:"2025.04.01",conetent:"adadad"},
-      {name:"필성",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-      {name:"성진이",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-      {name:"성진",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-      {name:"성진",title:"안녕필성",date:"2025.04.01",conetent:"adadad"},
-      
-      
-    ];
-    setDiaryList(response); 
-  }
-  fetchData();
-  },[])
+
 
   const filterDiaryList=[...diaryList].filter(diary=>diary.title.includes(searchKeyword))
   const sortDiaryList=[...filterDiaryList].sort((a,b)=> {
@@ -36,6 +22,14 @@ const [sortState,setSortState]=useState("new");
     return sortState==="new" ? dateB-dateA: dateA-dateB;
 
    })
+ useEffect(() => {
+    if (state && state.diaryListData) {
+      setDiaryList(state.diaryListData);
+    } else {
+      
+      setDiaryList([]);
+    }
+  }, [state]);
 
 
 
@@ -59,11 +53,11 @@ const [sortState,setSortState]=useState("new");
             <div className={styles.DailyListWrapper}>
                  {sortDiaryList.map((diary, index) => (
                 <div key={index} className={styles.DaliyBox}>
-                 <p className={styles.DaliyTitleText}>{diary.name}님의 일기</p>
+                 <p className={styles.DaliyTitleText}>{diary.author.full_name}님의 일기</p>
                 <span className={styles.DaliyTitle2Text}>{diary.title}</span>
-                <span className={styles.DaliyDateText}>{diary.date}</span>
-                 <hr />
-                 <div className={styles.DaliyContentText}>{diary.conetent}</div>
+                <span className={styles.DateText}>{new Date(diary.created_at).toLocaleDateString("ko-KR")}</span>
+                <div className={styles.Line}></div>
+                <div className={styles.DaliyContentText}>{diary.content.length>10? diary.content.substring(0,10)+"...":diary.content}</div>
              </div>
     ))}
   </div>

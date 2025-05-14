@@ -38,6 +38,8 @@
 } */
 
 .headertext{
+    margin-top: -10%;
+    margin-bottom: 5%;
     padding-bottom: 1em;
     font-size: 32px;
     font-family: 'Pretendard', sans-serif;
@@ -58,7 +60,7 @@
 .submitbutton{
     width: 15em;
     height: 50px;
-    margin-top: 75px;
+    margin-top: 90px;
     padding: 10px;
     background-color: #A18363;
     color: black;
@@ -157,4 +159,22 @@
 .joinbox:hover {
     background-color: #f5d0a8;
     transform: scale(1.05);
+}
+.GuideContainer{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -15%;
+}
+.GuideIdMessage{
+    
+    color: #A18363;
+    font-weight: bold;
+}
+.SignUpLink{
+    color :#555;
+    margin-bottom: 5%;
+    margin-top: -1%;
 }

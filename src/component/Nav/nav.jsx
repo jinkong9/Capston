@@ -1,6 +1,5 @@
 
 import { useState } from 'react'
-
 import styles from './nav.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
@@ -9,6 +8,9 @@ function Nav() {
   const navigate=useNavigate();
 
   const GoToMainPage=()=>{
+    navigate("/main")
+  }
+  const GoToLoginPage=()=>{
     navigate("/")
   }
   const [ ,removeCookie] = useCookies(['accessToken']);
@@ -25,13 +27,13 @@ function Nav() {
         Day Daliys
       </p>
       <div className={styles.nametext}>
-        채유라님 환영합니다!
+       님 환영합니다!
       </div>
       <div className={styles.MyInfoText}>
         내정보
       </div>
       <div className={styles.LogOutText}
-      onClick={deleteCookie}>
+      onClick={()=>{deleteCookie(),GoToLoginPage()}}>
         로그아웃
       </div>
     </nav>

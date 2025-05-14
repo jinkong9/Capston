@@ -15,10 +15,10 @@ function App() {
   return (
    <BrowserRouter>
    <Routes>
-    <Route path="/" element={<Main/>}/>
+    <Route path="/" element={<Login/>}/>
 
     <Route path="/join" element={<Join/>}/>
-    <Route path="/login" element={<Login/>}/>
+    <Route path="/main" element={<Main/>}/>
     <Route path="/calendar" element={<MyCalendar />}/>
     <Route path="/changepw" element={<Changepw />}/>
     <Route path="/user-diaries" element={<UserDiaryList/>}/>

@@ -14,10 +14,7 @@ function Main() {
   const navigate=useNavigate();
   const [text,setText]=useState("일기 주제 텍스트")
   const [titleState,setTitleState]=useState({tittleState: ""})
-  const [diaryList,setDiaryList]=useState([
-    
-
-  ]);
+  const [diaryList,setDiaryList]=useState([]);
 
   
 
@@ -67,7 +64,7 @@ function Main() {
   }
 
   const GoToUserListPage=()=>{
-    navigate("/user-diaries");
+    navigate("/user-diaries",{state:{diaryListData:diaryList}});
   }
 
   const GoToWritePage=()=>{
