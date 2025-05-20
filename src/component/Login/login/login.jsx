@@ -17,19 +17,7 @@ export default function Login() {
     withCredentials: true
   })
 
-  const [accessToken, setaccessToken] = useState(null);
   const navigate = useNavigate();
-  const [cookie, setCookie] = useCookies(['refreshToken']);
-  // const adr =0;
-  // useEffect(() => {
-  //   api.interceptors.request.use((config)=>{
-  //     if(accessToken){
-  //       config.headers['Authorization'] = `Bearer ${accessToken}`;
-  //     }
-  //     return config;
-  //   })
-  // },[accessToken])
-
 
   const handleLogin = async(e) =>{
     try{
@@ -38,25 +26,22 @@ export default function Login() {
         email : info.email,
         password : info.password
       })
-    // const token = res.data.token;
-  //  setaccessToken(token)
-  //  setCookie('refreshToken', res.data.refreshToken,{
-  //   path: '/',
-  //   maxAge : 60 * 60 * 24 * 7,
-  //   secure: true,
-  //   sameSite: 'none'
-  //  })
-  console.log("success",res.data);
-  // navigate('/');
+ 
+  console.log("success login", res.data);
+  navigate('/');
     } catch(err) {
-      console.log("Login error:", err.response ? err.response.data : err.message);
+      if( err.response && err.response.status === 401 ){
+        alert("아이디나 비밀번호를 확인해주세요. ")
+        console.log("fail", err.response)
+      } else{
+        alert("Server Error")
+      }
     }
 }
 
   return (
     <div className={style.container}>
       <div className="logo">
-      {/* <img className={style.logo} src={DDlogo} alt="로고"></img> */}
       </div>
       <p className={style.headertext}>회원님의 정보를 입력해주세요 .</p>
       <div>

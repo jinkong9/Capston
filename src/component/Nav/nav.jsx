@@ -4,6 +4,7 @@ import { useState } from 'react'
 import styles from './nav.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
+import axios from 'axios';
 
 function Nav() {
   const navigate=useNavigate();
@@ -11,12 +12,22 @@ function Nav() {
   const GoToMainPage=()=>{
     navigate("/")
   }
-  const [ ,removeCookie] = useCookies(['accessToken']);
- 
-   const deleteCookie = ()=> {
-     removeCookie('accessToken',{ path: '/' });
-     console.log('로그아웃완료');
-   }
+
+ const api = axios.create({
+    baseURL: 'https://daisy.wisoft.io/yehwan/app1',
+    withCredentials: true
+  })
+
+  const logouthandle = async(e)=>{
+    try{
+      e.preventDefault();
+      const res = await api.post("/auth/logout")
+      navigate("/login")
+    } catch(err) {
+      console.log("logout err", err.response.data)
+    }
+  }
+
   return (
    
     <>
@@ -25,13 +36,13 @@ function Nav() {
         Day Daliys
       </p>
       <div className={styles.nametext}>
-        채유라님 환영합니다!
+        사용자님 환영합니다!
       </div>
       <div className={styles.MyInfoText}>
         내정보
       </div>
       <div className={styles.LogOutText}
-      onClick={deleteCookie}>
+      onClick={logouthandle}>
         로그아웃
       </div>
     </nav>

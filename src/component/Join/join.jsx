@@ -13,7 +13,6 @@ export default function Join() {
     passwordconfirm : "",
   });
   const [agree, setAgree] = useState("");
-  const [join, setJoin] = useState("");
   const navigate = useNavigate();
 
   const handleJoin = async (e) => {
@@ -40,7 +39,7 @@ export default function Join() {
       password : info.password
      });
      alert("회원가입이 완료되었습니다!");
-     navigate('/');
+     navigate('/login');
    } catch (err) {
     if (err.response) {
       console.log("서버 응답:", err.response.data);
