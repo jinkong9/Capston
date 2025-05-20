@@ -6,20 +6,17 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './main.module.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Writediary from '../../WriteDiary/writediary';
+import Writediary from '../../Writediary/writediary';
 import Nav from '../../Nav/nav';
-
 
 function Main() {
 
   const navigate=useNavigate();
   const [text,setText]=useState("일기 주제 텍스트")
   const [titleState,setTitleState]=useState({tittleState: ""})
-  const [diaryList,setDiaryList]=useState([
-    
+  const [diaryList,setDiaryList]=useState([]);
 
-  ]);
-
+  
 
 
   useEffect(()=>{
@@ -67,7 +64,7 @@ function Main() {
   }
 
   const GoToUserListPage=()=>{
-    navigate("/user-diaries");
+    navigate("/user-diaries",{state:{diaryListData:diaryList}});
   }
 
   const GoToWritePage=()=>{
