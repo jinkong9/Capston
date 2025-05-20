@@ -24,19 +24,6 @@
     flex-direction: column;
 }
 
-/* .loginbox{
-    text-align: center;
-    background-color: #FFFFFF;
-    padding: 100px;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 32%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
 .headertext{
     margin-top: -10%;
     margin-bottom: 5%;

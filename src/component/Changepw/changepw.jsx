@@ -11,8 +11,8 @@ const ChangePwPage = () =>{
     '/changepw',
     'ChangePwPage',
     feature
-  );
-}
+  ); //사용할 컴포넌트에 입력하기 
+} //handlesubmit으로 api연결하고 유효성 검사하고 팝업닫기도 한번에 넣고 useState로 정보들 담기
 
 const ClosePwPage = () => {
   page.close();
@@ -27,17 +27,17 @@ export default function Changepw() {
         <div className={style.inputwrap}>
         <p className={style.inputtext}>*기존 비밀번호를 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} type="text" id="beforepw" name="beforepw" placeholder="비밀번호를 입력해주세요.">
+            <input className={style.inputbox} type="password" id="beforepw" name="beforepw" placeholder="비밀번호를 입력해주세요.">
             </input>
         </div>
         <p className={style.inputtext}>*새 비밀번호를 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} type="text" id="afterpw" name="afterpw" placeholder="새로운 비밀번호를 입력해주세요.">
+            <input className={style.inputbox} type="password" id="afterpw" name="afterpw" placeholder="새로운 비밀번호를 입력해주세요.">
             </input>
         </div>
         <p className={style.inputtext}>*새 비밀번호를 한번 더 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} type="text" id="checkepw" name="checkpw" placeholder="새로운 비밀번호를 입력해주세요.">
+            <input className={style.inputbox} type="password" id="checkepw" name="checkpw" placeholder="새로운 비밀번호를 다시입력해주세요.">
             </input>
         </div>
         <button onClick={ClosePwPage} type="submit" className={style.submit}>제출하기</button>
