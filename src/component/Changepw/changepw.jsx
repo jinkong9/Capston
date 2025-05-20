@@ -37,7 +37,7 @@ export default function Changepw() {
         </div>
         <p className={style.inputtext}>*새 비밀번호를 한번 더 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} type="password" id="checkepw" name="checkpw" placeholder="새로운 비밀번호를 입력해주세요.">
+            <input className={style.inputbox} type="password" id="checkepw" name="checkpw" placeholder="새로운 비밀번호를 다시입력해주세요.">
             </input>
         </div>
         <button onClick={ClosePwPage} type="submit" className={style.submit}>제출하기</button>
