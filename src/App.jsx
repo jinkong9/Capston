@@ -9,6 +9,7 @@ import MyCalendar from './component/Calendar/calendar';
 import Changepw from './component/Changepw/changepw';
 import UserDiaryList from './component/UserDiaryList/userdiarylist';
 import Writediary from './component/WriteDiary/writediary';
+import UserInfo from './component/Userinfo/userinfo';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
     <Route path="/changepw" element={<Changepw />}/>
     <Route path="/user-diaries" element={<UserDiaryList/>}/>
     <Route path="/write-diary" element={<Writediary />}/>
+    <Route path="/userinfo" element={<UserInfo />}/>
+    <Route path="/changepw" element={<Changepw />}/>
 
    </Routes>
    </BrowserRouter>
