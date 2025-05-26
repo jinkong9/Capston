@@ -25,6 +25,7 @@
     margin-left: 32%;
   }
   .MyInfoText{
+    cursor: pointer;
     position: absolute;
     color:white;
     margin-top: 1.4%;

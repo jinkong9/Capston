@@ -9,10 +9,13 @@ function Nav() {
   const navigate=useNavigate();
 
   const GoToMainPage=()=>{
-    navigate("/main")
+    navigate("/")
   }
   const GoToLoginPage=()=>{
-    navigate("/")
+    navigate("/login")
+  }
+  const GoToMyInfoPage=()=>{
+    navigate("/user-info")
   }
 
  const api = axios.create({
@@ -29,6 +32,7 @@ function Nav() {
       console.log("logout err", err.response.data)
     }
   }
+  
 
   return (
    
@@ -40,7 +44,8 @@ function Nav() {
       <div className={styles.nametext}>
         사용자님 환영합니다!
       </div>
-      <div className={styles.MyInfoText}>
+      <div className={styles.MyInfoText}
+       onClick={GoToMyInfoPage}>
         내정보
       </div>
       <div className={styles.LogOutText}

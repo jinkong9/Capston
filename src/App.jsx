@@ -9,22 +9,25 @@ import MyCalendar from './component/Calendar/calendar';
 import Changepw from './component/Changepw/changepw';
 import UserDiaryList from './component/UserDiaryList/userdiarylist';
 import Writediary from './component/Writediary/writediary';
+import UserInfo from './component/Userinfo/userinfo';
 function App() {
  
 
   return (
    <BrowserRouter>
    <Routes>
-    <Route path="/" element={<Login/>}/>
+    <Route path="/" element={<Main/>}/>
 
     <Route path="/join" element={<Join/>}/>
-    <Route path="/main" element={<Main/>}/>
+    <Route path="/login" element={<Login/>}/>
     <Route path="/calendar" element={<MyCalendar />}/>
     <Route path="/changepw" element={<Changepw />}/>
     <Route path="/user-diaries" element={<UserDiaryList/>}/>
     <Route path="/write-diary" element={<Writediary />}/>
     <Route path="/user-diaries" element={<UserDiaryList/>}/>
     <Route path="/write-diary" element={<Writediary/>}/>
+    <Route path="/user-info" element={<UserInfo/>}/>
+
 
 
    </Routes>
