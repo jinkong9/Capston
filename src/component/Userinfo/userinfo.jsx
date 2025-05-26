@@ -5,6 +5,19 @@ import Nav from "../Nav/nav"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
+const ChangePwPage = () =>{
+  const width = 500;
+  const height = 600;
+  const left = window.screenX + (window.outerWidth - width) / 2;
+  const top = window.screenY + (window.outerHeight - height) / 2;
+  const feature = `width=${width}, height=${height}, left=${left}, top=${top}, resizable=no, scrollbar=yes`
+  page = window.open(
+    '/changepw',
+    'ChangePwPage',
+    feature
+  ); //사용할 컴포넌트에 입력하기 
+} //handlesubmit으로 api연결하고 유효성 검사하고 팝업닫기도 한번에 넣고 useState로 정보들 담기
+
 function UserInfo(){
    const[myData,setMyData]=useState({
      full_name:"",
@@ -95,7 +108,8 @@ function UserInfo(){
                     <div className={`${styles.Circle} ${myInfoOn? styles.UpdateCircle : ""}`}></div>
                   </div>
                 </div>
-                <Link className={styles.PsswordLink}>비밀번호 변경하기</Link>
+                <Link onClick={ChangePwPage}
+                className={styles.PsswordLink}>비밀번호 변경하기</Link>
 
               </div>
             </div>
