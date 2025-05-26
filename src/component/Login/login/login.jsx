@@ -26,7 +26,6 @@ export default function Login() {
         email : info.email,
         password : info.password
       })
- 
   console.log("success login", res.data);
   navigate('/');
     } catch(err) {
@@ -37,6 +36,7 @@ export default function Login() {
         alert("Server Error")
       }
     }
+   
 }
 
   return (
@@ -71,6 +71,11 @@ export default function Login() {
           password : e.target.value,
         })}}
         ></input></div>
+
+     <div className={style.GuideContainer}>
+      <p className={style.GuideIdMessage}>아직 아이디가 없으시나요?</p> 
+      <Link to="/join" className={style.SignUpLink}>회원 가입</Link>
+     </div>
       </div>
      <button className={style.submitbutton}
      type="submit"

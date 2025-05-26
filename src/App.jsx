@@ -11,7 +11,6 @@ import UserDiaryList from './component/UserDiaryList/userdiarylist';
 import Writediary from './component/WriteDiary/writediary';
 import UserInfo from './component/Userinfo/userinfo';
 
-
 function App() {
  
 
@@ -19,6 +18,7 @@ function App() {
    <BrowserRouter>
    <Routes>
     <Route path="/" element={<Main/>}/>
+
     <Route path="/join" element={<Join/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/calendar" element={<MyCalendar />}/>
@@ -27,6 +27,7 @@ function App() {
     <Route path="/write-diary" element={<Writediary />}/>
     <Route path="/userinfo" element={<UserInfo />}/>
     <Route path="/changepw" element={<Changepw />}/>
+
 
    </Routes>
    </BrowserRouter>

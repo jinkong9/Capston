@@ -1,5 +1,5 @@
 
-.Daliytext{
+  .Daliytext{
     position: absolute;
     margin-left: -79%;
     color:white;
@@ -25,7 +25,6 @@
     margin-left: 32%;
   }
   .MyInfoText{
-    cursor: pointer;
     position: absolute;
     color:white;
     margin-top: 1.4%;
@@ -34,7 +33,7 @@
   .LogOutText{
     position: absolute;
     color: white;
-    margin-left: 76%;
+   margin-left: 76%;
     margin-top: 1.4%;
     cursor: pointer;
   }

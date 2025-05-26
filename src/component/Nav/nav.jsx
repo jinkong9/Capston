@@ -1,6 +1,5 @@
 
 import { useState } from 'react'
-
 import styles from './nav.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
@@ -11,6 +10,12 @@ function Nav() {
 
   const GoToMainPage=()=>{
     navigate("/")
+  }
+  const GoToLoginPage=()=>{
+    navigate("/login")
+  }
+  const GoToMyInfoPage=()=>{
+    navigate("/user-info")
   }
 
  const api = axios.create({
@@ -27,6 +32,7 @@ function Nav() {
       console.log("logout err", err.response.data)
     }
   }
+  
 
   return (
    
@@ -38,7 +44,8 @@ function Nav() {
       <div className={styles.nametext}>
         사용자님 환영합니다!
       </div>
-      <div className={styles.MyInfoText}>
+      <div className={styles.MyInfoText}
+       onClick={GoToMyInfoPage}>
         내정보
       </div>
       <div className={styles.LogOutText}
