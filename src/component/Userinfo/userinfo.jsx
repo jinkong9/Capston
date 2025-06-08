@@ -6,11 +6,11 @@ import { Link } from "react-router-dom"
 import axios from "axios"
 
 const ChangePwPage = () =>{
-  const width = 500;
+  const width = 600;
   const height = 600;
   const left = window.screenX + (window.outerWidth - width) / 2;
   const top = window.screenY + (window.outerHeight - height) / 2;
-  const feature = `width=${width}, height=${height}, left=${left}, top=${top}, resizable=no, scrollbar=yes`
+  const feature = `width=${width}, height=${height}, left=${left}, top=${top}, resizable=no, scrollbar=no`
   page = window.open(
     '/changepw',
     'ChangePwPage',
@@ -25,6 +25,12 @@ function UserInfo(){
      registered_at: "",
      diary_count: ""
    })
+
+     const api = axios.create({
+    baseURL: 'https://daisy.wisoft.io/yehwan/app1',
+    withCredentials: true
+  })
+  
     const [myDiaryOn, setMyDiaryOn]=useState(false);
     const [myInfoOn, setMyInfoOn]=useState(false);
     const updateSetting=async(field, value)=>{

@@ -1,76 +1,95 @@
-/* calendar.module.css */
-/* 캘린더 전체 */
-:global(.react-calendar) {
-  width: 100%;
+/* 화면 꽉 차게 */
+.container {
   height: 100vh;
-  background: white;
-  border: 1px solid black;
-  border-radius: 50px;
-  font-family: 'Pretendard', sans-serif;
-  padding: 2em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  align-items: center;
-  justify-content: center;
+  max-width: 480px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-/* 월 바꾸는 방향표 부분 */
-:global(.react-calendar__navigation) {
-  text-align: center;
-  padding-left: 2em;
-  padding-right: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 5em;
-}
-/* 현재 연/월 텍스트 */
-:global(.react-calendar__navigation__label) {
-  font-family: 'Pretendard', sans-serif;
-  font-weight: bolder;
-  font-size: 2rem;
-}
-/* 각 날짜 타일 */
-:global(.react-calendar__tile) {
-  height: 10em;
-  background: #ebd1c6;
-  border: 1px solid black;
-  text-align: center;
-  font-weight: bold;
-  transition: background 0.2s;
-  border-radius: 8px;
-}
-/* 현재 날짜 타일 */
-:global(.react-calendar__tile--now) {
-  background: #d0d694;
-  font-weight: bold;
-  border-radius: 8px;
-}
-/* 선택된 날짜 */
-:global(.react-calendar__tile--active) {
-  background: #ec0c0c;
-  color: white;
-  border-radius: 8px;
-}
-/* 마우스 올렸을 때 */
-:global(.react-calendar__tile:hover) {
-  background: #af6584;
-}
-/* 월화수목금토일 텍스트 */
-:global(.react-calendar__month-view__weekdays) {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 1em;
-  border-bottom: 1px solid #ddd;
-  background-color: white;
-}
-/* 토요일 텍스트 */
-:global(.react-calendar__month-view__weekdays__weekday abbr[title="토요일"]) {
-color: rgb(34, 34, 206);
+  padding: 10px;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: 'Arial', sans-serif;
 }
 
-/* 일요일 텍스트 */
-:global(.react-calendar__month-view__weekdays__weekday:last-child abbr) {
-color: red;
+/* 헤더: 이전, 월 라벨, 다음 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* 클릭 가능한 월 라벨 */
+.monthLabel {
+  cursor: pointer;
+}
+
+/* 요일 영역 */
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* 요일 각 칸 */
+.weekDay {
+  padding: 6px 0;
+  user-select: none;
+}
+
+/* 일요일 빨간색 */
+.sunday {
+  color: red;
+}
+
+/* 토요일 파란색 */
+.saturday {
+  color: blue;
+}
+
+/* 날짜 그리드 */
+.daysGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  overflow-y: auto;
+}
+
+/* 날짜 칸 */
+.dayBox {
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+/* 오늘 날짜 배경 */
+.today {
+  background-color: #d1e7fd;
+}
+
+/* 선택된 날짜 배경 */
+.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+/* 다른 달 날짜 회색 */
+.otherMonth {
+  color: #bbb;
+}
+
+.check {
+  display: block;
+  font-size: 12px;
+  color: red;
+  margin-top: 2px;
+  font-weight: bold;
 }

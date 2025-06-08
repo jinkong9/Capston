@@ -12,6 +12,12 @@ export default function Join() {
     password : "",
     passwordconfirm : "",
   });
+
+    const api = axios.create({
+    baseURL: 'https://daisy.wisoft.io/yehwan/app1',
+    withCredentials: true
+  })
+
   const [agree, setAgree] = useState("");
   const navigate = useNavigate();
 
@@ -33,7 +39,7 @@ export default function Join() {
    }
 
    try {
-     await axios.post('https://daisy.wisoft.io/yehwan/app1/auth/register', {
+     await api.post("/auth/register", {
       email : info.email,
       full_name : info.full_name,
       password : info.password
