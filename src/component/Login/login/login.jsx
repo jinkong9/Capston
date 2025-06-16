@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from './login.module.css';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
-import moment from "moment";
 
  
 export default function Login() {

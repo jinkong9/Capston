@@ -6,6 +6,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear";
 import 'dayjs/locale/ko';
 import styles from "./Calendar.module.css";
 import axios from "axios";
+import { Link, useNavigate } from 'react-router-dom';
 
 dayjs.extend(weekday);
 dayjs.extend(isoWeek);
@@ -62,7 +63,11 @@ export default function Mycalendar() {
     MarkDairy();
   },[viewDate]);
 
+  const navigate = useNavigate();
+
   return (
+    <div className={styles.wrraper}>
+      <Link to='/' style={{textDecoration: 'none'}} ><div className={styles.move}>DAY-DAILY</div></Link>
     <div className={styles.container}>
       <header className={styles.header}>
         <button onClick={() => changeMonth("subtract")}>{"<"}</button>
@@ -102,12 +107,13 @@ export default function Mycalendar() {
                     className={`${styles.dayBox} ${Today ? styles.today : ""} ${Click ? styles.selected : ""} ${Other ? styles.otherMonth : ""}`}
                     onClick={() => setSelectDate(current)}>
                   {current.date()}
-                  {Marked && <span className={styles.check}>O</span>}
+                  {Marked && <span className={styles.check}> <Link to='/user-info' style={{textDecoration: 'none'}} > O </Link></span>}
                   </div>
                 );
               })
         )}
       </div>
     </div>
-  );
+    </div>
+  )
 }
