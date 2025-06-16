@@ -1,0 +1,23 @@
+.MainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Mainbox{
+    width: 66vw;
+    height: 80vh;
+    background-color: #F9EEDE;
+    margin-top: 5%;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+.SubTitleBox{
+    font-size: 2.6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5E7D2;
+
+}
