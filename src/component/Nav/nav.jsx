@@ -1,11 +1,14 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './nav.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 
 function Nav() {
+
+  const [name, setName] = useState("");
+
   const navigate=useNavigate();
 
   const GoToMainPage=()=>{
@@ -32,6 +35,20 @@ function Nav() {
       console.log("logout err", err.response.data)
     }
   }
+
+  const UserName = async(e)=> {
+    try{
+      const res = await api.get("/me/info")
+      setName(res.data.user_info.full_name);
+      console.log("sss", res.data)
+    } catch(err){
+      console.log("error", err)
+    }
+  }
+
+  useEffect(()=>{
+    UserName();
+  },[])
   
 
   return (
@@ -42,7 +59,7 @@ function Nav() {
         Day Daliys
       </p>
       <div className={styles.nametext}>
-        사용자님 환영합니다!
+        {name ? `${name}님 환영합니다 !` : "로그인이 필요합니다."}
       </div>
       <div className={styles.MyInfoText}
        onClick={GoToMyInfoPage}>

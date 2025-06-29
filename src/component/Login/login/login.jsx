@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 // import DDlogo from "/DDlogo.webp";
 import style from './login.module.css';
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
 
  
 export default function Login() {

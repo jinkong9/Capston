@@ -5,6 +5,8 @@ import Nav from "../Nav/nav"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
+
+
 const ChangePwPage = () =>{
   const width = 600;
   const height = 600;
@@ -15,7 +17,8 @@ const ChangePwPage = () =>{
     '/changepw',
     'ChangePwPage',
     feature
-  ); //사용할 컴포넌트에 입력하기 
+  );
+   //사용할 컴포넌트에 입력하기 
 } //handlesubmit으로 api연결하고 유효성 검사하고 팝업닫기도 한번에 넣고 useState로 정보들 담기
 
 function UserInfo(){
