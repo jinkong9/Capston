@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
-function WriteDiary() {
+function Writediary() {
   const {state} =useLocation()
   const navigate=useNavigate();
   
@@ -103,4 +103,4 @@ function WriteDiary() {
  
 }
 
-export default WriteDiary;
+export default Writediary;
