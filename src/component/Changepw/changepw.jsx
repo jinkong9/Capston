@@ -1,84 +1,86 @@
-import React, { useState } from 'react'
-import style from './changepw.module.css';
-import axios from 'axios';
-
+import React, { useState } from "react";
+import style from "./changepw.module.css";
+import axios from "axios";
 
 export default function Changepw() {
-
-const [pw, setPw] = useState({
-  beforepw: '',
-  newpw: ''
-})
+  const [pw, setPw] = useState({
+    beforepw: "",
+    newpw: "",
+  });
 
   const api = axios.create({
-    baseURL: 'https://daisy.wisoft.io/yehwan/app1',
-    withCredentials: true
-  })
+    baseURL: "https://daisy.wisoft.io/yehwan/app1",
+    withCredentials: true,
+  });
 
-  const handlePW = async()=>{
-    try{
-      const res = await api.patch("/me/password",{
-        before_password : pw.beforepw,
-        new_password : pw.newpw
-      })
-      console.log("good", res.response)
-      if(res.status == 200){
-        // window.close();
+  const handlePW = async (e) => {
+    try {
+      e.preventDefault();
+      const res = await api.patch("/me/password", {
+        before_password: pw.beforepw,
+        new_password: pw.newpw,
+      });
+      console.log("good", res.response);
+      if (res.status == 200) {
+        window.close();
       }
-    } catch(err){
-      console.log("이상해", err)
+    } catch (err) {
+      console.log("이상해", err.response);
     }
-  }
+  };
 
   return (
     <div className={style.container}>
-        <div className={style.maintext}>
+      <div className={style.maintext}>
         <p>비밀번호 변경</p>
-        </div>
-        <div className={style.inputwrap}>
+      </div>
+      <div className={style.inputwrap}>
         <p className={style.inputtext}>*기존 비밀번호를 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} 
-            type="password" 
-            id="beforepw" 
-            name="beforepw" 
+          <input
+            className={style.inputbox}
+            type="password"
+            id="beforepw"
+            name="beforepw"
             placeholder="비밀번호를 입력해주세요."
-            onChange={(e)=>{
+            onChange={(e) => {
               setPw({
                 ...pw,
-                beforepw: e.target.value
-              })
+                beforepw: e.target.value,
+              });
             }}
-            >
-            </input>
+          ></input>
         </div>
         <p className={style.inputtext}>*새 비밀번호를 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} 
-            type="password" 
-            id="newpw" 
-            name="newpw" 
+          <input
+            className={style.inputbox}
+            type="password"
+            id="newpw"
+            name="newpw"
             placeholder="새로운 비밀번호를 입력해주세요."
-             onChange={(e)=>{
+            onChange={(e) => {
               setPw({
                 ...pw,
-                newpw: e.target.value
-              })
+                newpw: e.target.value,
+              });
             }}
-            >
-            </input>
+          ></input>
         </div>
         <p className={style.inputtext}>*새 비밀번호를 한번 더 입력해주세요 .</p>
         <div>
-            <input className={style.inputbox} 
-            type="password" 
-            id="checkepw" 
-            name="checkpw" 
-            placeholder="새로운 비밀번호를 다시입력해주세요.">
-            </input>
+          <input
+            className={style.inputbox}
+            type="password"
+            id="checkepw"
+            name="checkpw"
+            placeholder="새로운 비밀번호를 다시입력해주세요."
+          ></input>
         </div>
-        <button onClick={handlePW} type="submit" className={style.submit}>제출하기</button>
-        </div> 
+        <button onClick={handlePW} type="submit" className={style.submit}>
+          제출하기
+        </button>
+      </div>
     </div>
-  )
+  );
 }
