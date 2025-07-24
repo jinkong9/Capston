@@ -1,146 +1,128 @@
-.MainContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.MainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.Mainbox{
-    width: 66vw;
-    height: 95vh;
-    background-color: #F9EEDE;
-    margin-top: 2%;
-    
-    display: flex;
-    flex-direction: column;
+.Mainbox {
+  width: 66vw;
+  height: 95vh;
+  background-color: #f9eede;
+  margin-top: 2%;
 
+  display: flex;
+  flex-direction: column;
 }
-.SubTitleBox{
-    font-size: 2.6vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #F5E7D2;
-
+.SubTitleBox {
+  font-size: 2.6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5e7d2;
 }
-.MyProfileBox{
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.MyProfile{
-    width: 8vw;
-    height: 15vh;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    overflow: hidden;
-
-}
-.MyProfileImg{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.ProfileChangeBox{
-    margin-top: 3%;
-    margin-left: 5.5vw;
-    display: flex;
-    flex-direction: column;
-
-    width: 55vw;
-    height: 55vh;
-    background-color: #F0F0F0;
-
-
-}
-.ProfileChangetitleBox{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-     width: 55vw;
-     height: 7vh;
-     background-color: #E5E4E2;
-
-}
-.HiddenInput{
-    display: none;
-}
-.CustomButton{
-    margin-right: 4%;
-    cursor: pointer;
-}
-.ProfileSubTitle{
-   margin-left: 2%;
-}
-.MyProfileCheckBox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 12%;
-
-    
-}
-.MyProfileWriteCircle{
-    width: 8vw;
-    height: 15vh;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
+.MyProfileBox {
+  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.PreviewImage{
+.MyProfile {
+  width: 8vw;
+  height: 15vh;
+  background-color: #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-   
+}
+.ProfileChangeBox {
+  margin-top: 3%;
+  margin-left: 5.5vw;
+  display: flex;
+  flex-direction: column;
 
+  width: 55vw;
+  height: 55vh;
+  background-color: #f0f0f0;
+}
+.ProfileChangetitleBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 55vw;
+  height: 7vh;
+  background-color: #e5e4e2;
+}
+.HiddenInput {
+  display: none;
+}
+.CustomButton {
+  margin-right: 4%;
+  cursor: pointer;
+}
+.ProfileSubTitle {
+  margin-left: 2%;
+}
+.MyProfileCheckBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+}
+.MyProfileWriteCircle {
+  width: 8vw;
+  height: 15vh;
+  background-color: #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.PreviewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .CustomProfile1,
 .CustomProfile2,
 .CustomProfile3,
 .CustomProfile4,
 .CustomProfile5,
-.CustomProfile6 
-{
-    margin-right: 8%;
-     width: 8vw;
-    height: 15vh;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    
-
+.CustomProfile6 {
+  margin-right: 8%;
+  width: 8vw;
+  height: 15vh;
+  background-color: #ffffff;
+  border-radius: 50%;
 }
 .CustomProfile5,
 .CustomProfile6 {
-    margin-top: 5%;
-
+  margin-top: 5%;
 }
-.selected{
-    border: 2px solid #4a90e2;
+.selected {
+  border: 2px solid #4a90e2;
 }
 
-.MyProfilesChoice{
-    margin-top: -7%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 10%;
-
-    
+.MyProfilesChoice {
+  margin-top: -7%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
 }
-.ProfileSubmitButton{
-    margin-top: 17%;
-    margin-left: 46%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 6vw;
-    height: 3.2vh;
-    border-radius: 10px;
-    position: absolute;
-    background-color: #9C795A;
-    color: white;
-    
+.ProfileSubmitButton {
+  margin-top: 17%;
+  margin-left: 46%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6vw;
+  height: 3.2vh;
+  border-radius: 10px;
+  position: absolute;
+  background-color: #9c795a;
+  color: white;
 }

@@ -5,6 +5,7 @@
     align-items: center;
     /* justify-items: center; */
     background-color: #FCF5E7;
+    overflow: hidden;
 }
 
 .maintext{
@@ -32,11 +33,12 @@
     border-radius: 25px;
     padding-left: 1em;
     margin-bottom: 1em;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .inputtext{
     font-family: 'Pretendard', sans-serif;
+    font-size: large;
 }
 
 .submit{
@@ -49,7 +51,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-top: 2em;
+    margin-top: 3em;
     border-radius: 20px;
-    
+    box-shadow: #F5E7D2;
+    font-weight: bold;
 }
