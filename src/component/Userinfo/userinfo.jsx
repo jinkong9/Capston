@@ -168,7 +168,9 @@ function UserInfo() {
           <div className={styles.ImgContainer}>
             <img src="./calendar.png" className={styles.DiaryImg}></img>
           </div>
-          <Link className={styles.MyCalenderLink}>나의 캘린더 확인하기</Link>
+          <Link to="/calendar" className={styles.MyCalenderLink}>
+            나의 캘린더 확인하기
+          </Link>
           <div className={styles.ImgContainer}>
             <img src="./diary.png" className={styles.DiaryImg}></img>
           </div>

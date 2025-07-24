@@ -51,20 +51,20 @@ export default function Join() {
       alert("회원가입이 완료되었습니다!");
       navigate("/login");
     } catch (err) {
-      if (err.response) {
-        console.log("서버 응답:", err.response.data);
-        alert(`에러: ${err.response.data.message || "회원가입 실패"}`);
+      if (err.response?.data?.error === "Bad Request") {
+        console.log("비번짧");
+        alert("더욱 강력한 비밀번호로 설정해주세요 !");
+      } else if (err.response?.data?.errorCode === "DUPLICATED_EMAIL") {
+        alert("이미 가입된 이메일입니다.");
       } else {
         console.log("네트워크 에러 또는 기타 문제:", err);
-        alert("서버 연결 실패");
+        alert(` ${err.response.data.message || "회원가입 실패"}`);
       }
     }
   };
-  // 이름은 한국어만, email 제대로안하면 오류뛰어
 
   return (
     <div className={style.container}>
-      {/* <img className={style.logo} src={DDlogo} alt='메인로고'></img> */}
       <h3 className={style.joinwrite}>회원가입</h3>
       <div>
         <div>

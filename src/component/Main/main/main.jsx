@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Writediary from "../../Writediary/writediary";
 import Nav from "../../Nav/nav";
+import { handleError } from "../../Hook/auth";
 
 function Main() {
   const navigate = useNavigate();
@@ -50,20 +51,6 @@ function Main() {
     fetchData();
   }, []);
 
-  const checklogin = async () => {
-    try {
-      const res = await api.get("/me");
-      if (res.data) {
-        setLogin("true");
-      }
-      if (login === "false") {
-        navigate("/login");
-      }
-    } catch (err) {
-      console.log("err", err.response);
-    }
-  };
-
   const settings = {
     dots: true,
     infinite: false,
@@ -86,18 +73,11 @@ function Main() {
         navigate("/write-diary", { state: { theme: text } });
       }
     } catch (err) {
-      if (err.status == 401) {
-        alert("로그인이 필요합니다.");
-        navigate("/login");
-      } else {
-        console.log("go 이상", err.response);
-      }
+      console.log("err", err.response);
+      await handleError(err, navigate);
     }
   };
 
-  // const GoToWritePage = () => {
-  //   navigate("/write-diary", { state: { theme: text } });
-  // };
   return (
     <>
       <Nav></Nav>
@@ -112,7 +92,6 @@ function Main() {
           <div
             onClick={() => {
               gotowrite();
-              // GoToWritePage();
             }}
             className={styles.WriteButton}
           >

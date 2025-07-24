@@ -26,8 +26,8 @@ export default function Login() {
       console.log("success login", res.data);
       navigate("/");
     } catch (err) {
-      if (err.response && err.response.status === 401) {
-        alert("아이디나 비밀번호를 확인해주세요. ");
+      if (err.response?.data?.errorCode === "INVALID_CREDENTIAL") {
+        alert("이메일 또는 비밀번호를 확인해주세요. ");
         console.log("fail", err.response);
       } else {
         alert("Server Error");
