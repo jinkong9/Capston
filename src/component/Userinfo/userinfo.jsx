@@ -2,9 +2,8 @@ import "react";
 import { useEffect, useState } from "react";
 import styles from "./userinfo.module.css";
 import Nav from "../Nav/nav";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { useMyAvatar } from "../Hook/myinfo";
 
 const ChangePwPage = () => {
   const width = 500;
@@ -17,7 +16,6 @@ const ChangePwPage = () => {
 
 function UserInfo() {
   const avatar = useMyAvatar();
-
   useEffect(() => {
     if (!avatar) return;
     const responseData = async () => {
@@ -25,7 +23,6 @@ function UserInfo() {
         const response = await axios.get(
           `https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`,
         );
-
         console.log("프로필 불러오기 성공!");
         console.log("avatar 값:", avatar);
       } catch (error) {
@@ -34,7 +31,6 @@ function UserInfo() {
     };
     responseData();
   }, [avatar]);
-
   const navigate = useNavigate();
   const [myData, setMyData] = useState({
     full_name: "",
@@ -87,9 +83,6 @@ function UserInfo() {
     setMyInfoOn(newValue);
     updateSetting("hide_profile", newValue);
   };
-  const profileClick = () => {
-    navigate("/profile");
-  };
 
   return (
     <>
@@ -97,17 +90,9 @@ function UserInfo() {
       <div className={styles.InfoContainer}>
         <div className={styles.MySecurityBox}>
           <div className={styles.Titlebox}>내 프로필 및 보안</div>
-          <div className={styles.ProfileBox}>
-            <img
-              className={styles.MyProfileImg}
-              alt="내 프로필 이미지"
-              src={`https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`}
-            ></img>
-          </div>
+          <div className={styles.ProfileBox}></div>
           <div className={styles.InfoBox}>
-            <div onClick={() => profileClick()} className={styles.ProFileLink}>
-              프로필 변경하기
-            </div>
+            <Link className={styles.ProFileLink}>프로필 변경하기</Link>
             <div className={styles.MyDiaryContinaer}>
               <span>내 일기 숨김</span>
               <div
