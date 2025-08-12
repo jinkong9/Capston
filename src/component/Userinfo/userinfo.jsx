@@ -2,8 +2,9 @@ import "react";
 import { useEffect, useState } from "react";
 import styles from "./userinfo.module.css";
 import Nav from "../Nav/nav";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useMyAvatar } from "../Hooks/myinfo";
 
 const ChangePwPage = () => {
   const width = 500;
@@ -22,6 +23,7 @@ function UserInfo() {
       try {
         const response = await axios.get(
           `https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`,
+          { withCredentials: true },
         );
         console.log("프로필 불러오기 성공!");
         console.log("avatar 값:", avatar);
@@ -42,9 +44,13 @@ function UserInfo() {
   const [myInfoOn, setMyInfoOn] = useState(false);
   const updateSetting = async (field, value) => {
     try {
-      await axios.patch("https://daisy.wisoft.io/yehwan/app1/me/setting", {
-        [field]: value,
-      });
+      await axios.patch(
+        "https://daisy.wisoft.io/yehwan/app1/me/setting",
+        {
+          [field]: value,
+        },
+        { withCredentials: true },
+      );
       console.log(`${field} updated to`, value);
     } catch (error) {
       console.error(`${field} 업데이트 실패`, error);
@@ -61,6 +67,7 @@ function UserInfo() {
       try {
         const response = await axios.get(
           "https://daisy.wisoft.io/yehwan/app1/me/info",
+          { withCredentials: true },
         );
         console.log(response.data.user_info);
         const { full_name, email, registered_at, diary_count } =
@@ -73,6 +80,7 @@ function UserInfo() {
         });
       } catch (error) {
         console.log("my info get error");
+        console.log("err", error.response);
       }
     };
     getUserData();
@@ -84,6 +92,10 @@ function UserInfo() {
     updateSetting("hide_profile", newValue);
   };
 
+  const profileClick = () => {
+    navigate("/profile");
+  };
+
   return (
     <>
       <Nav></Nav>
@@ -92,7 +104,9 @@ function UserInfo() {
           <div className={styles.Titlebox}>내 프로필 및 보안</div>
           <div className={styles.ProfileBox}></div>
           <div className={styles.InfoBox}>
-            <Link className={styles.ProFileLink}>프로필 변경하기</Link>
+            <div onClick={() => profileClick()} className={styles.ProFileLink}>
+              프로필 변경하기
+            </div>
             <div className={styles.MyDiaryContinaer}>
               <span>내 일기 숨김</span>
               <div

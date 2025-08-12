@@ -39,6 +39,7 @@ function Writediary() {
           title: inputData.title,
           content: inputData.content,
         },
+        { withCredentials: true },
       );
       console.log("일기 작성 성공:", response.data);
       alert("제출 완료 ");

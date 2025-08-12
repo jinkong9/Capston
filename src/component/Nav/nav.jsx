@@ -36,7 +36,7 @@ function Nav() {
     try {
       if (login === "Logout") {
         const res = await api.post("/auth/logout");
-        navigate("/");
+        navigate("/login");
       }
       if (login === "Login") {
         navigate("/login");

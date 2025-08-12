@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./main.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Writediary from "../../Writediary/writediary";
+import Writediary from "../../WriteDiary/writediary";
 import Nav from "../../Nav/nav";
 import { handleError } from "../../Hook/auth";
 
