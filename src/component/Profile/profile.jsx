@@ -44,7 +44,7 @@ function Profilepage(){
                 }
             );
             console.log("프로필 수정 완료")
-            window.location.reload()
+            window.location.reload();
            
             alert("프로필이 수정되었습니다")
             
