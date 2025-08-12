@@ -1,36 +1,30 @@
-import React, { useEffect } from "react";
-import styles from "./profile.module.css";
-import { useState } from "react";
-// import { use } from "react";
-// import { se } from "date-fns/locale";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useMyAvatar } from "../Hook/myinfo";
+import { useMyAvatar } from "../Hooks/myinfo";
+import styles from "./profile.module.css";
 
 function Profilepage() {
   const avatar = useMyAvatar();
 
-  const [ImageChoiceState, SetImageChoiceState] = useState(false);
-  const [previewUrl, SetPreviewUrl] = useState();
-  const [selected, Setselected] = useState();
-  const [selectedFile, SetSelectedFile] = useState();
-  const [myProfile, SetMyprofile] = useState();
-  const handleClick = (index) => {
-    Setselected(index);
-  };
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  // 내 컴퓨터에서 이미지를 선택했을 때
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const imageurl = URL.createObjectURL(file);
-      SetPreviewUrl(imageurl);
-      SetSelectedFile(file);
-      SetImageChoiceState(true);
+      setPreviewUrl(imageurl); // 미리보기 URL 설정
+      setSelectedFile(file); // 선택된 파일 설정
     } else {
       console.log("이미지 저장 오류");
     }
   };
+
+  // 프로필 변경 버튼 클릭 시
   const handleSubmit = async () => {
-    if (!SetSelectedFile) {
-      alert("이미지를 선택해 주세요");
+    if (!selectedFile) {
+      alert("변경할 이미지를 선택해 주세요.");
       return;
     }
     const formData = new FormData();
@@ -41,33 +35,32 @@ function Profilepage() {
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
+          withCredentials: true,
         },
       );
-      console.log("프로필 수정 완료");
+      console.log("프로필 수정 완료", response);
+      alert("프로필이 수정되었습니다.");
       window.location.reload();
-
-      alert("프로필이 수정되었습니다");
     } catch (error) {
-      console.log("프로필 수정 오류");
-      alert("프로필 이미지를 선택해 주세요");
+      console.log("프로필 수정 오류", error.response);
+      alert("프로필 이미지 수정에 실패했습니다.");
     }
   };
 
   useEffect(() => {
     if (!avatar) return;
-    const responseData = async () => {
+    const fetchAvatar = async () => {
       try {
         const response = await axios.get(
           `https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`,
+          { withCredentials: true },
         );
-
-        console.log("프로필 불러오기 성공!");
-        console.log("avatar 값:", avatar);
+        console.log("프로필 불러오기 성공!", response.data);
       } catch (error) {
-        console.log("프로필 불러오기 오류");
+        console.log("프로필 불러오기 오류", error.response);
       }
     };
-    responseData();
+    fetchAvatar();
   }, [avatar]);
 
   return (
@@ -82,13 +75,16 @@ function Profilepage() {
             <img
               className={styles.MyProfileImg}
               alt="내 프로필 이미지"
-              src={`https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`}
+              src={
+                previewUrl ||
+                `https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`
+              }
             ></img>
           </div>
         </div>
         <div className={styles.ProfileChangeBox}>
           <div className={styles.ProfileChangetitleBox}>
-            <h4 className={styles.ProfileSubTitle}>내 프로필</h4>
+            <h4 className={styles.ProfileSubTitle}>프로필 이미지</h4>
             <input
               onChange={handleFileChange}
               className={styles.HiddenInput}
@@ -101,29 +97,18 @@ function Profilepage() {
             </label>
           </div>
           <div className={styles.MyProfileCheckBox}>
-            {!ImageChoiceState && (
-              <div className={styles.MyProfilesChoice}>
-                {[1, 2, 3, 4, 5, 6].map((num, idx) => (
-                  <div
-                    onClick={() => handleClick(idx)}
-                    key={num}
-                    className={`${styles[`CustomProfile${num}`]} ${selected === idx ? styles.selected : ""}`}
-                  ></div>
-                ))}
-              </div>
-            )}
-
-            {ImageChoiceState && (
-              <div className={styles.MyProfileWriteCircle}>
-                {previewUrl && (
-                  <img src={previewUrl} className={styles.PreviewImage}></img>
-                )}
-              </div>
-            )}
-            <div
-              onClick={() => handleSubmit()}
-              className={styles.ProfileSubmitButton}
-            >
+            <div className={styles.MyProfileWriteCircle}>
+              {previewUrl ? (
+                <img
+                  src={previewUrl}
+                  className={styles.PreviewImage}
+                  alt="미리보기 이미지"
+                ></img>
+              ) : (
+                <p className={styles.PreviewText}>선택된 이미지가 없습니다.</p>
+              )}
+            </div>
+            <div onClick={handleSubmit} className={styles.ProfileSubmitButton}>
               프로필 변경
             </div>
           </div>
@@ -132,4 +117,5 @@ function Profilepage() {
     </div>
   );
 }
+
 export default Profilepage;
