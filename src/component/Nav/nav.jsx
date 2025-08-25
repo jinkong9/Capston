@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./nav.module.css";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 import { handleError } from "../Hook/auth";
 
@@ -36,7 +35,7 @@ function Nav() {
     try {
       if (login === "Logout") {
         const res = await api.post("/auth/logout");
-        navigate("/login");
+        window.location.reload();
       }
       if (login === "Login") {
         navigate("/login");

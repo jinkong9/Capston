@@ -138,7 +138,9 @@ export default function Mycalendar() {
                         {" "}
                         <Link
                           to="/user-info"
-                          style={{ textDecoration: "none" }}
+                          style={{
+                            textDecoration: "none",
+                          }}
                         >
                           {" "}
                           O{" "}
@@ -151,6 +153,7 @@ export default function Mycalendar() {
           )}
         </div>
       </div>
+      <p className={styles.extratext}>"O"클릭 시 내정보로 넘어갑니다.</p>
     </div>
   );
 }
