@@ -1,16 +1,16 @@
 import React from "react";
 import Nav from "../Nav/nav";
-import styles from "./userdiarylist.module.css"
+import styles from "./usersdiarylist.module.css"
 import { useState,useEffect } from 'react'
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useModalContext } from "../CreatContextAPI/modalContext";
 import ModalPage from "../Modal/modal";
-import { useNavigate } from "react-router-dom";
 
-function UserDiaryList (){
+function UsersDiaryList (){
 
-const navigate = useNavigate();
+const location=useLocation()
+const diary=location.state?.diary
 
 const {modalState,SetModalState}=useModalContext()
 
@@ -34,36 +34,16 @@ const [sortState,setSortState]=useState("new");
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://daisy.wisoft.io/yehwan/app1/diaries/recent?offset=0&limit=12",
+          `https://daisy.wisoft.io/yehwan/app1/users/${diary.author.id}/diaries`,
         );
-        console.log(response.data.diaries);
-        setDiaryList(response.data.diaries);
+        setDiaryList(response.data.diaries)
+      
+      
       } catch (error) {
         console.error("최근 사용자 일기 get 에러", error);
       }
     };
     fetchData();
-  }, []);
- const GoToUserPage = (diary) => {
-    navigate("/users-info", { state: { diary: diary} });
-  };
-    useEffect(() => {
- 
-    const responseData = async () => {
-      try {
-        const response = await Promise.all(diaryList.map(diary=>
-          axios.get( `https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`,
-          { withCredentials: true }
-        )
-      ));
-  
-        console.log("프로필 불러오기 성공!");
-        console.log("avatar 값:", avatar);
-      } catch (error) {
-        console.log("프로필 불러오기 오류");
-      }
-    };
-    responseData();
   }, []);
 
 
@@ -74,7 +54,7 @@ const [sortState,setSortState]=useState("new");
       
 
         <main className={styles.MainContainer}>
-            <h2 className={styles.MainTitle}>다른 사람들이 쓴 일기에요!</h2>
+            <h2 className={styles.MainTitle}>{diary.author.full_name}님의 일기에요!</h2>
             <input placeholder="제목을 입력하세요"
                    type="text"
                    value={searchKeyword}
@@ -90,18 +70,6 @@ const [sortState,setSortState]=useState("new");
                 <div key={index} className={styles.DaliyBox}  onClick={()=>SetModalState(diary)}>
                  <p className={styles.DaliyTitleText}>{diary.author.full_name}님의 일기</p>
                 <span className={styles.DaliyTitle2Text}>{diary.title}</span>
-                <div className={styles.MyProfile}>
-                    <img
-                        className={styles.MyProfileImg}
-                        onClick={()=>GoToUserPage(diary)}
-                          src={
-                           `https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`
-                              }
-                             onError={(e) => {
-                             e.currentTarget.style.display = "none"; 
-                                }}  
-                        ></img>
-                    </div>         
                 <span className={styles.DateText}>{new Date(diary.created_at).toLocaleDateString("ko-KR",{timeZone:"Asia/Seoul"})}</span>
                 <div className={styles.Line}></div>
                 <div className={styles.DaliyContentText}>{diary.content.length>10? diary.content.substring(0,10)+"...":diary.content}</div>
@@ -115,5 +83,5 @@ const [sortState,setSortState]=useState("new");
         </>
     )
 }
-export default UserDiaryList;
+export default UsersDiaryList;
 
