@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import style from "./login.module.css";
 import axios from "axios";
 
-export default function Login() {
+export default function Home() {
   const [info, setInfo] = useState({
     email: "",
     password: "",

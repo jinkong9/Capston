@@ -1,9 +1,16 @@
 @import "pretendard/dist/web/static/pretendard.css";
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .wrraper {
   background-color: #f5e7d2;
   min-height: 100vh;
   width: 100%;
+  font-family: "Pretendard", sans-serif;
 }
 
 /* 화면 꽉 차게 */
@@ -16,7 +23,6 @@
   padding: 10px;
   box-sizing: border-box;
   user-select: none;
-  font-family: "Pretendard", sans-serif;
   background-color: #f5e7d2;
 }
 
@@ -25,6 +31,8 @@
   font-size: 2em;
   text-decoration: none;
   color: black;
+  margin-bottom: 2%;
+  margin-left: 2%;
 }
 
 /* 헤더: 이전, 월 라벨, 다음 */
@@ -39,8 +47,14 @@
 
 .montnBtn {
   padding: 13px;
+  font-weight: bold;
   background-color: #7b5d43;
   border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.montnBtn:hover {
+  transform: scale(1.05);
 }
 
 /* 클릭 가능한 월 라벨 */
@@ -128,4 +142,13 @@
   margin-top: 2px;
   font-weight: bold;
   text-decoration: none;
+}
+
+.extratext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: large;
+  padding: 1em;
 }

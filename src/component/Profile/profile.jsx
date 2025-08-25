@@ -2,20 +2,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useMyAvatar } from "../Hook/myavatar";
 import styles from "./profile.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Profilepage() {
-  const avatar= useMyAvatar();
+  const avatar = useMyAvatar();
 
   const [previewUrl, setPreviewUrl] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const imageurl = URL.createObjectURL(file);
-      setPreviewUrl(imageurl); 
-      setSelectedFile(file); 
+      setPreviewUrl(imageurl);
+      setSelectedFile(file);
     } else {
       console.log("이미지 저장 오류");
     }
@@ -41,6 +43,7 @@ function Profilepage() {
       console.log("프로필 수정 완료", response);
       alert("프로필이 수정되었습니다.");
       window.location.reload();
+      navigate("/");
     } catch (error) {
       console.log("프로필 수정 오류", error.response);
       alert("프로필 이미지 수정에 실패했습니다.");
@@ -56,7 +59,6 @@ function Profilepage() {
           { withCredentials: true },
         );
         console.log("프로필 불러오기 성공!", avatar);
-        
       } catch (error) {
         console.log("프로필 불러오기 오류", error.response);
       }
