@@ -65,7 +65,7 @@ export default function Join() {
 
   return (
     <div className={style.container}>
-      <h3 className={style.joinwrite}>회원가입</h3>
+      <p className={style.joinwrite}>회원가입</p>
       <div>
         <div>
           <input

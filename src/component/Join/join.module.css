@@ -1,44 +1,44 @@
 /* 전체체 */
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #FCF5E7;
-    height: 100vh;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcf5e7;
+  height: 100vh;
 }
 
 .logo {
-    width: 5em; /* 작게 조정 */
-    height: 5em;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1em;
+  width: 5em; /* 작게 조정 */
+  height: 5em;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 /* 회원가입 글자 */
 .joinwrite {
-    font-size: 3em; /* 조금 줄이기 */
-    font-weight: bold;
-    padding-bottom: 0.5em;
+  font-size: 32px; /* 조금 줄이기 */
+  padding-bottom: 0.5em;
+  font-family: "Pretendard", sans-serif;
 }
 /* 회원가입 요소 박스 */
 .joincon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 24em; /* 줄여서 화면에 맞춤 */
-    height: 4em;
-    margin-bottom: 0.8em;
-    background-color: #F2F2F2;
-    border: 1px solid black;
-    border-radius: 25px;
-    font-size: 0.9em;
-    padding-left: 12px;
-    text-align: left;
-    transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 24em; /* 줄여서 화면에 맞춤 */
+  height: 4em;
+  margin-bottom: 0.8em;
+  background-color: #f2f2f2;
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 0.9em;
+  padding-left: 12px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
 }
 
 .agreement {
@@ -56,7 +56,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-weight: bold;
 }
 
@@ -70,7 +70,8 @@
   gap: 10px;
 }
 
-.agreeButton,.disagreeButton {
+.agreeButton,
+.disagreeButton {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -84,21 +85,23 @@
   color: #333;
 }
 
-.agreeButton input[type="checkbox"], .disagreeButton input[type="checkbox"] {
+.agreeButton input[type="checkbox"],
+.disagreeButton input[type="checkbox"] {
   width: 16px;
   height: 16px;
   cursor: pointer;
 }
 
-.agreeButton:hover,.disagreeButton:hover {
-  background-color: #F9DCBA;
+.agreeButton:hover,
+.disagreeButton:hover {
+  background-color: #f9dcba;
 }
 
 .agreebox {
   display: block;
   margin: 20px auto;
   padding: 10px 30px;
-  background-color: #F9DCBA;
+  background-color: #f9dcba;
   color: #333;
   border: none;
   border-radius: 50px;
@@ -108,5 +111,6 @@
 }
 
 .agreebox:hover {
-  background-color: #F9DCBA;
+  background-color: #f9dcba;
+  transform: scale(1.05);
 }
