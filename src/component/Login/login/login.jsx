@@ -73,7 +73,7 @@ export default function Home() {
         </div>
 
         <div className={style.GuideContainer}>
-          <p className={style.GuideIdMessage}>아직 아이디가 없으시나요?</p>
+          <p className={style.GuideIdMessage}>아직 아이디가 없으신가요?</p>
           <Link to="/join" className={style.SignUpLink}>
             회원 가입
           </Link>
