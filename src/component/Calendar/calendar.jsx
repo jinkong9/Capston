@@ -4,7 +4,7 @@ import weekday from "dayjs/plugin/weekday";
 import isoWeek from "dayjs/plugin/isoWeek";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import "dayjs/locale/ko";
-import styles from "./Calendar.module.css";
+import styles from "./calendar.module.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
