@@ -150,6 +150,7 @@ background-color: #F5E7D2;
   margin-top: -2.2%;
   position: absolute;
   font-size: 2vh;
+  overflow-wrap: break-word !important;
 }
 
 .Line{
