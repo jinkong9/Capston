@@ -1,31 +1,35 @@
-body{
-  background-color:  #FCF5E7;
-  height: 190vh;
-  overflow-x: hidden; 
-}
+@import "pretendard/dist/web/static/pretendard.css";
 
-.SubNavBox{
-  
+body {
+  background-color: #fcf5e7;
+  height: 190vh;
+  overflow-x: hidden;
+  font-family: "Pretendard", sans-serif;
+}
+/* Nav 아래*/
+.SubNavBox {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 120vw;
   height: 5vh;
-  background-color: #A18363;
+  background-color: #a18363;
   position: absolute;
-  margin-top: 2.9%;
+  margin-top: 3%;
   margin-left: -2%;
-  
 }
-.SubText{
- color: white;
- font-weight:bold ;
- font-size: 1.2em;
- margin-left: -13%;
- -webkit-text-stroke-color: #BDB1B1;
- -webkit-text-stroke-width: 0.2px;
+/*오늘은 무슨이야기부분 */
+.SubText {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-left: -13%;
+  -webkit-text-stroke-color: #bdb1b1;
+  -webkit-text-stroke-width: 0.2px;
 }
-.Header{
+
+/* 헤더 전체*/
+.Header {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -33,44 +37,47 @@ body{
   height: 60vh;
   gap: 2%;
 }
-.HeadText{
+
+/*오늘의 주제 */
+.HeadText {
   font-size: 3vh;
   color: black;
   margin-top: 2%;
-  
-
 }
-.HeadBox{
-  
+/*랜덤주제 있는 박스 */
+.HeadBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 36vw;
   height: 30vh;
-  background-color: #F5E7D2;
+  background-color: #f5e7d2;
 }
-.HeadBoxText{
+/*랜덤주제 텍스트 */
+.HeadBoxText {
   position: relative;
-  color: #7B5D43;
+  color: #7b5d43;
   font-size: 3.3vh;
   margin-top: 8%;
   height: 9vh;
   width: 31vw;
   text-align: center;
 }
-
-.WriteButton{
-  
+.Prompt {
+  font-size: 1.4vh;
+}
+/* 작성버튼*/
+.WriteButton {
   background-size: 14;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 2vh;
-  -webkit-text-stroke-color: #BDB1B1;
+  -webkit-text-stroke-color: #bdb1b1;
   -webkit-text-stroke-width: 0.1px;
-  background-color: #7B5D43;
+  background-color: #7b5d43;
   width: 10vw;
   height: 5.5vh;
   border-radius: 13px;
@@ -78,41 +85,37 @@ body{
   margin-bottom: 2%;
   padding-right: 0.5vw;
   cursor: pointer;
-  
 }
-.Prompt{
-
-  font-size: 1.4vh;
-
-}
-
-.ButtonImage{
+/*버튼안에 이미지 */
+.ButtonImage {
   margin-left: 3%;
   margin-right: -20%;
   height: 2.6vh;
 }
-.MainContainer{
+
+/*다른사람이 쓴 부분 컨테이너 */
+.MainContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 8%;
-  
   position: relative;
   height: 45vh;
   width: 100vw;
   gap: 20%;
-  
-
-background-color: #F5E7D2;
+  background-color: #f5e7d2;
 }
-.MainText{
- margin-top: -5%;
- margin-left: -2%;
- font-size: 3vh;
+
+/* 최근 사람들이 쓴일기부분*/
+.MainText {
+  margin-top: -5%;
+  margin-left: -2%;
+  font-size: 3vh;
   color: black;
 }
-.DaliyBox{
+/* 다른사람 쓴 일기보는 박스 */
+.DaliyBox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,50 +128,51 @@ background-color: #F5E7D2;
   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
   background-color: white;
   margin-bottom: 5%;
-
 }
+/* 슬라이드 부분 컨테이너 */
 .SliderContainer {
   width: 100vw;
   height: 40vh;
   margin: auto;
 }
-.DaliyTitleText{
-  position: absolute;;
+/*일기 안 사용자 텍스트 */
+.DaliyTitleText {
+  position: absolute;
   height: 5vh;
   font-weight: bold;
   font-size: 3vh;
   margin-top: -5%;
- 
 }
-.DaliyDateText{
+
+/*일기쓴 날짜 텍스트 */
+.DaliyDateText {
   position: absolute;
   margin-left: 14%;
   margin-bottom: 2.2%;
-
 }
-.DaliyTitle2Text{
+/* 일기 진짜 제목 텍스트*/
+.DaliyTitle2Text {
   margin-top: -2.2%;
   position: absolute;
   font-size: 2vh;
   overflow-wrap: break-word !important;
 }
 
-.Line{
-
+.Line {
   margin-top: -2%;
   margin-left: 5%;
-    width:88%;       
-    height: 1px;       
-    background-color: black;
+  width: 88%;
+  height: 1px;
+  background-color: black;
 }
-.DaliyContentText{
+.DaliyContentText {
   position: absolute;
   margin-top: 1%;
   margin-right: 8%;
   font-size: 2vh;
- 
 }
-.UserInfoButton{
+
+.UserInfoButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,25 +181,27 @@ background-color: #F5E7D2;
   margin-bottom: 26%;
   width: 8vw;
   height: 5vh;
-  background-color: #7B5D43;
+  background-color: #7b5d43;
   border-radius: 13px;
   color: white;
   cursor: pointer;
-
 }
-.footerCnontainer{
+
+.footerCnontainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  background-color: #F9DCBA;
+  justify-content: center;
+  column-gap: 20%;
+  background-color: #f9dcba;
   width: 108vw;
   height: 35vh;
 }
-.FooterTitleText{
+.FooterTitleText {
   margin-top: 10%;
   margin-left: 37vw;
 }
-.FooterBox{
+
+.FooterBox {
   margin-left: -10vw;
   margin-top: 3vh;
   width: 21vw;
@@ -203,31 +209,30 @@ background-color: #F5E7D2;
   background-color: white;
   border-radius: 4vw;
 }
-.FooterImg1{
+.FooterImg1 {
   width: 5.6vw;
   margin-left: 7.5vw;
   margin-top: 1vh;
-
 }
-.FooterImg2{
+.FooterImg2 {
   margin-left: 8.2vw;
   margin-top: 1vh;
 }
-.FooterImg3{
+.FooterImg3 {
   margin-left: 8.2vw;
   margin-top: 1.3vh;
 }
-.Footertext1{
+.Footertext1 {
   margin-top: 3vh;
   font-size: 1vw;
   text-align: center;
 }
-.Footertext2{
+.Footertext2 {
   margin-top: 4.1vh;
   font-size: 1vw;
   text-align: center;
 }
-.Footertext3{
+.Footertext3 {
   margin-top: 4.1vh;
   font-size: 1vw;
   text-align: center;
@@ -239,7 +244,7 @@ background-color: #F5E7D2;
   margin-right: 17vw;
   width: 3vw;
   height: 6vh;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -248,4 +253,214 @@ background-color: #F5E7D2;
   height: 100%;
   object-fit: cover;
 }
-
+@media (max-width: 1024px) {
+  .SubNavBox {
+    height: 3vh;
+    margin-top: 6%;
+  }
+  .SubText {
+    font-size: 0.8em;
+    font-weight: 600;
+    -webkit-text-stroke-color: #bdb1b1;
+    -webkit-text-stroke-width: 0.2px;
+  }
+  .Prompt {
+    font-size: 1.7vh;
+  }
+  .WriteButton {
+    font-size: 1.3vh;
+    font-weight: bold;
+  }
+  .ButtonImage {
+    height: 1.5vh;
+  }
+  .DaliyTitleText {
+    font-size: 2vh;
+  }
+  .DaliyDateText {
+    font-size: 1.2vh;
+    font-weight: bold;
+  }
+  .DaliyTitle2Text {
+    font-size: 1.2vh;
+    font-weight: bold;
+  }
+  .DaliyContentText {
+    font-size: 1.4vh;
+    font-weight: bold;
+  }
+  .UserInfoButton {
+    width: 8vw;
+    height: 3.5vh;
+    font-size: 1.2vh;
+    margin-bottom: 30%;
+  }
+  .FooterTitleText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0%;
+  }
+  .FooterBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .FooterImg1 {
+    width: 9vw;
+    margin-left: 0%;
+  }
+  .FooterImg2 {
+    width: 9vw;
+    margin-left: 0%;
+  }
+  .FooterImg3 {
+    width: 9vw;
+    margin-left: 0%;
+  }
+  .Footertext1 {
+    font-size: 1.3vw;
+    font-weight: bold;
+  }
+  .Footertext2 {
+    font-size: 1.3vw;
+    font-weight: bold;
+  }
+  .Footertext3 {
+    font-size: 1.3vw;
+    font-weight: bold;
+  }
+}
+@media (max-width: 768px) {
+  .SubNavBox {
+    height: 2vh;
+  }
+  .SubText {
+    font-size: 0.5em;
+    -webkit-text-stroke-color: #bdb1b1;
+    -webkit-text-stroke-width: 0.2px;
+  }
+  .Header {
+    height: 50vh;
+    gap: 2%;
+  }
+  .HeadText {
+    font-size: 2vh;
+    margin-top: 0%;
+  }
+  .HeadBoxText {
+    font-size: 1.6vh;
+  }
+  .HeadBox {
+    width: 65vw;
+    height: 20vh;
+  }
+  .Prompt {
+    font-size: 1.2vh;
+  }
+  .WriteButton {
+    font-size: 0.6vh;
+    -webkit-text-stroke-color: #bdb1b1;
+    -webkit-text-stroke-width: 0.1px;
+    background-color: #7b5d43;
+    width: 12vw;
+    height: 3vh;
+  }
+  .ButtonImage {
+    margin-left: 3%;
+    margin-right: -12%;
+    height: 1.2vh;
+    width: 0.8vh;
+  }
+  .MainText {
+    margin-top: -10%;
+    font-size: 2vh;
+    color: black;
+  }
+  .MainContainer {
+    margin-top: 0%;
+    height: 35vh;
+  }
+  .DaliyBox {
+    width: 24vw;
+    height: 20vh;
+  }
+  .DaliyTitleText {
+    height: 5vh;
+    font-weight: bold;
+    font-size: 0.8vh;
+    margin-top: -10%;
+  }
+  .DaliyDateText {
+    position: absolute;
+    margin-left: 10%;
+    margin-bottom: 0%;
+    font-size: 0.6vh;
+  }
+  .DaliyTitle2Text {
+    margin-top: -2.2%;
+    position: static;
+    font-size: 0.6vh;
+    margin-left: 0%;
+    margin-bottom: 30%;
+    font-weight: bold;
+  }
+  .DaliyContentText {
+    font-size: 0.8vh;
+    font-weight: bold;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    margin-left: 8%;
+  }
+  .UserInfoButton {
+    font-size: 1.5vw;
+    margin-left: 88%;
+    margin-bottom: 70%;
+    width: 10vw;
+    height: 2vh;
+  }
+  .MyProfile {
+    width: 6vw;
+    height: 6vw;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    overflow: none;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+  }
+  .FooterTitleText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4vh;
+    margin-left: 0%;
+  }
+  .FooterBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 12vh;
+  }
+  .Footertext1 {
+    font-size: 1.4vw;
+    font-weight: bold;
+    margin-top: 30%;
+  }
+  .Footertext2 {
+    font-size: 1.4vw;
+    font-weight: bold;
+    margin-top: 30%;
+  }
+  .Footertext3 {
+    font-size: 1.4vw;
+    font-weight: bold;
+    margin-top: 30%;
+  }
+}
