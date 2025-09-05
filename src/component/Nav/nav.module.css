@@ -61,16 +61,16 @@
     height: 3vh;
   }
   .Daliytext {
-    font-size: 1vh;
+    font-size: 1.2vh;
   }
   .LogOutText {
-    font-size: 0.7vh;
+    font-size: 1vh;
     margin-right: 2%;
   }
   .MyInfoText {
-    font-size: 0.7vh;
+    font-size: 1vh;
   }
   .nametext {
-    font-size: 0.7vh;
+    font-size: 1vh;
   }
 }
