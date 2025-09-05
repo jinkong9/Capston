@@ -155,6 +155,7 @@ body {
   margin-top: -2.2%;
   position: absolute;
   font-size: 2vh;
+  overflow-wrap: break-word !important;
 }
 
 .Line {

@@ -47,6 +47,7 @@ const [sortState,setSortState]=useState("new");
  const GoToUserPage = (diary) => {
     navigate("/users-info", { state: { diary: diary} });
   };
+  
     useEffect(() => {
  
     const responseData = async () => {
@@ -89,7 +90,7 @@ const [sortState,setSortState]=useState("new");
                  {sortDiaryList.map((diary, index) => (
                 <div key={index} className={styles.DaliyBox}  onClick={()=>SetModalState(diary)}>
                  <p className={styles.DaliyTitleText}>{diary.author.full_name}님의 일기</p>
-                <span className={styles.DaliyTitle2Text}>{diary.title}</span>
+                <span className={styles.DaliyTitle2Text}>{diary.title.length>10 ? diary.title.substring(0,10)+ "..." : diary.title}</span>
                 <div className={styles.MyProfile}>
                     <img
                         className={styles.MyProfileImg}
