@@ -7,6 +7,7 @@ import "dayjs/locale/ko";
 import styles from "./calendar.module.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Nav from "../Nav/nav";
 
 dayjs.extend(weekday);
 dayjs.extend(isoWeek);
@@ -66,14 +67,15 @@ export default function Mycalendar() {
     MarkDairy();
   }, [viewDate]);
 
-  const navigate = useNavigate();
-
   return (
     <div className={styles.wrraper}>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <div className={styles.move}>DAY-DAILY</div>
-      </Link>
+      <Nav />
       <div className={styles.container}>
+        <p className={styles.headerText}>나의 캘린더 📅</p>
+        <p className={styles.headerText2}>
+          일기를 쓴 날에는 "O" 표시가 됩니다.
+        </p>
+
         <header className={styles.header}>
           <button
             className={styles.montnBtn}
@@ -153,7 +155,7 @@ export default function Mycalendar() {
           )}
         </div>
       </div>
-      <p className={styles.extratext}>"O"클릭 시 내정보로 넘어갑니다.</p>
+      <p className={styles.extratext}>"O"클릭 시 내정보로 이동합니다.</p>
     </div>
   );
 }
