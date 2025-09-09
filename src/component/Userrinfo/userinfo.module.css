@@ -207,6 +207,57 @@ body {
   width: 4vw;
   margin-bottom: 30%;
 }
+@media (max-width: 1280px) {
+  .Titlebox {
+    font-weight: bold;
+  }
+  .InfoBox {
+    margin-top: -28%;
+    margin-left: 45%;
+    font-size: 1.2vw;
+  }
+  .DiaryButton {
+    margin-left: 15%;
+    height: 3.2vh;
+  }
+  /* 버튼 동그라미 */
+  .Circle {
+    position: absolute;
+    margin-left: 28.3%;
+    left: 0;
+    width: 1.5vw;
+    height: 3.2vh;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+  }
+  .UpdateCircle {
+    left: 3vw;
+  }
+  .MySecreatContainer {
+    font-size: 1vw;
+    margin-top: 12%;
+    font-weight: bold;
+  }
+  .MySecreatInfoContainer {
+    font-size: 1vw;
+    margin-top: -22%;
+    font-weight: semi-bold;
+  }
+  .Titlebox3 {
+    font-weight: 600;
+    font-size: 1.7vw;
+  }
+  .LockImg {
+    margin-top: 28%;
+  }
+  .DiaryImg {
+    margin-top: 10%;
+  }
+  .MyCalenderLink {
+    margin-top: -8%;
+  }
+}
 @media (max-width: 1024px) {
   .Titlebox {
     font-weight: bold;
@@ -306,6 +357,75 @@ body {
   .MySecreatInfoContainer {
     font-size: 1.2vw;
     margin-top: -35%;
+    font-weight: semi-bold;
+  }
+  .Titlebox3 {
+    font-weight: 600;
+    font-size: 2vw;
+  }
+  .LockImg {
+    margin-top: 28%;
+  }
+  .DiaryImg {
+    margin-top: 20%;
+  }
+  .MyCalenderLink {
+    margin-top: -10%;
+    font-size: 3vw;
+  }
+  .MyDiaryLink {
+    margin-top: -10%;
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .Titlebox {
+    font-weight: bold;
+  }
+  .MySecurityBox {
+    width: 33vw;
+    height: 28vh;
+  }
+  .InfoBox {
+    margin-top: -39%;
+    margin-left: 40%;
+    font-size: 1.4vw;
+  }
+  .DiaryButton {
+    margin-left: 15%;
+    height: 2vh;
+  }
+  .ProfileBox {
+    margin-left: 10%;
+    margin-top: 9%;
+    width: 5vw;
+    height: 9vh;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .Circle {
+    position: absolute;
+    margin-left: 27.9%;
+    left: 0;
+    width: 1.5vw;
+    height: 2vh;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+  }
+  .UpdateCircle {
+    left: 3vw;
+  }
+  .MySecreatContainer {
+    font-size: 1.2vw;
+    margin-top: 20%;
+    font-weight: bold;
+  }
+  .MySecreatInfoContainer {
+    font-size: 1.2vw;
+    margin-top: -33%;
     font-weight: semi-bold;
   }
   .Titlebox3 {
