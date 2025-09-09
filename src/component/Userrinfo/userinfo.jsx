@@ -144,10 +144,10 @@ function UserInfo() {
           ) : (
             <>
               <div className={styles.MySecreatContainer}>
-                <p>이름</p>
-                <p>이메일</p>
-                <p>가입 날짜</p>
-                <p>등록 된 일기</p>
+                <p>이름:</p>
+                <p>이메일:</p>
+                <p>가입 날짜:</p>
+                <p>등록 된 일기:</p>
               </div>
 
               <div className={styles.MySecreatInfoContainer}>

@@ -147,7 +147,7 @@ function Main() {
                 <p className={styles.DaliyTitleText}>
                   {diary.author.full_name}님의 일기
                 </p>
-                <span className={styles.DaliyTitle2Text}>{diary.title}</span>
+                <span className={styles.DaliyTitle2Text}>{diary.title.length>10 ? diary.title.substring(0,10)+ "..." : diary.title}</span>
                   <div className={styles.MyProfile}>
                            <img
                              className={styles.MyProfileImg}

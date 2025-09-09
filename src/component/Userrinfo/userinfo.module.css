@@ -71,6 +71,7 @@ body {
   background-color: white;
   border-radius: 50%;
   overflow: hidden;
+  object-fit: cover;
 }
 
 /* 내정보 아래쪽 박스 */

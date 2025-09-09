@@ -6,10 +6,12 @@ import { Link  } from "react-router-dom";
 import axios from "axios";
 import { useMyAvatar } from "../Hook/myavatar";
 import { useLocation} from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+
 
 
 function UsersInfo() {
+  const [userData,setUserData]=useState()
   const navigate=useNavigate()
   const avatar = useMyAvatar();
   const location=useLocation()
@@ -30,6 +32,25 @@ function UsersInfo() {
     };
     responseData();
   }, [avatar]);
+    useEffect(() => {
+    
+    const responseMyData = async () => {
+      try {
+        const response = await axios.get(
+          `https://daisy.wisoft.io/yehwan/app1/users/${diary.author.id}`,
+          { withCredentials: true },
+        );
+        console.log("유저정보 불러오기 성공!");
+        setUserData(response.data)
+        console.log("유저 정보:", response.data)
+      
+      } catch (error) {
+        console.log(" 유저 정보 불러오기 오류");
+      }
+    };
+   responseMyData();
+  }, [avatar]);
+
 
 
   
@@ -41,11 +62,18 @@ function UsersInfo() {
         <div className={styles.MySecurityBox}>
           <div className={styles.Titlebox}>사용자 프로필 및 정보 </div>
           <img src={`https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`} className={styles.ProfileBox}></img>
-          <div className={styles.InfoBox}>
-                <p className={styles.InfoItem}>이름 </p>
-                <p className={styles.InfoItem}>이메일</p>
-                <p className={styles.InfoItem}>가입 날짜</p>
-                <p className={styles.InfoItem}>등록 된 일기</p>
+          <div className={styles.Infobox}>
+                <p className={styles.InfoItem}>이름: </p>
+                <p className={styles.InfoItem}>이메일:</p>
+                <p className={styles.InfoItem}>가입 날짜:</p>
+                <p className={styles.InfoItem}>등록 된 일기:</p>
+
+          </div>
+            <div className={styles.Infobox2}>
+                <p className={styles.InfoItem}>{userData?.user_info.full_name}</p>
+                <p className={styles.InfoItem}>{userData?.user_info.email}</p>
+                <p className={styles.InfoItem}> {new Date(userData?.user_info.registered_at).toLocaleDateString("ko-KR")}</p>
+                <p className={styles.InfoItem}>{userData?.user_info.diary_count}</p>
           </div>
         </div>
         

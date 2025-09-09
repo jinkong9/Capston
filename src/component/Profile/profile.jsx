@@ -42,7 +42,7 @@ function Profilepage() {
       );
       console.log("프로필 수정 완료", response);
       alert("프로필이 수정되었습니다.");
-      window.location.reload();
+    
       navigate("/");
     } catch (error) {
       console.log("프로필 수정 오류", error.response);
