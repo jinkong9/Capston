@@ -68,7 +68,7 @@ function Nav() {
     <>
       <nav className={styles.navbox}>
         <p onClick={() => GoToMainPage()} className={styles.Daliytext}>
-          Day Daliys
+          Day Daily
         </p>
         <div className={styles.nametext}>
           {name ? `${name}님 환영합니다 !` : "로그인이 필요합니다."}

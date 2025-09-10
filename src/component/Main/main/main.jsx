@@ -11,17 +11,15 @@ import { handleError } from "../../Hook/auth";
 import { setQuarter } from "date-fns";
 
 function Main() {
-  
-
   const navigate = useNavigate();
   const [text, setText] = useState("일기 주제 텍스트");
   const [titleState, setTitleState] = useState({ tittleState: "" });
   const [diaryList, setDiaryList] = useState([]);
   const [login, setLogin] = useState("false");
-  const [userAvatar,setUserAvatar]=useState([])
+  const [userAvatar, setUserAvatar] = useState([]);
 
   const api = axios.create({
-    baseURL: "https://daisy.wisoft.io/yehwan/app1", 
+    baseURL: "https://daisy.wisoft.io/yehwan/app1",
     withCredentials: true,
   });
 
@@ -48,10 +46,12 @@ function Main() {
         );
         console.log(response.data.diaries);
         setDiaryList(response.data.diaries);
-        const avatars=response.data.diaries.map(diary=>diary.author.avatar)
-        setUserAvatar(avatars)
-    
-        setQuarter
+        const avatars = response.data.diaries.map(
+          (diary) => diary.author.avatar,
+        );
+        setUserAvatar(avatars);
+
+        setQuarter;
       } catch (error) {
         console.error("최근 사용자 일기 get 에러", error);
       }
@@ -60,15 +60,17 @@ function Main() {
   }, []);
 
   useEffect(() => {
- 
     const responseData = async () => {
       try {
-        const response = await Promise.all(diaryList.map(diary=>
-          axios.get( `https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`,
-          { withCredentials: true }
-        )
-      ));
-  
+        const response = await Promise.all(
+          diaryList.map((diary) =>
+            axios.get(
+              `https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`,
+              { withCredentials: true },
+            ),
+          ),
+        );
+
         console.log("프로필 불러오기 성공!");
         console.log("avatar 값:", avatar);
       } catch (error) {
@@ -78,21 +80,36 @@ function Main() {
     responseData();
   }, []);
 
-
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: Math.min(diaryList.length, 3),
+    slidesToShow: Math.max(1, Math.min(diaryList.length || 1, 3)),
     slidesToScroll: 1,
     centerPadding: "1%",
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1, // 확실히 1개로 강제
+          centerMode: false,
+          centerPadding: "0px",
+        },
+      },
+    ],
   };
 
   const GoToUserListPage = () => {
     navigate("/user-diaries", { state: { diaryListData: diaryList } });
   };
-    const GoToUserPage = (diary) => {
-    navigate("/users-info", { state: { diary: diary} });
+  const GoToUserPage = (diary) => {
+    navigate("/users-info", { state: { diary: diary } });
   };
 
   const gotowrite = async () => {
@@ -133,36 +150,49 @@ function Main() {
       </header>
 
       <main className={styles.MainContainer}>
-        <h2 className={styles.MainText}>최근 사람들이 쓴 일기에요!</h2>
-        <div
-          onClick={() => GoToUserListPage()}
-          className={styles.UserInfoButton}
-        >
-          사용자 둘러보기
+        <div className={styles.Maintop}>
+          <h2 className={styles.MainText}>최근 사람들이 쓴 일기에요!</h2>
+          <div
+            onClick={() => GoToUserListPage()}
+            className={styles.UserInfoButton}
+          >
+            사용자 둘러보기
+          </div>
         </div>
-        <Slider {...settings} className={styles.SliderContainer}>
+        <Slider
+          key={diaryList.length}
+          {...settings}
+          className={styles.SliderContainer}
+        >
           {diaryList.map((diary, index) => (
-            <div key={index }>
+            <div key={index}>
               <div className={styles.DaliyBox}>
+                <div className={styles.MyProfile}>
+                  <img
+                    className={styles.MyProfileImg}
+                    onClick={() => GoToUserPage(diary)}
+                    src={`https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  ></img>
+                </div>
                 <p className={styles.DaliyTitleText}>
                   {diary.author.full_name}님의 일기
                 </p>
-                <span className={styles.DaliyTitle2Text}>{diary.title.length>10 ? diary.title.substring(0,10)+ "..." : diary.title}</span>
-                  <div className={styles.MyProfile}>
-                           <img
-                             className={styles.MyProfileImg}
-                             onClick={()=>GoToUserPage(diary)}
-                             src={
-                               `https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`
-                             }
-                              onError={(e) => {
-                                e.currentTarget.style.display = "none"; 
-                                 }}  
-                           ></img>
-                         </div>
-                <span className={styles.DaliyDateText}>
-                  {new Date(diary.created_at).toLocaleDateString("ko-KR",{timeZone:"Asia/Seoul"})}
-                </span>
+
+                <div className={styles.maintest}>
+                  <span className={styles.DaliyDateText}>
+                    {new Date(diary.created_at).toLocaleDateString("ko-KR", {
+                      timeZone: "Asia/Seoul",
+                    })}
+                  </span>
+                  <span className={styles.DaliyTitle2Text}>
+                    {diary.title.length > 10
+                      ? diary.title.substring(0, 10) + "..."
+                      : diary.title}
+                  </span>
+                </div>
                 <div className={styles.Line}></div>
                 <div className={styles.DaliyContentText}>
                   {" "}
@@ -181,27 +211,26 @@ function Main() {
       </h2>
       <footer className={styles.footerCnontainer}>
         <div className={styles.FooterBox}>
-          <img className={styles.FooterImg1} src="/footer1.png" alt="" />
-          <p className={styles.Footertext1}>
+          <img className={styles.FooterImg} src="/footer1.png" alt="" />
+          <p className={styles.Footertext}>
             매일 렌덤으로 뽑아주는 주제를 통해 <br></br>나만의 일기를 간편하게
             작성해 봐요!
           </p>
         </div>
         <div className={styles.FooterBox}>
-          <img className={styles.FooterImg2} src="/footer2.png" alt="" />
-          <p className={styles.Footertext2}>
+          <img className={styles.FooterImg} src="/footer2.png" alt="" />
+          <p className={styles.Footertext}>
             철저한 보안으로 당신의 일기를 보호할 <br></br>수 있어요!
           </p>
         </div>
         <div className={styles.FooterBox}>
-          <img className={styles.FooterImg3} src="/footer3.png" alt="" />
-          <p className={styles.Footertext3}>
+          <img className={styles.FooterImg} src="/footer3.png" alt="" />
+          <p className={styles.Footertext}>
             내가 작성한 일기를 공유하면서 다른 <br></br>사람의 일기도 볼 수
             있어요!
           </p>
         </div>
       </footer>
-      
     </>
   );
 }
