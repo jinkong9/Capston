@@ -8,22 +8,20 @@ body {
 }
 /* Nav 아래*/
 .SubNavBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120vw;
+  width: 100%;
   height: 5vh;
   background-color: #a18363;
   position: absolute;
   margin-top: 3%;
-  margin-left: -2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*오늘은 무슨이야기부분 */
 .SubText {
   color: white;
   font-weight: bold;
   font-size: 1.2em;
-  margin-left: -13%;
   -webkit-text-stroke-color: #bdb1b1;
   -webkit-text-stroke-width: 0.2px;
 }
@@ -42,7 +40,7 @@ body {
 .HeadText {
   font-size: 3vh;
   color: black;
-  margin-top: 2%;
+  margin-top: 7%;
 }
 /*랜덤주제 있는 박스 */
 .HeadBox {
@@ -51,21 +49,22 @@ body {
   justify-content: center;
   align-items: center;
   width: 36vw;
-  height: 30vh;
+  height: 36vh;
   background-color: #f5e7d2;
 }
 /*랜덤주제 텍스트 */
 .HeadBoxText {
   position: relative;
   color: #7b5d43;
-  font-size: 3.3vh;
+  font-size: 3.8vh;
   margin-top: 8%;
   height: 9vh;
   width: 31vw;
   text-align: center;
 }
 .Prompt {
-  font-size: 1.4vh;
+  font-size: 2.2vh;
+  font-weight: 600;
 }
 /* 작성버튼*/
 .WriteButton {
@@ -75,22 +74,23 @@ body {
   align-items: center;
   color: white;
   font-size: 2vh;
+  text-align: center;
   -webkit-text-stroke-color: #bdb1b1;
   -webkit-text-stroke-width: 0.1px;
   background-color: #7b5d43;
-  width: 10vw;
+  width: 9vw;
   height: 5.5vh;
   border-radius: 13px;
   margin-top: auto;
   margin-bottom: 2%;
   padding-right: 0.5vw;
   cursor: pointer;
+  gap: 5%;
 }
 /*버튼안에 이미지 */
 .ButtonImage {
-  margin-left: 3%;
-  margin-right: -20%;
-  height: 2.6vh;
+  height: 2vh;
+  margin-right: -5%;
 }
 
 /*다른사람이 쓴 부분 컨테이너 */
@@ -101,27 +101,49 @@ body {
   align-items: center;
   margin-top: 8%;
   position: relative;
-  height: 45vh;
+  height: 58vh;
   width: 100vw;
   gap: 20%;
   background-color: #f5e7d2;
 }
 
+.Maintop {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 3%;
+}
+
 /* 최근 사람들이 쓴일기부분*/
 .MainText {
-  margin-top: -5%;
-  margin-left: -2%;
   font-size: 3vh;
   color: black;
 }
+
+.UserInfoButton {
+  position: absolute;
+  right: 5%;
+  top: 55%;
+  width: 8vw;
+  height: 5vh;
+  background-color: #7b5d43;
+  border-radius: 13px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 다른사람 쓴 일기보는 박스 */
 .DaliyBox {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 1%;
-  margin-left: 2vw;
+  margin: auto;
   border-radius: 20px;
   width: 27vw;
   height: 27.5vh;
@@ -135,113 +157,18 @@ body {
   height: 40vh;
   margin: auto;
 }
-/*일기 안 사용자 텍스트 */
-.DaliyTitleText {
-  position: absolute;
-  height: 5vh;
-  font-weight: bold;
-  font-size: 3vh;
-  margin-top: -5%;
-}
-
-/*일기쓴 날짜 텍스트 */
-.DaliyDateText {
-  position: absolute;
-  margin-left: 14%;
-  margin-bottom: 2.2%;
-}
-/* 일기 진짜 제목 텍스트*/
-.DaliyTitle2Text {
-  margin-top: -2.2%;
-  position: absolute;
-  font-size: 2vh;
-  overflow-wrap: break-word !important;
-}
-
-.Line {
-  margin-top: -2%;
-  margin-left: 5%;
-  width: 88%;
-  height: 1px;
-  background-color: black;
-}
-.DaliyContentText {
-  position: absolute;
-  margin-top: 1%;
-  margin-right: 8%;
-  font-size: 2vh;
-}
-
-.UserInfoButton {
+.maintest {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* 가운데 기준 */
   align-items: center;
-  position: absolute;
-  margin-left: 88%;
-  margin-bottom: 26%;
-  width: 8vw;
-  height: 5vh;
-  background-color: #7b5d43;
-  border-radius: 13px;
-  color: white;
-  cursor: pointer;
-}
-
-.footerCnontainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  column-gap: 20%;
-  background-color: #f9dcba;
-  width: 108vw;
-  height: 35vh;
-}
-.FooterTitleText {
-  margin-top: 10%;
-  margin-left: 37vw;
-}
-
-.FooterBox {
-  margin-left: -10vw;
-  margin-top: 3vh;
-  width: 21vw;
-  height: 27vh;
-  background-color: white;
-  border-radius: 4vw;
-}
-.FooterImg1 {
-  width: 5.6vw;
-  margin-left: 7.5vw;
-  margin-top: 1vh;
-}
-.FooterImg2 {
-  margin-left: 8.2vw;
-  margin-top: 1vh;
-}
-.FooterImg3 {
-  margin-left: 8.2vw;
-  margin-top: 1.3vh;
-}
-.Footertext1 {
-  margin-top: 3vh;
-  font-size: 1vw;
-  text-align: center;
-}
-.Footertext2 {
-  margin-top: 4.1vh;
-  font-size: 1vw;
-  text-align: center;
-}
-.Footertext3 {
-  margin-top: 4.1vh;
-  font-size: 1vw;
-  text-align: center;
+  position: relative;
+  width: 100%;
 }
 .MyProfile {
   cursor: pointer;
   margin-bottom: 16vh;
   position: absolute;
-  margin-right: 17vw;
+  margin-right: 18vw;
   width: 3vw;
   height: 6vh;
   background-color: #e0e0e0;
@@ -253,6 +180,78 @@ body {
   height: 100%;
   object-fit: cover;
 }
+/*일기 안 사용자 텍스트 */
+.DaliyTitleText {
+  position: absolute;
+  text-align: center;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -5%;
+}
+
+/*일기쓴 날짜 텍스트 */
+.DaliyDateText {
+  position: absolute;
+  right: 5%;
+  margin-left: 14%;
+  margin-bottom: 2.2%;
+}
+/* 일기 진짜 제목 텍스트*/
+.DaliyTitle2Text {
+  margin-top: -2.2%;
+  text-align: center;
+  flex: 1;
+  font-size: 2vh;
+  overflow-wrap: break-word !important;
+}
+
+.Line {
+  width: 88%;
+  height: 1px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: black;
+}
+.DaliyContentText {
+  text-align: center;
+  font-size: 2vh;
+}
+
+.footerCnontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10%;
+  background-color: #f9dcba;
+  width: 100%;
+  height: 40vh;
+}
+.FooterTitleText {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.FooterBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 21vw;
+  height: 30vh;
+  background-color: white;
+  border-radius: 4vw;
+}
+.FooterImg {
+  width: 32%;
+}
+.Footertext {
+  margin-top: 3vh;
+  font-size: 0.9vw;
+  font-weight: 600;
+  text-align: center;
+}
+
 @media (max-width: 1280px) {
   .SubNavBox {
     height: 3.8vh;
@@ -263,28 +262,30 @@ body {
     font-weight: 600;
   }
   .Prompt {
-    font-size: 1.7vh;
+    font-size: 2vh;
   }
   .WriteButton {
-    font-size: 1.3vh;
+    font-size: 1.4vh;
     font-weight: bold;
+    width: 7vw;
+    height: 4vh;
   }
   .ButtonImage {
     height: 1.5vh;
   }
   .DaliyTitleText {
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .DaliyDateText {
-    font-size: 1.2vh;
+    font-size: 1.5vh;
     font-weight: bold;
   }
   .DaliyTitle2Text {
-    font-size: 1.2vh;
+    font-size: 1.5vh;
     font-weight: bold;
   }
   .DaliyContentText {
-    font-size: 1.4vh;
+    font-size: 1.5vh;
     font-weight: bold;
   }
   .UserInfoButton {
@@ -293,47 +294,10 @@ body {
     font-size: 1.4vh;
     margin-bottom: 30%;
   }
-  .FooterTitleText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 0%;
-  }
-  .FooterBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .FooterImg1 {
-    width: 8vw;
-    margin-left: 0%;
-  }
-  .FooterImg2 {
-    width: 8vw;
-    margin-left: 0%;
-  }
-  .FooterImg3 {
-    width: 8vw;
-    margin-left: 0%;
-  }
-  .Footertext1 {
-    font-size: 1.3vw;
-    font-weight: bold;
-  }
-  .Footertext2 {
-    font-size: 1.3vw;
-    font-weight: bold;
-  }
-  .Footertext3 {
-    font-size: 1.3vw;
-    font-weight: bold;
-  }
 }
 @media (max-width: 1024px) {
   .SubNavBox {
     height: 3vh;
-    margin-top: 6%;
   }
   .SubText {
     font-size: 0.8em;
@@ -342,7 +306,7 @@ body {
     -webkit-text-stroke-width: 0.2px;
   }
   .Prompt {
-    font-size: 1.7vh;
+    font-size: 2.4vh;
   }
   .WriteButton {
     font-size: 1.3vh;
@@ -355,11 +319,11 @@ body {
     font-size: 2vh;
   }
   .DaliyDateText {
-    font-size: 1.2vh;
+    font-size: 1.6vh;
     font-weight: bold;
   }
   .DaliyTitle2Text {
-    font-size: 1.2vh;
+    font-size: 1.6vh;
     font-weight: bold;
   }
   .DaliyContentText {
@@ -367,78 +331,211 @@ body {
     font-weight: bold;
   }
   .UserInfoButton {
-    width: 8vw;
-    height: 3.5vh;
+    width: 6vw;
+    height: 3.9vh;
     font-size: 1.2vh;
     margin-bottom: 30%;
-  }
-  .FooterTitleText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 0%;
-  }
-  .FooterBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .FooterImg1 {
-    width: 9vw;
-    margin-left: 0%;
-  }
-  .FooterImg2 {
-    width: 9vw;
-    margin-left: 0%;
-  }
-  .FooterImg3 {
-    width: 9vw;
-    margin-left: 0%;
-  }
-  .Footertext1 {
-    font-size: 1.3vw;
-    font-weight: bold;
-  }
-  .Footertext2 {
-    font-size: 1.3vw;
-    font-weight: bold;
-  }
-  .Footertext3 {
-    font-size: 1.3vw;
-    font-weight: bold;
   }
 }
 @media (max-width: 768px) {
   .SubNavBox {
-    height: 2vh;
-    margin-top: 2.4%;
+    height: 2.2vh;
+    margin-top: 2.8%;
   }
   .SubText {
-    font-size: 0.1em;
+    font-size: 0.5em;
+    font-weight: 600;
+    -webkit-text-stroke-color: #bdb1b1;
+    -webkit-text-stroke-width: 0.2px;
+  }
+  .HeadBox {
+    height: 32vh;
+  }
+  .HeadBoxText {
+    font-size: 2.5vw;
+  }
+  .Prompt {
+    font-size: 2.3vh;
+  }
+  .WriteButton {
+    font-size: 1.1vh;
+    font-weight: bold;
+  }
+  .ButtonImage {
+    height: 1.3vh;
+  }
+  .DaliyBox {
+    width: 30vw;
+    height: 27.5vh;
+    margin-bottom: 5%;
+  }
+  .DaliyTitleText {
+    font-size: 2.1vh;
+  }
+  .DaliyDateText {
+    font-size: 1.2vh;
+    font-weight: bold;
+    margin-left: -20%;
+  }
+  .DaliyTitle2Text {
+    font-size: 1.4vh;
+    font-weight: bold;
+  }
+  .DaliyContentText {
+    font-size: 1.3vh;
+    font-weight: bold;
+  }
+  .UserInfoButton {
+    width: 6.2vw;
+    height: 3.9vh;
+    font-size: 1.1vh;
+    margin-bottom: 30%;
+  }
+  .FooterImg {
+    width: 35%;
+  }
+  .Footertext {
+    font-size: 1.3vw;
+  }
+}
+@media (max-width: 480px) {
+  .SubNavBox {
+    height: 2vh;
+    margin-top: 4.5%;
+  }
+  .SubText {
+    font-size: 0.4em;
+    font-weight: 600;
+    -webkit-text-stroke-color: #bdb1b1;
+    -webkit-text-stroke-width: 0.2px;
+  }
+  .HeadBox {
+    width: 50vw;
+    height: 30vh;
+  }
+  .HeadBoxText {
+    font-size: 2.7vw;
+  }
+  .Prompt {
+    font-size: 2vh;
+  }
+  .WriteButton {
+    font-size: 1vh;
+    font-weight: bold;
+    width: 9.5vw;
+    height: 3.2vh;
+  }
+  .ButtonImage {
+    height: 1.3vh;
+  }
+  .MainContainer {
+    height: 50vh;
+  }
+  .DaliyBox {
+    width: 50vw;
+    height: 25vh;
+    margin-bottom: 10%;
+  }
+  .MyProfile {
+    position: static;
+    margin: -20% auto 0 4%;
+    width: 7vw;
+    height: 7vw;
+  }
+  .Line {
+    width: 90%;
+    height: 0.5px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  .DaliyTitleText {
+    margin-top: -4%;
+    font-size: 2vh;
+  }
+  .DaliyDateText {
+    margin-bottom: 0;
+    font-size: 1.3vh;
+    font-weight: bold;
+  }
+  .DaliyTitle2Text {
+    margin-top: 0;
+    font-size: 1.5vh;
+    font-weight: bold;
+  }
+  .DaliyContentText {
+    font-size: 1.5vh;
+    font-weight: bold;
+  }
+  .UserInfoButton {
+    width: 10vw;
+    height: 3.9vh;
+    font-size: 1.1vh;
+    margin-bottom: 30%;
+  }
+  .footerCnontainer {
+    height: 35vh;
+  }
+  .FooterTitleText {
+    font-size: 3vw;
+  }
+  .FooterBox {
+    height: 20vh;
+  }
+  .FooterImg {
+    width: 35%;
+  }
+  .Footertext {
+    font-size: 1.3vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .WriteButton {
+    width: 13vw;
+  }
+  .DaliyBox {
+    width: 55vw;
+  }
+  .UserInfoButton {
+    width: 12vw;
+    font-size: 1.4vw;
+  }
+  .Footertext {
+    font-size: 1.4vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .SubNavBox {
+    margin-top: 5%;
+    height: 2vh;
+  }
+  .SubText {
+    font-size: 1.5vw;
   }
   .Header {
-    height: 50vh;
+    height: 40vh;
     gap: 2%;
   }
   .HeadText {
     font-size: 2vh;
-    margin-top: -6%;
   }
   .HeadBoxText {
-    font-size: 2vh;
+    font-size: 1.5vh;
   }
   .HeadBox {
     width: 65vw;
     height: 20vh;
   }
   .Prompt {
-    font-size: 1.5vh;
+    margin-top: -3%;
+    font-size: 1.4vh;
   }
   .WriteButton {
-    font-size: 1vh;
-    width: 10vw;
-    height: 5vh;
+    font-size: 0.75vh;
+    margin-top: -1%;
+    width: 12vw;
+    height: 2.5vh;
   }
   .ButtonImage {
     margin-left: 3.7%;
@@ -447,97 +544,74 @@ body {
     width: 0.8vh;
   }
   .MainText {
-    margin-top: -5%;
+    margin-top: -10%;
     font-size: 2vh;
     color: black;
   }
   .MainContainer {
-    margin-top: 0%;
-    height: 35vh;
+    height: 26vh;
   }
   .DaliyBox {
-    margin-top: 2%;
-    width: 24vw;
-    height: 20vh;
+    width: 40vw;
+    height: 19vh;
   }
   .DaliyTitleText {
-    height: 5vh;
+    margin-top: -1%;
     font-weight: bold;
     font-size: 1.4vh;
-    margin-top: -6%;
-    margin-left: 1%;
   }
   .DaliyDateText {
-    position: absolute;
-    margin-left: 13%;
-    margin-bottom: 1%;
+    margin-left: 0;
+    margin-bottom: 0;
     font-size: 1vh;
   }
   .DaliyTitle2Text {
-    margin-top: -24%;
-    position: static;
-    font-size: 1.4vh;
-    margin-left: 4%;
-    margin-bottom: -5%;
+    margin-top: -0.5%;
+    font-size: 1.2vh;
     font-weight: bold;
   }
   .DaliyContentText {
-    font-size: 1.2vh;
+    font-size: 1vh;
     font-weight: bold;
-    margin-top: 4%;
-    margin-left: 8%;
   }
   .UserInfoButton {
-    font-size: 1.05vw;
-    margin-left: 82%;
-    margin-bottom: 36%;
-    width: 7vw;
-    height: 3.5vh;
+    top: 0%;
+    font-size: 1.15vw;
+    width: 8vw;
+    height: 2.5vh;
+  }
+  .Line {
+    margin-bottom: 5%;
   }
   .MyProfile {
-    width: 4vw;
-    height: 4vw;
-    margin-top: 1%;
-    margin-left: -1%;
-    background-color: #e0e0e0;
-    border-radius: 50%;
-    overflow: none;
+    margin-top: 0%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: 4%;
+    width: 5.5vw;
+    height: 5.5vw;
+  }
+  .footerCnontainer {
+    height: 30vh;
   }
   .FooterTitleText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 3%;
     font-size: 1.9vh;
     margin-left: 0%;
   }
   .FooterBox {
-    margin-top: 5%;
     width: 23vw;
-    height: 25vh;
-  }
-  .Footertext1 {
-    font-size: 1.2vw;
-    font-weight: bold;
-    margin-top: 20%;
-  }
-  .Footertext2 {
-    font-size: 1.4vw;
-    font-weight: bold;
-    margin-top: 20%;
-  }
-  .Footertext3 {
-    font-size: 1.4vw;
-    font-weight: bold;
-    margin-top: 20%;
+    height: 14vh;
   }
 }
-@media (max-width: 480px) {
+
+/* @media (max-width: 376px) {
   .SubNavBox {
-    height: 2vh;
-    margin-top: 3.8%;
+    height: 1.7vh;
+    margin-top: 5%;
   }
   .SubText {
-    font-size: 0.1em;
+    font-size: 1.8vw;
   }
   .Header {
     height: 50vh;
@@ -545,7 +619,7 @@ body {
   }
   .HeadText {
     font-size: 2vh;
-    margin-top: -6%;
+    margin-top: -14%;
   }
   .HeadBoxText {
     font-size: 2vh;
@@ -559,7 +633,7 @@ body {
   }
   .WriteButton {
     font-size: 1vh;
-    width: 10vw;
+    width: 12vw;
     height: 5vh;
   }
   .ButtonImage {
@@ -575,18 +649,18 @@ body {
   }
   .MainContainer {
     margin-top: -4%;
-    height: 35vh;
+    height: 33vh;
   }
   .DaliyBox {
     margin-top: 15%;
-    width: 24vw;
-    height: 20vh;
+    width: 25vw;
+    height: 18vh;
   }
   .DaliyTitleText {
     height: 5vh;
     font-weight: bold;
     font-size: 1.2vh;
-    margin-top: -10%;
+    margin-top: -7%;
     margin-left: 1%;
   }
   .DaliyDateText {
@@ -596,7 +670,7 @@ body {
     font-size: 0.9vh;
   }
   .DaliyTitle2Text {
-    margin-top: -45%;
+    margin-top: -41%;
     position: static;
     font-size: 1.3vh;
     margin-left: 4%;
@@ -606,24 +680,27 @@ body {
   .DaliyContentText {
     font-size: 1vh;
     font-weight: bold;
-    margin-top: 4%;
+    margin-top: 6%;
     margin-left: 8%;
   }
   .UserInfoButton {
     font-size: 1.05vw;
     margin-left: 82%;
-    margin-bottom: 36%;
-    width: 7vw;
-    height: 3.2vh;
+    margin-bottom: 45%;
+    width: 7.5vw;
+    height: 2.8vh;
   }
   .MyProfile {
     width: 4vw;
     height: 4vw;
-    margin-top: 1%;
+    margin-top: 3%;
     margin-left: -0%;
     background-color: #e0e0e0;
     border-radius: 50%;
     overflow: none;
+  }
+  .footerCnontainer {
+    height: 35vh;
   }
   .FooterTitleText {
     display: flex;
@@ -633,9 +710,9 @@ body {
     margin-left: 0%;
   }
   .FooterBox {
-    margin-top: 5%;
+    margin-top: 10%;
     width: 23vw;
-    height: 21vh;
+    height: 18vh;
   }
   .Footertext1 {
     font-size: 1.2vw;
@@ -652,4 +729,4 @@ body {
     font-weight: bold;
     margin-top: 20%;
   }
-}
+} */

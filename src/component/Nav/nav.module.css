@@ -58,19 +58,19 @@
 
 @media (max-width: 768px) {
   .navbox {
-    height: 3vh;
+    height: 3.5vh;
   }
   .Daliytext {
-    font-size: 1.2vh;
+    font-size: 1.5vh;
   }
   .LogOutText {
-    font-size: 1vh;
+    font-size: 1.4vh;
     margin-right: 2%;
   }
   .MyInfoText {
-    font-size: 1vh;
+    font-size: 1.4vh;
   }
   .nametext {
-    font-size: 1vh;
+    font-size: 1.4vh;
   }
 }
