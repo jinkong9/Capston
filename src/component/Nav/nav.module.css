@@ -74,3 +74,22 @@
     font-size: 1.4vh;
   }
 }
+
+@media (max-width: 480px) {
+  .navbox {
+    height: 3.5vh;
+  }
+  .Daliytext {
+    font-size: 1.5vh;
+  }
+  .LogOutText {
+    font-size: 1.2vh;
+    margin-right: 2%;
+  }
+  .MyInfoText {
+    font-size: 1.2vh;
+  }
+  .nametext {
+    font-size: 1.2vh;
+  }
+}

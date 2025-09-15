@@ -1,7 +1,7 @@
 @import "pretendard/dist/web/static/pretendard.css";
 
 body {
-  height: 150vh;
+  height: 100%;
   font-family: "Pretendard", sans-serif;
 }
 
@@ -15,14 +15,6 @@ body {
   margin-top: 9%;
   margin-left: 5%;
   width: 33vw;
-  height: 36vh;
-  background-color: #f9eede;
-}
-/*  */
-.MyInfoBox {
-  margin-top: 9%;
-  margin-left: 5%;
-  width: 37vw;
   height: 36vh;
   background-color: #f9eede;
 }
@@ -50,18 +42,6 @@ body {
   font-weight: 400;
   font-size: 1.6vw;
 }
-/* 내활동확인 텍스트 */
-.Titlebox3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
-  height: 9vh;
-  background-color: #f5e7d2;
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.6vw;
-}
 /* 프로필 사진박스 */
 .ProfileBox {
   margin-left: 10%;
@@ -79,9 +59,10 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 60%;
-  margin-top: -26%;
-  font-size: 1.1vw;
+  margin-top: -27%;
+  font-size: 1vw;
   height: 100vh;
+  gap: 1.8%;
 }
 /* 프로필 이미지 */
 .MyProfileImg {
@@ -95,6 +76,20 @@ body {
   display: flex;
   flex-direction: row;
 }
+/* 잠굼 이미지 */
+.LockImg {
+  margin-top: 20%;
+  width: 10vw;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+}
+/* 잠굼이미지 컨테이너 */
+.LockImgContianer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
 /* 누르면 없어지는 버튼 */
 .DiaryButton {
   margin-left: 5%;
@@ -106,21 +101,22 @@ body {
 /* 버튼 동그라미 */
 .Circle {
   position: absolute;
-  margin-left: 31%;
+  margin-left: 30.5%;
   left: 0;
   width: 2vw;
   height: 4vh;
   background-color: white;
   border-radius: 50%;
   transition: left 0.3s ease;
+  cursor: pointer;
 }
 /* 공개일 때 */
 .isOn {
-  background-color: #cdb98f; /* 예시: 초록색 */
+  background-color: #cdb98f;
 }
 /* 좌우로 움직이는 원 */
 .UpdateCircle {
-  left: 2.39vw;
+  left: 2.45vw;
 }
 .ProFileLink {
   margin-bottom: 2%;
@@ -129,73 +125,74 @@ body {
 }
 /* 비번 변경 */
 .PsswordLink {
-  margin-top: 6%;
   color: black;
   text-decoration: none;
 }
-.MySecreatContainer {
-  font-size: 1vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 7vh;
-  margin-top: 13%;
-  margin-left: -50%;
-  gap: -50vh;
+.MyInfoBox {
+  margin-top: 9%;
+  margin-left: 5%;
+  width: 37vw;
+  height: 36vh;
+  background-color: #f9eede;
+  text-align: left;
 }
-/* 비공개일 때 컨테이너 */
-.MySecreatInfoContainer {
+.MyInfoBoxflex {
+  display: flex;
+  flex-direction: row;
+}
+.MyInfoBoxInfo {
   font-size: 1vw;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.MyActivityCon {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 44%;
-  margin-top: -23%;
+  width: 100%;
+  height: 40vw;
+}
+.Titlebox3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45vw;
+  height: 9vh;
+  background-color: #f5e7d2;
+  font-weight: 400;
+  font-size: 1.6vw;
 }
 /* 공개일 때 컨테이너 */
-.MyDIaryStateContianer {
-  margin-left: 23%;
-  margin-top: 13%;
-  width: 50vw;
-  height: 50vh;
+.MyActivityBox {
+  width: 45vw;
+  height: 55vh;
   background-color: #f9eede;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 /* 최근활동 박스 */
 .RecentActivityBox {
-  margin-top: 2%;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 35px;
 }
 /* 캘린더 가는 링크 */
 .MyCalenderLink {
-  margin-top: -5%;
   color: #685036;
 }
 /* 내일기 가기 링크 */
 .MyDiaryLink {
-  margin-top: -5%;
   color: #685036;
-}
-/* 잠굼 이미지 */
-.LockImg {
-  margin-top: 20%;
-  width: 10vw;
-  opacity: 0.5;
-
-  background-repeat: no-repeat;
-}
-/* 잠굼이미지 컨테이너 */
-.LockImgContianer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
 }
 /* 아래쪽 이미지 컨테이너 */
 .ImgContainer {
@@ -206,245 +203,732 @@ body {
 /* 일기장 이미지 */
 .DiaryImg {
   width: 4vw;
-  margin-bottom: 30%;
 }
+
 @media (max-width: 1280px) {
+  /* 내 프로필 보안 텍스트 */
   .Titlebox {
-    font-weight: bold;
+    font-size: 1.8vw;
   }
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    font-size: 1.8vw;
+  }
+  /* 내정보 아래쪽 박스 */
   .InfoBox {
-    margin-top: -28%;
-    margin-left: 45%;
-    font-size: 1.2vw;
-  }
-  .DiaryButton {
-    margin-left: 15%;
-    height: 3.2vh;
-  }
-  /* 버튼 동그라미 */
-  .Circle {
-    position: absolute;
-    margin-left: 28.3%;
-    left: 0;
-    width: 1.5vw;
-    height: 3.2vh;
-    background-color: white;
-    border-radius: 50%;
-    transition: left 0.3s ease;
-  }
-  .UpdateCircle {
-    left: 3vw;
-  }
-  .MySecreatContainer {
-    font-size: 1vw;
-    margin-top: 12%;
-    font-weight: bold;
-  }
-  .MySecreatInfoContainer {
-    font-size: 1vw;
-    margin-top: -22%;
-    font-weight: semi-bold;
-  }
-  .Titlebox3 {
-    font-weight: 600;
-    font-size: 1.7vw;
-  }
-  .LockImg {
-    margin-top: 28%;
-  }
-  .DiaryImg {
-    margin-top: 10%;
-  }
-  .MyCalenderLink {
-    margin-top: -8%;
-  }
-}
-@media (max-width: 1024px) {
-  .Titlebox {
-    font-weight: bold;
-  }
-  .InfoBox {
-    margin-top: -42%;
-    margin-left: 45%;
-    font-size: 1.4vw;
-  }
-  .DiaryButton {
-    margin-left: 15%;
-    height: 3vh;
-  }
-  /* 버튼 동그라미 */
-  .Circle {
-    position: absolute;
-    margin-left: 29.8%;
-    left: 0;
-    width: 1.5vw;
-    height: 3vh;
-    background-color: white;
-    border-radius: 50%;
-    transition: left 0.3s ease;
-  }
-  .UpdateCircle {
-    left: 2.9vw;
-  }
-  .MySecreatContainer {
-    font-size: 1.2vw;
-    margin-top: 20%;
-    font-weight: bold;
-  }
-  .MySecreatInfoContainer {
-    font-size: 1.2vw;
     margin-top: -29%;
-    font-weight: semi-bold;
+    font-size: 1.1vw;
+  }
+
+  .DiaryButton {
+    width: 4.4vw;
+    height: 3.5vh;
+  }
+  /* 버튼 동그라미 */
+  .Circle {
+    margin-left: 30.7%;
+    width: 2vw;
+    height: 3.5vh;
+  }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
+  .UpdateCircle {
+    left: 2.49vw;
+  }
+  .ProFileLink {
+    margin-bottom: 1%;
+  }
+  /* 비번 변경 */
+  .PsswordLink {
+    margin-top: 2%;
+  }
+  .MyInfoBox {
+    margin-left: 5%;
+    width: 37vw;
+    height: 36vh;
+    background-color: #f9eede;
+  }
+  .MyInfoBoxInfo {
+    padding: 3%;
   }
   .Titlebox3 {
-    font-weight: 600;
-    font-size: 2vw;
+    font-size: 1.8vw;
   }
-  .LockImg {
-    margin-top: 28%;
+  /* 공개일 때 컨테이너 */
+  .MyActivityBox {
+    width: 45vw;
+    height: 50vh;
+    background-color: #f9eede;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .DiaryImg {
-    margin-top: 10%;
-  }
-  .MyCalenderLink {
-    margin-top: -8%;
+  /* 최근활동 박스 */
+  .RecentActivityBox {
+    gap: 40px;
   }
 }
 
+@media (max-width: 1024px) {
+  /* 내정보 박스 */
+  .MySecurityBox {
+    width: 35vw;
+  }
+  /* 내 프로필 보안 텍스트 */
+  .Titlebox {
+    width: 35vw;
+    height: 9vh;
+    font-size: 1.8vw;
+  }
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    font-size: 1.8vw;
+  }
+  /* 내정보 아래쪽 박스 */
+  .InfoBox {
+    font-size: 1.2vw;
+  }
+  /* 누르면 없어지는 버튼 */
+  .DiaryButton {
+    margin-left: 6%;
+    background-color: #d9d9d9;
+    width: 4.4vw;
+    height: 3.5vh;
+    border-radius: 20px;
+  }
+  /* 버튼 동그라미 */
+  .Circle {
+    margin-left: 32.65%;
+    width: 2vw;
+    height: 3.4vh;
+  }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
+  .UpdateCircle {
+    left: 2.45vw;
+  }
+
+  /* 비번 변경 */
+  .PsswordLink {
+    margin-top: 3%;
+  }
+  .MyInfoBox {
+    margin-left: 5%;
+    width: 37vw;
+    height: 36vh;
+    background-color: #f9eede;
+    text-align: left;
+  }
+
+  .MyInfoBoxInfo {
+    font-size: 1.1vw;
+    font-weight: 450;
+  }
+  .Titlebox3 {
+    font-size: 1.8vw;
+  }
+}
 @media (max-width: 768px) {
-  .Titlebox {
-    font-weight: bold;
+  .InfoContainer {
+    gap: 14%;
   }
+  /* 내정보 박스 */
   .MySecurityBox {
-    width: 33vw;
-    height: 28vh;
+    width: 35vw;
   }
-  .InfoBox {
-    margin-top: -39%;
-    margin-left: 40%;
-    font-size: 1.4vw;
+  /* 내 프로필 보안 텍스트 */
+  .Titlebox {
+    font-size: 1.9vw;
   }
-  .DiaryButton {
-    margin-left: 15%;
-    height: 2vh;
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    font-size: 1.9vw;
   }
+  /* 프로필 사진박스 */
   .ProfileBox {
     margin-left: 10%;
-    margin-top: 9%;
-    width: 5vw;
-    height: 9vh;
-    background-color: white;
-    border-radius: 50%;
-    overflow: hidden;
+    margin-top: 8%;
+    width: 9vw;
+    height: 16vh;
   }
+
+  /* 내정보 아래쪽 박스 */
+  .InfoBox {
+    margin-left: 55%;
+    margin-top: -35%;
+    font-size: 1.3vw;
+    gap: 1%;
+  }
+
+  /* 누르면 없어지는 버튼 */
+  .DiaryButton {
+    margin-left: 8%;
+    width: 4.6vw;
+    height: 3.15vh;
+  }
+  /* 버튼 동그라미 */
   .Circle {
     position: absolute;
-    margin-left: 28%;
+    margin-left: 31.8%;
     left: 0;
-    width: 1.5vw;
-    height: 2.5vh;
-    background-color: white;
-    border-radius: 50%;
-    transition: left 0.3s ease;
+    width: 2vw;
+    height: 3.45vh;
   }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
   .UpdateCircle {
-    left: 2.9vw;
+    left: 2.55vw;
   }
-  .MySecreatContainer {
-    font-size: 1.2vw;
-    margin-top: 20%;
-    font-weight: bold;
+  .ProFileLink {
+    margin-bottom: 2.3%;
   }
-  .MySecreatInfoContainer {
-    font-size: 1.2vw;
-    margin-top: -35%;
-    font-weight: semi-bold;
+  .PsswordLink {
+    margin-top: 4%;
+  }
+  .MyInfoBox {
+    margin-left: 5%;
+    width: 37vw;
+    height: 36vh;
+    background-color: #f9eede;
+    text-align: left;
+  }
+  .MyInfoBoxInfo {
+    font-size: 1.3vw;
+  }
+  .MyActivityCon {
+    height: 60vw;
   }
   .Titlebox3 {
-    font-weight: 600;
-    font-size: 2vw;
+    font-size: 1.9vw;
   }
-  .LockImg {
-    margin-top: 28%;
+  /* 최근활동 박스 */
+  .RecentActivityBox {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
   }
   .DiaryImg {
-    margin-top: 20%;
-  }
-  .MyCalenderLink {
-    margin-top: -10%;
-    font-size: 3vw;
-  }
-  .MyDiaryLink {
-    margin-top: -10%;
-    font-size: 3vw;
+    width: 5.5vw;
   }
 }
-
-@media (max-width: 480px) {
-  .Titlebox {
-    font-weight: bold;
+@media (max-width: 640px) {
+  .InfoContainer {
+    gap: 13%;
   }
+  /* 내정보 박스 */
   .MySecurityBox {
-    width: 33vw;
-    height: 28vh;
-  }
-  .InfoBox {
-    margin-top: -39%;
-    margin-left: 40%;
-    font-size: 1.4vw;
-  }
-  .DiaryButton {
-    margin-left: 15%;
-    height: 2vh;
-  }
-  .ProfileBox {
-    margin-left: 10%;
     margin-top: 9%;
-    width: 5vw;
+    width: 35vw;
+    height: 33vh;
+  }
+  /* 내 프로필 보안 텍스트 */
+  .Titlebox {
+    width: 35vw;
     height: 9vh;
-    background-color: white;
-    border-radius: 50%;
-    overflow: hidden;
+    font-size: 2.5vw;
   }
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    width: 37vw;
+    height: 9vh;
+    font-size: 2.5vw;
+  }
+  /* 프로필 사진박스 */
+  .ProfileBox {
+    width: 9vw;
+    height: 16vh;
+  }
+
+  /* 내정보 아래쪽 박스 */
+  .InfoBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 52%;
+    margin-top: -45%;
+    font-size: 1.4vw;
+    font-weight: 450;
+    height: 100vh;
+    gap: 1.1%;
+  }
+  /* 일기숨김 자리 */
+  .MyDiaryContinaer {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+  }
+  /* 잠굼 이미지 */
+  .LockImg {
+    margin-top: 30%;
+    width: 13vw;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+  }
+  /* 누르면 없어지는 버튼 */
+  .DiaryButton {
+    margin-left: 5.5%;
+    width: 4.9vw;
+    height: 3vh;
+    border-radius: 20px;
+  }
+  /* 버튼 동그라미 */
   .Circle {
-    position: absolute;
-    margin-left: 27.9%;
-    left: 0;
-    width: 1.5vw;
-    height: 2vh;
-    background-color: white;
-    border-radius: 50%;
-    transition: left 0.3s ease;
+    margin-left: 30.9%;
+    width: 2vw;
+    height: 3.2vh;
   }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
   .UpdateCircle {
-    left: 3vw;
+    left: 2.79vw;
   }
-  .MySecreatContainer {
-    font-size: 1.2vw;
-    margin-top: 20%;
-    font-weight: bold;
+  .ProFileLink {
+    margin-bottom: 2%;
+    color: black;
+    cursor: pointer;
   }
-  .MySecreatInfoContainer {
-    font-size: 1.2vw;
-    margin-top: -33%;
-    font-weight: semi-bold;
+  .MyInfoBox {
+    width: 37vw;
+    height: 33vh;
+  }
+  .MyInfoBoxInfo {
+    font-size: 1.4vw;
+    font-weight: 450;
+  }
+  .MyActivityCon {
+    height: 70vw;
   }
   .Titlebox3 {
-    font-weight: 600;
-    font-size: 2vw;
+    font-weight: 450;
+    font-size: 2.5vw;
   }
-  .LockImg {
-    margin-top: 28%;
+  /* 공개일 때 컨테이너 */
+  .MyActivityBox {
+    width: 45vw;
+    height: 45vh;
   }
+  /* 일기장 이미지 */
   .DiaryImg {
+    width: 6vw;
+  }
+}
+@media (max-width: 480px) {
+  .InfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11%;
+  }
+  /* 내정보 박스 */
+  .MySecurityBox {
+    margin-top: 9%;
+    margin-left: 0;
+    width: 60vw;
+    height: 30vh;
+  }
+  /* 내 프로필 보안 텍스트 */
+  .Titlebox {
+    width: 60vw;
+    height: 7vh;
+    font-weight: 500;
+    font-size: 2.5vw;
+  }
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    width: 60vw;
+    height: 7vh;
+    font-weight: 500;
+    font-size: 2.5vw;
+  }
+  /* 프로필 사진박스 */
+  .ProfileBox {
+    margin-left: 20%;
+    margin-top: 7%;
+    width: 7vw;
+    height: 14vh;
+  }
+
+  /* 내정보 아래쪽 박스 */
+  .InfoBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    margin-top: -33%;
+    font-size: 1.8vw;
+    gap: 1.4%;
+  }
+
+  /* 일기숨김 자리 */
+  .MyDiaryContinaer {
+    margin-top: 4%;
+  }
+  /* 잠굼 이미지 */
+  .LockImg {
+    margin-top: 18%;
+    width: 12vw;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+  }
+  /* 누르면 없어지는 버튼 */
+  .DiaryButton {
+    margin-left: 7%;
+    width: 6vw;
+    height: 2.7vh;
+  }
+  /* 버튼 동그라미 */
+  .Circle {
+    position: absolute;
+    margin-left: 60.8%;
+    left: 0;
+    width: 2.1vw;
+    height: 3vh;
+  }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
+  .UpdateCircle {
+    left: 3.92vw;
+  }
+  .ProFileLink {
+    margin-bottom: 1.8%;
+  }
+  .MyInfoBox {
+    margin-top: 9%;
+    margin-left: 0;
+    width: 60vw;
+    height: 25vh;
+  }
+  .MyInfoBoxflex {
+    display: flex;
+    flex-direction: row;
+  }
+  .MyInfoBoxInfo {
+    font-size: 1.6vw;
+    font-weight: 500;
+  }
+  .MyActivityCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60vw;
+  }
+  .Titlebox3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 9vh;
+    background-color: #f5e7d2;
+    font-weight: 500;
+    font-size: 2.5vw;
+  }
+  /* 공개일 때 컨테이너 */
+  .MyActivityBox {
+    width: 60vw;
+    height: 25vh;
+    background-color: #f9eede;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 최근활동 박스 */
+  .RecentActivityBox {
+    font-size: 2vw;
+    font-weight: 500;
+    gap: 20px;
+  }
+  /* 일기장 이미지 */
+  .DiaryImg {
+    width: 4.5vw;
+  }
+}
+@media (max-width: 480px) {
+  .InfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+  }
+  /* 내정보 박스 */
+  .MySecurityBox {
+    margin-top: 11%;
+    margin-left: 0;
+    width: 60vw;
+    height: 30vh;
+  }
+  /* 내 프로필 보안 텍스트 */
+  .Titlebox {
+    width: 60vw;
+    height: 7vh;
+    font-weight: 500;
+    font-size: 3vw;
+  }
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    width: 60vw;
+    height: 7vh;
+    font-weight: 500;
+    font-size: 3vw;
+  }
+  /* 프로필 사진박스 */
+  .ProfileBox {
+    margin-left: 10%;
+    margin-top: 15%;
+    width: 16vw;
+    height: 19vw;
+  }
+
+  /* 내정보 아래쪽 박스 */
+  .InfoBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    margin-top: -38%;
+    font-size: 2.3vw;
+    gap: 1.4%;
+  }
+
+  /* 일기숨김 자리 */
+  .MyDiaryContinaer {
+    margin-top: 4%;
+  }
+  /* 잠굼 이미지 */
+  .LockImg {
     margin-top: 20%;
+    width: 17vw;
+    opacity: 0.8;
+    background-repeat: no-repeat;
   }
-  .MyCalenderLink {
-    margin-top: -10%;
+  /* 누르면 없어지는 버튼 */
+  .DiaryButton {
+    margin-left: 7%;
+    width: 6.8vw;
+    height: 2.6vh;
+  }
+  /* 버튼 동그라미 */
+  .Circle {
+    position: absolute;
+    margin-left: 63.2%;
+    left: 0;
+    width: 2.1vw;
+    height: 2.8vh;
+  }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
+  .UpdateCircle {
+    left: 4.75vw;
+  }
+  .ProFileLink {
+    margin-bottom: 1.8%;
+  }
+  .MyInfoBox {
+    margin-top: 9%;
+    margin-left: 0;
+    width: 60vw;
+    height: 25vh;
+  }
+  .MyInfoBoxflex {
+    display: flex;
+    flex-direction: row;
+  }
+  .MyInfoBoxInfo {
+    font-size: 2.1vw;
+    font-weight: 500;
+  }
+  .MyActivityCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60vw;
+  }
+  .Titlebox3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 9vh;
+    background-color: #f5e7d2;
+    font-weight: 500;
     font-size: 3vw;
   }
-  .MyDiaryLink {
-    margin-top: -10%;
+  /* 공개일 때 컨테이너 */
+  .MyActivityBox {
+    width: 60vw;
+    height: 20vh;
+    background-color: #f9eede;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 최근활동 박스 */
+  .RecentActivityBox {
+    font-size: 2.5vw;
+    font-weight: 500;
+    gap: 20px;
+  }
+  /* 일기장 이미지 */
+  .DiaryImg {
+    width: 4.5vw;
+  }
+}
+@media (max-width: 375px) {
+  .InfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+  }
+  /* 내정보 박스 */
+  .MySecurityBox {
+    margin-top: 11%;
+    margin-left: 0;
+    width: 60vw;
+    height: 30vh;
+  }
+  /* 내 프로필 보안 텍스트 */
+  .Titlebox {
+    width: 60vw;
+    height: 7vh;
+    font-weight: 500;
     font-size: 3vw;
+  }
+  /* 숨겼을 때 내 정보 텍스트 */
+  .Titlebox2 {
+    width: 60vw;
+    height: 7vh;
+    font-weight: 500;
+    font-size: 3vw;
+  }
+  /* 프로필 사진박스 */
+  .ProfileBox {
+    margin-left: 10%;
+    margin-top: 15%;
+    width: 16vw;
+    height: 19vw;
+  }
+
+  /* 내정보 아래쪽 박스 */
+  .InfoBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    margin-top: -38%;
+    font-size: 2.3vw;
+    gap: 1.4%;
+  }
+
+  /* 일기숨김 자리 */
+  .MyDiaryContinaer {
+    margin-top: 4%;
+  }
+  /* 잠굼 이미지 */
+  .LockImg {
+    margin-top: 20%;
+    width: 17vw;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+  }
+  /* 누르면 없어지는 버튼 */
+  .DiaryButton {
+    margin-left: 7%;
+    width: 6.8vw;
+    height: 2.6vh;
+  }
+  /* 버튼 동그라미 */
+  .Circle {
+    position: absolute;
+    margin-left: 63.2%;
+    left: 0;
+    width: 2.1vw;
+    height: 2.8vh;
+  }
+  /* 공개일 때 */
+  .isOn {
+    background-color: #cdb98f;
+  }
+  /* 좌우로 움직이는 원 */
+  .UpdateCircle {
+    left: 4.75vw;
+  }
+  .ProFileLink {
+    margin-bottom: 1.8%;
+  }
+  .MyInfoBox {
+    margin-top: 9%;
+    margin-left: 0;
+    width: 60vw;
+    height: 25vh;
+  }
+  .MyInfoBoxflex {
+    display: flex;
+    flex-direction: row;
+  }
+  .MyInfoBoxInfo {
+    font-size: 2.1vw;
+    font-weight: 500;
+  }
+  .MyActivityCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vw;
+  }
+  .Titlebox3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 9vh;
+    background-color: #f5e7d2;
+    font-weight: 500;
+    font-size: 3vw;
+  }
+  /* 공개일 때 컨테이너 */
+  .MyActivityBox {
+    width: 60vw;
+    height: 20vh;
+    background-color: #f9eede;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 최근활동 박스 */
+  .RecentActivityBox {
+    font-size: 2.5vw;
+    font-weight: 500;
+    gap: 20px;
+  }
+  /* 일기장 이미지 */
+  .DiaryImg {
+    width: 4.5vw;
   }
 }

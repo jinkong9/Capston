@@ -102,7 +102,10 @@ function UserInfo() {
       <div className={styles.InfoContainer}>
         <div className={styles.MySecurityBox}>
           <div className={styles.Titlebox}>내 프로필 및 보안</div>
-          <img src={`https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`} className={styles.ProfileBox}></img>
+          <img
+            src={`https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`}
+            className={styles.ProfileBox}
+          ></img>
           <div className={styles.InfoBox}>
             <div onClick={() => profileClick()} className={styles.ProFileLink}>
               프로필 변경하기
@@ -143,38 +146,42 @@ function UserInfo() {
             </div>
           ) : (
             <>
-              <div className={styles.MySecreatContainer}>
-                <p>이름:</p>
-                <p>이메일:</p>
-                <p>가입 날짜:</p>
-                <p>등록 된 일기:</p>
-              </div>
-
-              <div className={styles.MySecreatInfoContainer}>
-                <p>{myData.full_name}</p>
-                <p>{myData.email}</p>
-                <p>{myData.registered_at}</p>
-                <p>{myData.diary_count}</p>
+              <div className={styles.MyInfoBoxflex}>
+                <div className={styles.MyInfoBoxInfo}>
+                  <p>이름</p>
+                  <p>이메일</p>
+                  <p>가입일자</p>
+                  <p>일기 수</p>
+                </div>
+                <div className={styles.MyInfoBoxInfo}>
+                  <p> {myData.full_name}</p>
+                  <p> {myData.email}</p>
+                  <p> {myData.registered_at}</p>
+                  <p> {myData.diary_count}</p>
+                </div>
               </div>
             </>
           )}
         </div>
       </div>
-      <div className={styles.MyDIaryStateContianer}>
+      <div className={styles.MyActivityCon}>
         <div className={styles.Titlebox3}>내 활동 확인하기</div>
+        <div className={styles.MyActivityBox}>
+          <div className={styles.RecentActivityBox}>
+            <div className={styles.ImgContainer}>
+              <img src="./calendar.png" className={styles.DiaryImg}></img>
+            </div>
+            <Link to="/calendar" className={styles.MyCalenderLink}>
+              나의 캘린더 확인하기
+            </Link>
+            <div className={styles.ImgContainer}>
+              <img src="./diary.png" className={styles.DiaryImg}></img>
+            </div>
 
-        <div className={styles.RecentActivityBox}>
-          <div className={styles.ImgContainer}>
-            <img src="./calendar.png" className={styles.DiaryImg}></img>
+            <Link to="/my-diary" className={styles.MyDiaryLink}>
+              나의 일기 확인하기
+            </Link>
           </div>
-          <Link to="/calendar" className={styles.MyCalenderLink}>
-            나의 캘린더 확인하기
-          </Link>
-          <div className={styles.ImgContainer}>
-            <img src="./diary.png" className={styles.DiaryImg}></img>
-          </div>
-
-          <Link to="/my-diary" className={styles.MyDiaryLink}>나의 일기 확인하기</Link>
         </div>
       </div>
     </>
