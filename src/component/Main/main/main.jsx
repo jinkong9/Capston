@@ -4,9 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./main.module.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../CreatContextAPI/api";
 import Writediary from "../../WriteDiary/writediary";
-import Nav from "../../Nav/nav";
 import { handleError } from "../../Hook/auth";
 import { setQuarter } from "date-fns";
 
@@ -18,21 +17,14 @@ function Main() {
   const [login, setLogin] = useState("false");
   const [userAvatar, setUserAvatar] = useState([]);
 
-  const api = axios.create({
-    baseURL: "https://daisy.wisoft.io/yehwan/app1",
-    withCredentials: true,
-  });
-
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(
-          "https://daisy.wisoft.io/yehwan/app1/themes/today",
-        );
+        const response = await api.get("/themes/today");
         console.log("렌덤주제 서버응답 :", response.data.theme);
         setText(response.data.theme);
       } catch (error) {
-        console.error("get요청 실패", error);
+        console.error("get요청 실패", error.data);
       }
     };
     getData();
@@ -41,9 +33,7 @@ function Main() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://daisy.wisoft.io/yehwan/app1/diaries/recent",
-        );
+        const response = await api.get("/diaries/recent");
         console.log(response.data.diaries);
         setDiaryList(response.data.diaries);
         const avatars = response.data.diaries.map(
@@ -63,18 +53,13 @@ function Main() {
     const responseData = async () => {
       try {
         const response = await Promise.all(
-          diaryList.map((diary) =>
-            axios.get(
-              `https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`,
-              { withCredentials: true },
-            ),
-          ),
+          diaryList.map((diary) => api.get(`/avatars/${diary.author.avatar}`)),
         );
 
         console.log("프로필 불러오기 성공!");
         console.log("avatar 값:", avatar);
       } catch (error) {
-        console.log("프로필 불러오기 오류");
+        console.log("avarta없음");
       }
     };
     responseData();
@@ -109,7 +94,7 @@ function Main() {
     navigate("/user-diaries", { state: { diaryListData: diaryList } });
   };
   const GoToUserPage = (diary) => {
-    navigate("/users-info", { state: { diary: diary } });
+    navigate("/exinfo", { state: { diary: diary } });
   };
 
   const gotowrite = async () => {
@@ -128,7 +113,6 @@ function Main() {
 
   return (
     <>
-      <Nav></Nav>
       <div className={styles.SubNavBox}>
         <p className={styles.SubText}>오늘은 무슨 이야기를 들려주시나요?</p>
       </div>

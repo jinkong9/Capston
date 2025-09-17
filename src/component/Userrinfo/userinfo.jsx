@@ -1,9 +1,8 @@
 import "react";
 import { useEffect, useState } from "react";
 import styles from "./userinfo.module.css";
-import Nav from "../Nav/nav";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../CreatContextAPI/api";
 import { useMyAvatar } from "../Hook/myavatar";
 
 const ChangePwPage = () => {
@@ -12,8 +11,8 @@ const ChangePwPage = () => {
   const left = window.screenX + (window.outerWidth - width) / 2;
   const top = window.screenY + (window.outerHeight - height) / 2;
   const feature = `width=${width}, height=${height}, left=${left}, top=${top}, resizable=no, scrollbar=yes`;
-  page = window.open("/changepw", "ChangePwPage", feature); //사용할 컴포넌트에 입력하기
-}; //handlesubmit으로 api연결하고 유효성 검사하고 팝업닫기도 한번에 넣고 useState로 정보들 담기
+  page = window.open("/changepw", "ChangePwPage", feature);
+};
 
 function UserInfo() {
   const avatar = useMyAvatar();
@@ -21,10 +20,9 @@ function UserInfo() {
     if (!avatar) return;
     const responseData = async () => {
       try {
-        const response = await axios.get(
-          `https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`,
-          { withCredentials: true },
-        );
+        const response = await api.get(`/avatars/${avatar}`, {
+          withCredentials: true,
+        });
         console.log("프로필 불러오기 성공!");
         console.log("avatar 값:", avatar);
       } catch (error) {
@@ -44,8 +42,8 @@ function UserInfo() {
   const [myInfoOn, setMyInfoOn] = useState(false);
   const updateSetting = async (field, value) => {
     try {
-      await axios.patch(
-        "https://daisy.wisoft.io/yehwan/app1/me/setting",
+      await api.patch(
+        "/me/setting",
         {
           [field]: value,
         },
@@ -65,10 +63,7 @@ function UserInfo() {
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const response = await axios.get(
-          "https://daisy.wisoft.io/yehwan/app1/me/info",
-          { withCredentials: true },
-        );
+        const response = await api.get("/me/info", { withCredentials: true });
         console.log(response.data.user_info);
         const { full_name, email, registered_at, diary_count } =
           response.data.user_info;
@@ -98,7 +93,6 @@ function UserInfo() {
 
   return (
     <>
-      <Nav></Nav>
       <div className={styles.InfoContainer}>
         <div className={styles.MySecurityBox}>
           <div className={styles.Titlebox}>내 프로필 및 보안</div>

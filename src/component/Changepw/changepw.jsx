@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import style from "./changepw.module.css";
-import axios from "axios";
+import api from "../CreatContextAPI/api";
 
 export default function Changepw() {
   const [pw, setPw] = useState({
     beforepw: "",
     newpw: "",
-  });
-
-  const api = axios.create({
-    baseURL: "https://daisy.wisoft.io/yehwan/app1",
-    withCredentials: true,
   });
 
   const handlePW = async (e) => {

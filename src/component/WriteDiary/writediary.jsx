@@ -1,5 +1,5 @@
 import { use, useState } from "react";
-import axios from "axios";
+import api from "../CreatContextAPI/api";
 import styles from "./writediary.module.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -32,8 +32,8 @@ function Writediary() {
     }
 
     try {
-      const response = await axios.post(
-        "https://daisy.wisoft.io/yehwan/app1/me/diaries",
+      const response = await api.post(
+        "/me/diaries",
         {
           use_theme: themeState,
           title: inputData.title,
