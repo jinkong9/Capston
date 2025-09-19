@@ -15,7 +15,7 @@ body {
 
 /* 화면 꽉 차게 */
 .container {
-  height: 130vh;
+  height: 140vh;
   max-width: 780px;
   margin: 0 auto;
   display: flex;
@@ -23,7 +23,6 @@ body {
   padding: 10px;
   box-sizing: border-box;
   user-select: none;
-  background-color: #f5e7d2;
 }
 
 .headerText {
@@ -65,7 +64,7 @@ body {
 }
 
 .montnBtn {
-  padding: 13px;
+  padding: 2.5%;
   font-weight: bold;
   background-color: #7b5d43;
   border-radius: 10px;
@@ -108,7 +107,6 @@ body {
 .saturday {
   color: blue;
 }
-
 /* 날짜 그리드 */
 .daysGrid {
   flex: 1;
@@ -172,27 +170,299 @@ body {
   padding: 1em;
 }
 
+@media (max-width: 1280px) {
+  /* 화면 꽉 차게 */
+  .container {
+    height: 140vh;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  .headerText {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 1.5vw;
+    font-weight: bold;
+  }
+
+  .headerText2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: -2%;
+    margin-bottom: 5%;
+    font-size: 1vw;
+    font-weight: bold;
+  }
+
+  .move {
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 2%;
+    margin-left: 2%;
+  }
+
+  /* 헤더: 이전, 월 라벨, 다음 */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.4em;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  .montnBtn {
+    padding: 13px;
+    font-weight: bold;
+    background-color: #7b5d43;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  .montnBtn:hover {
+    transform: scale(1.05);
+  }
+
+  /* 클릭 가능한 월 라벨 */
+  .monthLabel {
+    cursor: pointer;
+  }
+
+  /* 요일 영역 */
+  .weekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1em;
+  }
+
+  /* 요일 각 칸 */
+  .weekDay {
+    padding: 6px 0;
+    user-select: none;
+    color: black;
+    margin-bottom: 2em;
+    font-size: 20px;
+  }
+
+  /* 일요일 빨간색 */
+  .sunday {
+    color: red;
+  }
+
+  /* 토요일 파란색 */
+  .saturday {
+    color: blue;
+  }
+
+  /* 날짜 그리드 */
+  .daysGrid {
+    flex: 1;
+    background-color: #fcf5e7;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 6px;
+    overflow-y: auto;
+    padding: 1em;
+    border: 1px double black;
+    border-radius: 20px;
+  }
+
+  /* 날짜 칸 */
+  .dayBox {
+    padding: 10px 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: #fcf5e7;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+  }
+
+  /* 오늘 날짜 배경 */
+  .today {
+    background-color: #fbebc9;
+  }
+
+  /* 선택된 날짜 배경 */
+  .selected {
+    background-color: #7b5d43;
+    color: black;
+  }
+
+  /* 다른 달 날짜 회색 */
+  .otherMonth {
+    color: #bbb;
+  }
+
+  .check {
+    display: block;
+    font-size: 1.2em;
+    color: black;
+    margin-top: 2px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .extratext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+    padding: 1em;
+  }
+}
+
 @media (max-width: 1024px) {
   .headerText {
-    font-size: 4vw;
+    font-size: 1.9vw;
   }
+
   .headerText2 {
+    font-size: 1vw;
+  }
+
+  .header {
+    font-size: 1.7rem;
+  }
+  /* 요일 각 칸 */
+  .weekDay {
+    padding: 6px 0;
+    user-select: none;
+    color: black;
+    margin-bottom: 2em;
     font-size: 2vw;
+  }
+  .sunday {
+    color: red;
+  }
+  .saturday {
+    color: blue;
+  }
+
+  /* 날짜 그리드 */
+  .daysGrid {
+    flex: 1;
+    background-color: #fcf5e7;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 6px;
+    overflow-y: auto;
+    padding: 1em;
+    border: 1px double black;
+    border-radius: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .daysGrid {
-    gap: 6px;
-    padding: 1.5em;
+  .container {
+    width: 90%;
   }
-  .montnBtn {
-    padding: 8px;
+  .headerText {
+    font-size: 2vw;
+  }
+  .headerText2 {
+    font-size: 1.8vw;
+  }
+
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .weekDay {
+    font-size: 1rem;
+  }
+
+  .daysGrid {
+    gap: 5px;
+    padding: 0.8em;
+  }
+
+  .dayBox {
+    padding: 8px 0;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    font-size: 1.6rem;
+  }
+
+  .weekDay {
+    font-size: 0.9rem;
+  }
+
+  .daysGrid {
+    gap: 4px;
+    padding: 0.7em;
+  }
+
+  .dayBox {
+    padding: 6px 0;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 98%;
+    padding: 5px;
+  }
+  .header {
+    font-size: 1.4rem;
+    margin-bottom: 1em;
+  }
+  .weekDay {
+    font-size: 0.75rem;
+    margin-bottom: 0.8em;
+  }
+  .daysGrid {
+    gap: 2px;
+    padding: 0.8em;
   }
   .dayBox {
-    padding: 1px 0;
+    padding: 4px 0;
+    font-size: 0.7rem;
+    border-radius: 4px;
   }
-  .monthLabel {
-    font-size: 5vw;
+}
+
+@media (max-width: 360px) {
+  .header {
+    font-size: 1.2rem;
+  }
+  .montnBtn {
+    padding: 0.4em 0.8em;
+  }
+  .weekDay {
+    font-size: 0.7rem;
+  }
+  .daysGrid {
+    gap: 1px;
+    padding: 0.3em;
+    border-radius: 10px;
+  }
+  .dayBox {
+    padding: 3px 0;
+    font-size: 0.7rem;
   }
 }

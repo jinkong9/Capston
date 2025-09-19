@@ -101,7 +101,6 @@ export default function Mycalendar() {
             </div>
           ))}
         </div>
-
         <div className={styles.daysGrid}>
           {Array.from(
             { length: endWeek - startWeek + 1 },
