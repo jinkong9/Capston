@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../CreatContextAPI/api";
 import { useMyAvatar } from "../Hook/myavatar";
 import styles from "./profile.module.css";
 import { useNavigate } from "react-router-dom";
@@ -32,17 +32,13 @@ function Profilepage() {
     const formData = new FormData();
     formData.append("avatar", selectedFile);
     try {
-      const response = await axios.patch(
-        "https://daisy.wisoft.io/yehwan/app1/me/profile",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-          withCredentials: true,
-        },
-      );
+      const response = await api.patch("/me/profile", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true,
+      });
       console.log("프로필 수정 완료", response);
       alert("프로필이 수정되었습니다.");
-    
+
       navigate("/");
     } catch (error) {
       console.log("프로필 수정 오류", error.response);
@@ -54,10 +50,9 @@ function Profilepage() {
     if (!avatar) return;
     const fetchAvatar = async () => {
       try {
-        const response = await axios.get(
-          `https://daisy.wisoft.io/yehwan/app1/avatars/${avatar}`,
-          { withCredentials: true },
-        );
+        const response = await api.get(`/avatars/${avatar}`, {
+          withCredentials: true,
+        });
         console.log("프로필 불러오기 성공!", avatar);
       } catch (error) {
         console.log("프로필 불러오기 오류", error.response);

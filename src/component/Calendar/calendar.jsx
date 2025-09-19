@@ -5,9 +5,9 @@ import isoWeek from "dayjs/plugin/isoWeek";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import "dayjs/locale/ko";
 import styles from "./calendar.module.css";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "../Nav/nav";
+import api from "../CreatContextAPI/api";
 
 dayjs.extend(weekday);
 dayjs.extend(isoWeek);
@@ -15,11 +15,6 @@ dayjs.extend(weekOfYear);
 dayjs.locale("ko");
 
 export default function Mycalendar() {
-  const api = axios.create({
-    baseURL: "https://daisy.wisoft.io/yehwan/app1",
-    withCredentials: true,
-  });
-
   const [viewDate, setViewDate] = useState(dayjs());
   const [selectDate, setSelectDate] = useState(dayjs());
   const [Mark, setMark] = useState([]);
@@ -69,7 +64,6 @@ export default function Mycalendar() {
 
   return (
     <div className={styles.wrraper}>
-      <Nav />
       <div className={styles.container}>
         <p className={styles.headerText}>나의 캘린더 📅</p>
         <p className={styles.headerText2}>
@@ -107,7 +101,6 @@ export default function Mycalendar() {
             </div>
           ))}
         </div>
-
         <div className={styles.daysGrid}>
           {Array.from(
             { length: endWeek - startWeek + 1 },

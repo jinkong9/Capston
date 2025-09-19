@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "./editDiary.module.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import api from "../CreatContextAPI/api";
 
-
-function Writediary() { 
-  const {state}=useLocation()
-  const diary=state?.diary
+function Writediary() {
+  const { state } = useLocation();
+  const diary = state?.diary;
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     title: diary?.title || "",
@@ -31,8 +30,8 @@ function Writediary() {
     }
 
     try {
-      const response = await axios.patch(
-        `https://daisy.wisoft.io/yehwan/app1/me/diaries/${id}`,
+      const response = await api.patch(
+        `/me/diaries/${id}`,
         {
           title: inputData.title,
           content: inputData.content,
@@ -43,27 +42,24 @@ function Writediary() {
       alert("제출 완료 ");
       goToMainPage();
     } catch (error) {
-      
-       if (error.response && error.response.status === 422) {
-      alert("수정은 당일만 가능합니다.");
-    } else {
-      alert("일기 수정 중 오류가 발생했습니다.");
-    }
-      
-     
+      if (error.response && error.response.status === 422) {
+        alert("수정은 당일만 가능합니다.");
+      } else {
+        alert("일기 수정 중 오류가 발생했습니다.");
+      }
     }
   };
   const goToMainPage = () => {
     navigate("/my-diary");
   };
- 
 
   return (
     <div className={styles.BodyContainer}>
-      
-      <form onSubmit={(e)=>handleSubmit(e,diary.id)} className={styles.FormCotainer}>
+      <form
+        onSubmit={(e) => handleSubmit(e, diary.id)}
+        className={styles.FormCotainer}
+      >
         <input
-        
           className={styles.InputTtitle}
           name="title"
           type="text"
@@ -74,7 +70,9 @@ function Writediary() {
         <br />
         <div className={styles.MyInfoBox}>
           <div className={styles.NameBox}>{diary.author.full_name}</div>
-          <div className={styles.DayBox}>{new Date(diary.created_at).toLocaleDateString("ko-KR")}</div>
+          <div className={styles.DayBox}>
+            {new Date(diary.created_at).toLocaleDateString("ko-KR")}
+          </div>
         </div>
         <div className={styles.Line}></div>
         <br />

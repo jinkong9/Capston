@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import DDlogo from "/DDlogo.webp";
 import style from "./login.module.css";
-import axios from "axios";
+import api from "../../CreatContextAPI/api";
+import { useAuth } from "../../CreatContextAPI/context";
 
 export default function Home() {
   const [info, setInfo] = useState({
     email: "",
     password: "",
   });
-  const api = axios.create({
-    baseURL: "https://daisy.wisoft.io/yehwan/app1",
-    withCredentials: true,
-  });
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 
@@ -23,8 +21,17 @@ export default function Home() {
         email: info.email,
         password: info.password,
       });
-      console.log("success login", res.data);
-      navigate("/");
+      console.log("success login", res);
+      if (res.status === 200) {
+        const MeRes = await api.get("/me/info");
+        console.log(MeRes.data);
+        if (MeRes.data?.user_info?.full_name) {
+          login(MeRes.data.user_info.full_name);
+          navigate("/");
+        } else {
+          alert("서버오류");
+        }
+      }
     } catch (err) {
       if (err.response?.data?.errorCode === "INVALID_CREDENTIAL") {
         alert("이메일 또는 비밀번호를 확인해주세요. ");

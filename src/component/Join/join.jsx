@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./join.module.css";
 // import DDlogo from "/DDlogo.webp";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../CreatContextAPI/api";
 
 export default function Join() {
   const [info, setInfo] = useState({
@@ -10,11 +10,6 @@ export default function Join() {
     full_name: "",
     password: "",
     passwordconfirm: "",
-  });
-
-  const api = axios.create({
-    baseURL: "https://daisy.wisoft.io/yehwan/app1",
-    withCredentials: true,
   });
 
   const [agree, setAgree] = useState("");
