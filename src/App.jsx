@@ -19,6 +19,7 @@ import UsersDiaryList from "./component/UserDiaryList/usersdiarylist";
 import AuthProvider from "./component/CreatContextAPI/context";
 import Layout from "./component/Layout/layout";
 import ExInfo from "./component/Userrinfo/exinfo";
+import Previous from "./component/Previous/previous";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/my-diary" element={<MyDiaryList />} />
             <Route path="/edit-diary" element={<MyEditDiary />} />
             <Route path="/modal" element={<ModalPage />} />
+            <Route path="/previous-page" element={<Previous />} />
           </Routes>
         </ModalProvider>
       </AuthProvider>

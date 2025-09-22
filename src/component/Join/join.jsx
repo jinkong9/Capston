@@ -62,6 +62,7 @@ export default function Join() {
     <div className={style.container}>
       <p className={style.joinwrite}>회원가입</p>
       <div>
+        <div className={style.joinContainer}>
         <div>
           <input
             className={style.joincon}
@@ -130,6 +131,7 @@ export default function Join() {
           ></input>
         </div>
         <br></br>
+        </div>
         <div className={style.agreement}>
           <div className={style.agreementHeader}>
             <div className={style.agreementTitle}>

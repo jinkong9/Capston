@@ -4,9 +4,12 @@ import styles from "./writediary.module.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import dayjs from "dayjs";
+import { requestFormReset } from "react-dom";
+
 
 function Writediary() {
   const { state } = useLocation();
+  const [previous,setPrevious]=useState();
   const navigate = useNavigate();
   const date = dayjs().format("YYYY-MM-DD");
 
@@ -44,7 +47,18 @@ function Writediary() {
         { withCredentials: true },
       );
       console.log("일기 작성 성공:", response.data);
+     if (response.data.previous_diaries.length > 1) {
+  const result = window.confirm("이 주제로 1번 이상 일기를 작성하셨습니다. 계속 작성할까요?");
+    if (result) {
+      setPrevious(response.data.previous_diaries);
+      navigate("/previous-page", { state: response.data.previous_diaries });
+      return
+ } else {
+       return; 
+      }
+      }
       alert("제출 완료 ");
+ 
       goToMainPage();
     } catch (error) {
       console.error("일기 작성 실패:", error);
