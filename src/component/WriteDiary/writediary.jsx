@@ -3,10 +3,12 @@ import api from "../CreatContextAPI/api";
 import styles from "./writediary.module.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import dayjs from "dayjs";
 
 function Writediary() {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const date = dayjs().format("YYYY-MM-DD");
 
   const [inputData, setInputData] = useState({
     title: "",
@@ -78,7 +80,7 @@ function Writediary() {
         <br />
         <div className={styles.MyInfoBox}>
           <div className={styles.NameBox}>{name}</div>
-          <div className={styles.DayBox}>2025.04.30</div>
+          <div className={styles.DayBox}>{date}</div>
         </div>
         <div className={styles.Line}></div>
         <br />
