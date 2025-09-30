@@ -1,95 +1,99 @@
 @import "pretendard/dist/web/static/pretendard.css";
 
 .Daliytext {
-  position: absolute;
-  margin-left: -79%;
+  display: flex;
+  text-align: left;
   color: white;
-  font-size: 2.5vh;
+  font-size: 3vh;
   cursor: pointer;
+  margin-left: 3%;
 }
 .navbox {
-  position: absolute;
   display: flex;
-  justify-content: space-around;
-  margin-left: -0.9%;
-  position: absolute;
-  width: 110vw;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   height: 8vh;
   background-color: #634a35 !important;
   align-items: center;
   font-family: "Pretendard", sans-serif;
 }
+.rightbox {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 4%;
+}
 .nametext {
-  position: absolute;
   color: white;
-  margin-left: 32%;
 }
 .MyInfoText {
   cursor: pointer;
-  position: absolute;
   color: white;
-  margin-left: 60%;
 }
 .LogOutText {
-  position: absolute;
   color: white;
-  margin-left: 76%;
   cursor: pointer;
 }
 
 @media (max-width: 1024px) {
   .Daliytext {
-    font-size: 2.2vh;
+    font-size: 2.5vh;
+    margin-left: 5%;
   }
   .navbox {
-    height: 6.5vh;
+    height: 7vh;
   }
-  .LogOutText {
-    font-size: 2.1vh;
-    margin-right: 2%;
-  }
-  .MyInfoText {
-    font-size: 2.1vh;
-  }
-  .nametext {
-    font-size: 2.1vh;
+  .rightbox {
+    gap: 45px;
+    margin-right: 5%;
+    font-size: 2vh;
   }
 }
 
 @media (max-width: 768px) {
+  .Daliytext {
+    font-size: 2.5vh;
+    margin-left: 5%;
+  }
   .navbox {
     height: 5vh;
   }
-  .Daliytext {
-    font-size: 1.5vh;
-  }
-  .LogOutText {
-    font-size: 1.4vh;
-    margin-right: 2%;
-  }
-  .MyInfoText {
-    font-size: 1.4vh;
-  }
-  .nametext {
-    font-size: 1.4vh;
+  .rightbox {
+    gap: 45px;
+    margin-right: 3%;
+    font-size: 1.8vh;
   }
 }
 
 @media (max-width: 480px) {
-  .navbox {
-    height: 3.5vh;
+  .Daliytext {
+    font-size: 2vh;
+    margin-left: 5%;
   }
+  .navbox {
+    height: 5vh;
+  }
+  .rightbox {
+    gap: 25px;
+    margin-right: 4%;
+    font-size: 1.4vh;
+  }
+}
+
+@media (max-width: 400px) {
   .Daliytext {
     font-size: 1.5vh;
+    margin-left: 5%;
   }
-  .LogOutText {
-    font-size: 1.2vh;
-    margin-right: 2%;
+  .navbox {
+    height: 3vh;
   }
-  .MyInfoText {
-    font-size: 1.2vh;
-  }
-  .nametext {
-    font-size: 1.2vh;
+  .rightbox {
+    gap: 15px;
+    margin-right: 4%;
+    font-size: 1vh;
   }
 }

@@ -48,7 +48,9 @@ function Main() {
       try {
         const response = await api.get("/diaries/recent");
         setDiaryList(response.data.diaries);
-        const avatars = response.data.diaries.map((diary) => diary.author.avatar);
+        const avatars = response.data.diaries.map(
+          (diary) => diary.author.avatar,
+        );
         setUserAvatar(avatars);
         setQuarter;
       } catch (error) {
@@ -61,7 +63,9 @@ function Main() {
   useEffect(() => {
     const responseData = async () => {
       try {
-        await Promise.all(diaryList.map((diary) => api.get(`/avatars/${diary.author.avatar}`)));
+        await Promise.all(
+          diaryList.map((diary) => api.get(`/avatars/${diary.author.avatar}`)),
+        );
       } catch (error) {
         console.log("avatar없음");
       }
@@ -75,10 +79,12 @@ function Main() {
     speed: 500,
     slidesToShow: Math.max(1, Math.min(diaryList.length || 1, 3)),
     slidesToScroll: 1,
-    centerPadding: "1%",
     responsive: [
       { breakpoint: 769, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: false, centerPadding: "0px" } },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1, centerMode: false, centerPadding: "0px" },
+      },
     ],
   };
 
@@ -129,7 +135,11 @@ function Main() {
             사용자 둘러보기
           </div>
         </div>
-        <Slider key={diaryList.length} {...settings} className={styles.SliderContainer}>
+        <Slider
+          key={diaryList.length}
+          {...settings}
+          className={styles.SliderContainer}
+        >
           {diaryList.map((diary, index) => (
             <div key={index}>
               <div className={styles.DaliyBox}>
@@ -138,21 +148,31 @@ function Main() {
                     className={styles.MyProfileImg}
                     onClick={() => GoToUserPage(diary)}
                     src={`https://daisy.wisoft.io/yehwan/app1/avatars/${diary.author.avatar}`}
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
                   />
                 </div>
-                <p className={styles.DaliyTitleText}>{diary.author.full_name}님의 일기</p>
+                <p className={styles.DaliyTitleText}>
+                  {diary.author.full_name}님의 일기
+                </p>
                 <div className={styles.maintest}>
                   <span className={styles.DaliyDateText}>
-                    {new Date(diary.created_at).toLocaleDateString("ko-KR", { timeZone: "Asia/Seoul" })}
+                    {new Date(diary.created_at).toLocaleDateString("ko-KR", {
+                      timeZone: "Asia/Seoul",
+                    })}
                   </span>
                   <span className={styles.DaliyTitle2Text}>
-                    {diary.title.length > 10 ? diary.title.substring(0, 10) + "..." : diary.title}
+                    {diary.title.length > 10
+                      ? diary.title.substring(0, 10) + "..."
+                      : diary.title}
                   </span>
                 </div>
                 <div className={styles.Line}></div>
                 <div className={styles.DaliyContentText}>
-                  {diary.content.length > 10 ? diary.content.substring(0, 10) + "..." : diary.content}
+                  {diary.content.length > 10
+                    ? diary.content.substring(0, 10) + "..."
+                    : diary.content}
                 </div>
               </div>
             </div>
@@ -160,12 +180,15 @@ function Main() {
         </Slider>
       </main>
 
-      <h2 className={styles.FooterTitleText}>여러분의 소중한 추억을 작성하고 공유해요!</h2>
+      <h2 className={styles.FooterTitleText}>
+        여러분의 소중한 추억을 작성하고 공유해요!
+      </h2>
       <footer className={styles.footerCnontainer}>
         <div className={styles.FooterBox}>
           <img className={styles.FooterImg} src="/footer1.png" alt="" />
           <p className={styles.Footertext}>
-            매일 렌덤으로 뽑아주는 주제를 통해 <br />나만의 일기를 간편하게 작성해 봐요!
+            매일 렌덤으로 뽑아주는 주제를 통해 <br />
+            나만의 일기를 간편하게 작성해 봐요!
           </p>
         </div>
         <div className={styles.FooterBox}>
@@ -177,7 +200,8 @@ function Main() {
         <div className={styles.FooterBox}>
           <img className={styles.FooterImg} src="/footer3.png" alt="" />
           <p className={styles.Footertext}>
-            내가 작성한 일기를 공유하면서 다른 <br />사람의 일기도 볼 수 있어요!
+            내가 작성한 일기를 공유하면서 다른 <br />
+            사람의 일기도 볼 수 있어요!
           </p>
         </div>
       </footer>
