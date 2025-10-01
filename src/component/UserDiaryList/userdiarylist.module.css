@@ -58,12 +58,12 @@ body{
 }
 
 .DailyListWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 3vw;
-    gap: 2vw;
-    height: 20%;
-    margin-top: 3vh;
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
     width:  190%;
   }
   .TitleInputBox{
@@ -120,3 +120,750 @@ body{
   object-fit: cover;
 }
 
+@media (max-width: 1280px) {
+  .MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 200vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+}
+.DaliyTitleText{
+ position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -6.5%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    margin-top: -2.2%;
+  position: absolute;
+  font-size: 2vh;
+  }
+
+
+  .DaliyContentText{
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 12%;
+  font-size: 2vh;
+
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+}
+.DateText{
+ position: absolute;
+  margin-left: 19%;
+  margin-bottom: 2.2%;
+
+}
+.Line{
+  margin-top: 1%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.MyProfile {
+  cursor: pointer;
+  margin-bottom: 16vh;
+  position: absolute;
+  margin-right: 17vw;
+  width: 3vw;
+  height: 6vh;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}
+
+
+@media (max-width: 1024px) {
+  .MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 200vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+}
+.DaliyTitleText{
+ position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -6.5%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    margin-top: -2.2%;
+  position: absolute;
+  font-size: 2vh;
+  }
+
+
+  .DaliyContentText{
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 12%;
+  font-size: 2vh;
+
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+}
+.DateText{
+ position: absolute;
+  margin-left: 19%;
+  margin-bottom: 2.2%;
+
+}
+.Line{
+  margin-top: 1%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.MyProfile {
+  cursor: pointer;
+  margin-bottom: 16vh;
+  position: absolute;
+  margin-right: 17vw;
+  width: 3vw;
+  height: 6vh;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}
+
+@media (max-width: 768px) {
+  .MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 200vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+}
+.DaliyTitleText{
+ position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -6.5%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    margin-top: -2.2%;
+  position: absolute;
+  font-size: 2vh;
+  }
+
+
+  .DaliyContentText{
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 12%;
+  font-size: 2vh;
+
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+}
+.DateText{
+ position: absolute;
+  margin-left: 19%;
+  margin-bottom: 2.2%;
+
+}
+.Line{
+  margin-top: 1%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.MyProfile {
+  cursor: pointer;
+  margin-bottom: 16vh;
+  position: absolute;
+  margin-right: 17vw;
+  width: 3vw;
+  height: 6vh;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}
+@media (max-width: 640px) {.MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 200vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+}
+.DaliyTitleText{
+ position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -6.5%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    margin-top: -2.2%;
+  position: absolute;
+  font-size: 2vh;
+  }
+
+
+  .DaliyContentText{
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 12%;
+  font-size: 2vh;
+
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+}
+.DateText{
+ position: absolute;
+  margin-left: 19%;
+  margin-bottom: 2.2%;
+
+}
+.Line{
+  margin-top: 1%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.MyProfile {
+  cursor: pointer;
+  margin-bottom: 16vh;
+  position: absolute;
+  margin-right: 17vw;
+  width: 3vw;
+  height: 6vh;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}
+
+@media (max-width: 480px) {
+
+.MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 200vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+}
+.DaliyTitleText{
+ position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -6.5%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    margin-top: -2.2%;
+  position: absolute;
+  font-size: 2vh;
+  }
+
+
+  .DaliyContentText{
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 12%;
+  font-size: 2vh;
+
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+}
+.DateText{
+ position: absolute;
+  margin-left: 19%;
+  margin-bottom: 2.2%;
+
+}
+.Line{
+  margin-top: 1%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.MyProfile {
+  cursor: pointer;
+  margin-bottom: 16vh;
+  position: absolute;
+  margin-right: 17vw;
+  width: 3vw;
+  height: 6vh;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+}
+
+@media (max-width: 376px) {
+
+.MainContainer{
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F5E7D2;
+    position: absolute;
+    margin-top: 11%;
+    min-height: 200vh; 
+}
+.MainTitle{
+    position: absolute;
+    margin-top: -5%;
+    
+    font-size: 1.8em;
+
+}
+.DaliyBox{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 2vw;
+  border-radius: 20px;
+  width: 27vw;
+  height: 27.5vh;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  margin-bottom: 5%;
+}
+.DaliyTitleText{
+ position: absolute;;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-top: -6.5%;
+  
+  
+  }
+  .DaliyTitle2Text{
+    margin-top: -2.2%;
+  position: absolute;
+  font-size: 2vh;
+  }
+
+
+  .DaliyContentText{
+  position: absolute;
+  margin-top: 2%;
+  margin-right: 12%;
+  font-size: 2vh;
+
+  }
+
+body{
+    height: 100vh;
+}
+
+.DailyListWrapper {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    margin-right: 2rem;
+    gap: 4vw;
+    height: 25%;
+    margin-top: 10vh;
+    width:  190%;
+  }
+  .TitleInputBox{
+    position: absolute;
+    width: 12vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 1vw;
+    
+  }
+.SortButton{
+  position: absolute;
+  width: 6vw;
+  height: 4.4vh;
+  cursor: pointer;
+  background-color: #7B5D43;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1em;
+  border-color:#7B5D43 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
+  margin-top: 2%
+}
+.DateText{
+ position: absolute;
+  margin-left: 19%;
+  margin-bottom: 2.2%;
+
+}
+.Line{
+  margin-top: 1%;
+  margin-left: 5%;
+    width:88%;       
+    height: 1px;       
+    background-color: black;
+}
+.MyProfile {
+  cursor: pointer;
+  margin-bottom: 16vh;
+  position: absolute;
+  margin-right: 17vw;
+  width: 3vw;
+  height: 6vh;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.MyProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+}
