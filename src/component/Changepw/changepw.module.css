@@ -1,58 +1,61 @@
-.container{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-items: center; */
-    background-color: #FCF5E7;
-    overflow: hidden;
+@import "pretendard/dist/web/static/pretendard.css";
+
+body {
+  font-family: "Pretendard", sans-serif;
 }
 
-.maintext{
-    font-family: 'Pretendard', sans-serif;
-    font-size: 2em;
-    background-color: #F5E7D2;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1em
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fcf5e7;
+  overflow: hidden;
 }
 
-.inputwrap{
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #FCF5E7;
+.maintext {
+  font-size: 1.8em;
+  background-color: #f5e7d2;
+  width: 100%;
+  text-align: center;
 }
 
-.inputbox{
-    width: 30em;
-    height: 5em;
-    border: 1px solid black;
-    border-radius: 25px;
-    padding-left: 1em;
-    margin-bottom: 1em;
-    /* cursor: pointer; */
+.inputwrap {
+  margin-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fcf5e7;
 }
 
-.inputtext{
-    font-family: 'Pretendard', sans-serif;
-    font-size: large;
+.inputbox {
+  width: 25em;
+  height: 4em;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding-left: 1em;
+  margin-bottom: 1em;
 }
 
-.submit{
-    width: 7em;
-    height: 3em;
-    background-color: #7B5D43;
-    font-family: 'Pretendard', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-top: 3em;
-    border-radius: 20px;
-    box-shadow: #F5E7D2;
-    font-weight: bold;
+.inputtext {
+  font-size: 1em;
+}
+
+.submit {
+  width: 7em;
+  height: 3em;
+  background-color: #7b5d43;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 2em;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+}
+
+.submit:hover {
+  transform: scale(1.02);
 }

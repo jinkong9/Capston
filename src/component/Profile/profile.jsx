@@ -65,10 +65,10 @@ function Profilepage() {
     <div className={styles.MainContainer}>
       <div className={styles.Mainbox}>
         <div className={styles.SubTitleBox}>
-          <h3>프로필 변경</h3>
+          <p>프로필 변경</p>
         </div>
         <div className={styles.MyProfileBox}>
-          <h3>내 프로필</h3>
+          <p>현재 프로필</p>
           <div className={styles.MyProfile}>
             <img
               className={styles.MyProfileImg}
@@ -82,7 +82,7 @@ function Profilepage() {
         </div>
         <div className={styles.ProfileChangeBox}>
           <div className={styles.ProfileChangetitleBox}>
-            <h4 className={styles.ProfileSubTitle}>프로필 이미지</h4>
+            <h4 className={styles.ProfileSubTitle}>이미지 미리보기</h4>
             <input
               onChange={handleFileChange}
               className={styles.HiddenInput}
@@ -106,9 +106,12 @@ function Profilepage() {
                 <p className={styles.PreviewText}>선택된 이미지가 없습니다.</p>
               )}
             </div>
-            <div onClick={handleSubmit} className={styles.ProfileSubmitButton}>
+            <button
+              onClick={handleSubmit}
+              className={styles.ProfileSubmitButton}
+            >
               프로필 변경
-            </div>
+            </button>
           </div>
         </div>
       </div>

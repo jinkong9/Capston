@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import api from "./api";
 
 const AuthContext = createContext();
-
 export default function AuthProvider({ children }) {
   const [isLogging, setIsLogging] = useState(false);
   const [user, setUser] = useState("");
@@ -39,6 +38,7 @@ export default function AuthProvider({ children }) {
     try {
       const res = await api.post("/auth/logout");
       console.log(res);
+      navigate("/login");
     } catch (err) {
       console.log("로그아웃 err", err.response);
     } finally {
@@ -57,7 +57,6 @@ export default function AuthProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {

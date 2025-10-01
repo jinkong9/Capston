@@ -1,26 +1,34 @@
 @import "pretendard/dist/web/static/pretendard.css";
 
+body {
+  background-color: #f5e7d2;
+}
+
 .MainContainer {
   justify-content: center;
   display: flex;
   flex-direction: column;
   font-family: "Pretendard", sans-serif;
   width: 100vw;
-  background-color: #fcf5e7;
+  background-color: #f5e7d2;
   position: relative;
   min-height: 100vh;
 }
 .MainTitle {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.8em;
+  background-color: #fcf5e7;
+  width: 100%;
+  height: 15vh;
+  font-weight: bold;
 }
 
 .color {
-  min-height: 100vh;
-  height: auto;
   width: 100vw;
+  height: 100%;
   background-color: #f5e7d2;
-  border: 1px solid #fcf5e7;
   display: flex;
   flex-wrap: wrap;
 }
@@ -30,6 +38,7 @@
   align-items: center;
   gap: 20px;
   width: 100%;
+  height: 100%;
   flex-grow: 1;
 }
 .DailyListWrapper {
@@ -70,6 +79,7 @@
   background-color: white;
   margin-bottom: 5%;
 }
+
 .DaliyTitleText {
   position: absolute;
   height: 5vh;
@@ -110,34 +120,44 @@
 }
 .DeleteButton {
   cursor: pointer;
+  border: none;
   border-radius: 9px;
   text-align: center;
   width: 5.3vw;
-  height: 3.4vh;
+  height: 4vh;
   font-size: 1rem;
   background-color: #5e3d2e;
   color: white;
 }
+.DeleteButton:hover {
+  transform: scale(1.02);
+}
 .EditButton {
   cursor: pointer;
+  border: none;
   border-radius: 9px;
   width: 5.3vw;
-  height: 3.4vh;
+  height: 4vh;
   text-align: center;
   font-size: 1rem;
   background-color: #ad9274;
   color: white;
 }
-
+.EditButton:hover {
+  transform: scale(1.02);
+}
 @media (max-width: 1280px) {
+  .ButtonContainer {
+    margin-top: 20%;
+  }
   .DeleteButton {
-    width: 5.3vw;
-    height: 3.7vh;
+    width: 6vw;
+    height: 4vh;
     font-size: 0.8rem;
   }
   .EditButton {
-    width: 5.3vw;
-    height: 3.7vh;
+    width: 6vw;
+    height: 4vh;
     font-size: 0.8rem;
   }
 }
@@ -145,6 +165,7 @@
 @media (max-width: 1024px) {
   .MainTitle {
     font-size: 1.5em;
+    height: 12vh;
   }
   .gap {
     gap: 30px;
@@ -276,6 +297,9 @@
 }
 
 @media (max-width: 640px) {
+  .MainTitle {
+    height: 10vh;
+  }
   .SortButton {
     width: 8vw;
   }
@@ -369,7 +393,10 @@
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 400px) {
+  .color {
+    height: auto !important;
+  }
   .SortButton {
     width: 16vw;
     height: 3.8vh;
@@ -379,7 +406,7 @@
     grid-template-columns: repeat(1, 1fr);
     row-gap: 50px;
     height: auto;
-    height: 80%;
+    height: 100%;
   }
   .DaliyBox {
     margin-top: 5%;
