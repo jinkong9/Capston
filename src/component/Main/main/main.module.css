@@ -6,7 +6,7 @@
 
 body {
   background-color: #fcf5e7;
-  height: 100vh;
+  height: 120vh;
   overflow-x: hidden;
   font-family: "Pretendard", sans-serif;
 }
@@ -568,6 +568,9 @@ body {
 }
 
 @media (max-width: 400px) {
+  body {
+    height: auto;
+  }
   .SubNavBox {
     height: 2vh;
   }
@@ -575,7 +578,7 @@ body {
     font-size: 1.5vw;
   }
   .Header {
-    height: 40vh;
+    height: 37vh;
     gap: 2%;
   }
   .HeadText {

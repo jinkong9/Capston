@@ -6,9 +6,37 @@ export default function Changepw() {
   const [pw, setPw] = useState({
     beforepw: "",
     newpw: "",
+    confirmpw: "",
   });
 
+  const handlechange = (e) => {
+    const { name, value } = e.target;
+    setPw((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handlePopUp = () => {
+    if (window.opener) {
+      window.opener.postMessage("ChangePW", "*");
+    }
+    window.close();
+  };
+
   const handlePW = async (e) => {
+    if (pw.beforepw === pw.newpw) {
+      alert("기존 비밀번호와 다르게 설정해주세요.");
+      return;
+    }
+    if (!pw.beforepw || !pw.newpw || !pw.confirmpw) {
+      alert("모든 칸을 채워주세요.");
+      return;
+    }
+    if (pw.newpw !== pw.confirmpw) {
+      alert("새로운 비밀번호가 일치하지 않습니다.");
+      return;
+    }
     try {
       e.preventDefault();
       const res = await api.patch("/me/password", {
@@ -17,10 +45,10 @@ export default function Changepw() {
       });
       console.log("good", res.response);
       if (res.status == 200) {
-        window.close();
+        handlePopUp();
       }
     } catch (err) {
-      console.log("이상해", err.response);
+      console.log("비번바꾸기 오류", err.response);
     }
   };
 
@@ -38,12 +66,7 @@ export default function Changepw() {
             id="beforepw"
             name="beforepw"
             placeholder="비밀번호를 입력해주세요."
-            onChange={(e) => {
-              setPw({
-                ...pw,
-                beforepw: e.target.value,
-              });
-            }}
+            onChange={handlechange}
           ></input>
         </div>
         <p className={style.inputtext}>*새 비밀번호를 입력해주세요 .</p>
@@ -54,12 +77,7 @@ export default function Changepw() {
             id="newpw"
             name="newpw"
             placeholder="새로운 비밀번호를 입력해주세요."
-            onChange={(e) => {
-              setPw({
-                ...pw,
-                newpw: e.target.value,
-              });
-            }}
+            onChange={handlechange}
           ></input>
         </div>
         <p className={style.inputtext}>*새 비밀번호를 한번 더 입력해주세요 .</p>
@@ -67,9 +85,10 @@ export default function Changepw() {
           <input
             className={style.inputbox}
             type="password"
-            id="checkepw"
-            name="checkpw"
+            id="confirmpw"
+            name="confirmpw"
             placeholder="새로운 비밀번호를 다시입력해주세요."
+            onChange={handlechange}
           ></input>
         </div>
         <button onClick={handlePW} type="submit" className={style.submit}>

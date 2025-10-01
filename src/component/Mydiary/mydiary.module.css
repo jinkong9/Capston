@@ -8,7 +8,7 @@
   width: 100vw;
   background-color: #fcf5e7;
   position: relative;
-  min-height: 100vh;
+  min-height: 140vh;
 }
 .MainTitle {
   text-align: center;
@@ -16,9 +16,8 @@
 }
 
 .color {
-  min-height: 100vh;
-  height: auto;
   width: 100vw;
+  height: 140vh;
   background-color: #f5e7d2;
   border: 1px solid #fcf5e7;
   display: flex;
@@ -70,6 +69,7 @@
   background-color: white;
   margin-bottom: 5%;
 }
+
 .DaliyTitleText {
   position: absolute;
   height: 5vh;
@@ -110,34 +110,44 @@
 }
 .DeleteButton {
   cursor: pointer;
+  border: none;
   border-radius: 9px;
   text-align: center;
   width: 5.3vw;
-  height: 3.4vh;
+  height: 4vh;
   font-size: 1rem;
   background-color: #5e3d2e;
   color: white;
 }
+.DeleteButton:hover {
+  transform: scale(1.02);
+}
 .EditButton {
   cursor: pointer;
+  border: none;
   border-radius: 9px;
   width: 5.3vw;
-  height: 3.4vh;
+  height: 4vh;
   text-align: center;
   font-size: 1rem;
   background-color: #ad9274;
   color: white;
 }
-
+.EditButton:hover {
+  transform: scale(1.02);
+}
 @media (max-width: 1280px) {
+  .ButtonContainer {
+    margin-top: 20%;
+  }
   .DeleteButton {
-    width: 5.3vw;
-    height: 3.7vh;
+    width: 6vw;
+    height: 4vh;
     font-size: 0.8rem;
   }
   .EditButton {
-    width: 5.3vw;
-    height: 3.7vh;
+    width: 6vw;
+    height: 4vh;
     font-size: 0.8rem;
   }
 }
