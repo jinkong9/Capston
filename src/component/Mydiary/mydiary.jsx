@@ -55,65 +55,65 @@ function MyDiaryList() {
   return (
     <>
       <main className={styles.MainContainer}>
-        <div className={styles.gap}>
-          <h2 className={styles.MainTitle}>내 일기모음</h2>
-          <div className={styles.color}>
-            <div
-              className={styles.SortButton}
-              onClick={() =>
-                sortState === "new" ? setSortState("old") : setSortState("new")
-              }
-            >
-              {sortState === "new" ? "최신 순" : "오래된 순"}
-            </div>
+        <div className={styles.MainTitle}>
+          <p>내 일기모음</p>
+        </div>
+        <div className={styles.color}>
+          <div
+            className={styles.SortButton}
+            onClick={() =>
+              sortState === "new" ? setSortState("old") : setSortState("new")
+            }
+          >
+            {sortState === "new" ? "최신 순" : "오래된 순"}
+          </div>
 
-            <div className={styles.DailyListWrapper}>
-              {sortDiaryList.map((diary) => (
-                <div
-                  onClick={() => SetModalState(diary)}
-                  key={diary.id}
-                  className={styles.DaliyBox}
-                >
-                  <p className={styles.DaliyTitleText}>
-                    {diary.author.full_name}님의 일기
-                  </p>
-                  <span className={styles.DaliyTitle2Text}>
-                    {diary.title.length > 10
-                      ? diary.title.substring(0, 10) + "..."
-                      : diary.title}
-                  </span>
-                  <span className={styles.DateText}>
-                    {new Date(diary.created_at).toLocaleDateString("ko-KR", {
-                      timeZone: "Asia/Seoul",
-                    })}
-                  </span>
-                  <div className={styles.Line}></div>
-                  <div className={styles.DaliyContentText}>
-                    {diary.content.length > 10
-                      ? diary.content.substring(0, 10) + "..."
-                      : diary.content}
-                  </div>
-                  <div className={styles.ButtonContainer}>
-                    <button
-                      onClick={(e) => {
-                        (e.stopPropagation(), deleteDiary(diary.id));
-                      }}
-                      className={styles.DeleteButton}
-                    >
-                      삭제 버튼
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        (e.stopPropagation(), goToEditPage(diary));
-                      }}
-                      className={styles.EditButton}
-                    >
-                      수정 버튼
-                    </button>
-                  </div>
+          <div className={styles.DailyListWrapper}>
+            {sortDiaryList.map((diary) => (
+              <div
+                onClick={() => SetModalState(diary)}
+                key={diary.id}
+                className={styles.DaliyBox}
+              >
+                <p className={styles.DaliyTitleText}>
+                  {diary.author.full_name}님의 일기
+                </p>
+                <span className={styles.DaliyTitle2Text}>
+                  {diary.title.length > 10
+                    ? diary.title.substring(0, 10) + "..."
+                    : diary.title}
+                </span>
+                <span className={styles.DateText}>
+                  {new Date(diary.created_at).toLocaleDateString("ko-KR", {
+                    timeZone: "Asia/Seoul",
+                  })}
+                </span>
+                <div className={styles.Line}></div>
+                <div className={styles.DaliyContentText}>
+                  {diary.content.length > 10
+                    ? diary.content.substring(0, 10) + "..."
+                    : diary.content}
                 </div>
-              ))}
-            </div>
+                <div className={styles.ButtonContainer}>
+                  <button
+                    onClick={(e) => {
+                      (e.stopPropagation(), deleteDiary(diary.id));
+                    }}
+                    className={styles.DeleteButton}
+                  >
+                    삭제 버튼
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      (e.stopPropagation(), goToEditPage(diary));
+                    }}
+                    className={styles.EditButton}
+                  >
+                    수정 버튼
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </main>
