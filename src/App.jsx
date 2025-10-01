@@ -43,7 +43,7 @@ function App() {
             <Route path="/my-diary" element={<MyDiaryList />} />
             <Route path="/edit-diary" element={<MyEditDiary />} />
             <Route path="/modal" element={<ModalPage />} />
-            <Route path="/previous-page" element={<Previous />} />
+            <Route path="/previouss-page" element={<Previous />} />
           </Routes>
         </ModalProvider>
       </AuthProvider>
