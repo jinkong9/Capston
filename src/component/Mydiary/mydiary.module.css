@@ -1,9 +1,5 @@
 @import "pretendard/dist/web/static/pretendard.css";
 
-body {
-  background-color: #f5e7d2;
-}
-
 .MainContainer {
   justify-content: center;
   display: flex;
