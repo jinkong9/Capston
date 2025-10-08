@@ -1,27 +1,25 @@
-
-@import "pretendard/dist/web/static/pretendard.css";
-
-.MainContainer{
-    justify-content: center;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    background-color: #F5E7D2;
-    position: absolute;
-    margin-top: 11%;
-    min-height: 200vh; 
+.MainContainer {
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5e7d2;
+  position: absolute;
+  margin-top: 15%;
+  min-height: 200vh;
 }
-.MainTitle{
-    position: absolute;
-    margin-top: -5%;
-    font-size: 1.8em;
+.MainTitle {
+  position: absolute;
+  margin-top: -9%;
 
+  font-size: 1.8em;
+}
 .DaliyBox {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 12%;
+  margin-top: 15%;
   margin-left: 2vw;
   border-radius: 20px;
   width: 27vw;
@@ -55,17 +53,18 @@ body {
 }
 
 .DailyListWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 3vw;
-  gap: 2vw;
-  height: 20%;
-  margin-top: 3vh;
-  width: 190%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  row-gap: 20px;
+  height: 80%;
+  margin-top: 5vh;
+  width: 100%;
 }
 .TitleInputBox {
+  text-align: center;
   position: absolute;
-  width: 12vw;
+  width: 9vw;
   height: 5vh;
   margin-top: 1%;
   border-radius: 1vw;
@@ -114,120 +113,151 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-@media (max-width: 1180px) {
-  .DaliyTitleText{
- position: absolute;;
-  height: 5vh;
-  font-weight: bold;
-  font-size: 2.5vh;
-  margin-top: -6.5%;
-  
-  
+@media (max-width: 1280px) {
+  .DaliyTitleText {
+    height: 5vh;
+    font-size: 2.7vh;
+    margin-top: -6.5%;
+  }
+  .MainTitle {
+    font-size: 1.7em;
+    margin-top: -9%;
+  }
+  .TitleInputBox {
+    position: absolute;
+    width: 14vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 2vw;
   }
 
   .MyProfile {
-  cursor: pointer;
-  margin-bottom: 13vh;
-  position: absolute;
-  margin-right: 19vw;
-  width: 4vw;
-  height: 5.5vh;
-  background-color: #E0E0E0;
-  border-radius: 45%;
-  overflow: hidden;
-}
-.MyProfileImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    cursor: pointer;
+    margin-bottom: 13vh;
+    position: absolute;
+    margin-right: 20vw;
+    width: 3.3vw;
+    height: 5vh;
+    background-color: #e0e0e0;
+    border-radius: 45%;
+    overflow: hidden;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
+  .MainContainer {
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5e7d2;
+    position: absolute;
+    margin-top: 21%;
+    min-height: 200vh;
+  }
 }
 
 @media (max-width: 1024px) {
-.MainTitle {
+  .TitleInputBox {
+    position: absolute;
+    width: 14vw;
+    height: 5vh;
+    margin-top: 1%;
+    border-radius: 2vw;
+  }
+
+  .MainTitle {
     font-size: 1.5em;
+    margin-top: -9%;
   }
 
   .SortButton {
-    width: 6.2vw ;
-    height: 4vh ;
-    font-size: 0.9em ;
+    width: 6.2vw;
+    height: 4vh;
+    font-size: 0.9em;
   }
   .DaliyBox {
-    margin-top: 10% ;
-    width: 26vw ;
-    height: 27.5vh ;
-    margin-bottom: 5% ;
+    margin-top: 10%;
+    width: 26vw;
+    height: 27.5vh;
+    margin-bottom: 5%;
   }
   .DaliyTitleText {
-    height: 5vh ;
-    font-size: 2vh ;
-    margin-top: -6.5% ;
+    height: 5vh;
+    font-size: 2.4vh;
+    margin-top: -6.5%;
   }
   .DaliyTitle2Text {
-    margin-top: -2.2% ;
-    font-size: 1.8vh ;
+    margin-top: -2.2%;
+    font-size: 1.8vh;
   }
 
   .DaliyContentText {
-    position: absolute ;
-    margin-top: 3% ;
-    text-align: center ;
-    font-size: 1.7vh ; 
+    position: absolute;
+    margin-top: 3%;
+    text-align: center;
+    font-size: 1.7vh;
   }
 
   .DateText {
-    margin-left: 15% ;
-    margin-bottom: 2.2% ;
-    font-size: 1.5vh ;
+    margin-left: 15%;
+    margin-bottom: 2.2%;
+    font-size: 1.5vh;
   }
   .Line {
-    margin-top: 1% ;
-    margin-left: 5% ;
-    width: 88% ;
-    height: 1px ;
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 88%;
+    height: 1px;
     background-color: black;
   }
   .ButtonContainer {
-    margin-top: 20% ;
-    gap: 75px ;
+    margin-top: 20%;
+    gap: 75px;
   }
 
-
- .MyProfile {
-  cursor: pointer;
-  margin-bottom: 13vh;
-  position: absolute;
-  margin-right: 18vw;
-  width: 4vw;
-  height: 5vh;
-  background-color: #E0E0E0;
-  border-radius: 45%;
-  overflow: hidden;
-}
-.MyProfileImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
+  .MyProfile {
+    cursor: pointer;
+    margin-bottom: 13vh;
+    position: absolute;
+    margin-right: 18vw;
+    width: 4vw;
+    height: 5vh;
+    background-color: #e0e0e0;
+    border-radius: 45%;
+    overflow: hidden;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .MainContainer {
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5e7d2;
+    position: absolute;
+    margin-top: 21%;
+    min-height: 200vh;
+  }
 }
 
 @media (max-width: 768px) {
-
-    .TitleInputBox{
+  .TitleInputBox {
     position: absolute;
     width: 19vw;
     height: 4vh;
     margin-top: 1%;
     border-radius: 2vw;
-    
   }
   .MainTitle {
     font-size: 1.3em;
+    margin-top: -9%;
   }
   .gap {
     gap: 35px;
@@ -283,36 +313,35 @@ body {
     margin-top: 28%;
     gap: 75px;
   }
-   .MyProfile {
-  cursor: pointer;
-  margin-bottom: 17vh;
-  position: absolute;
-  margin-right: 24vw;
-  width: 5vw;
-  height: 4.7vh;
-  background-color: #E0E0E0;
-  border-radius: 45%;
-  overflow: hidden;
-}
-.MyProfileImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-  
+  .MyProfile {
+    cursor: pointer;
+    margin-bottom: 17vh;
+    position: absolute;
+    margin-right: 24vw;
+    width: 5vw;
+    height: 4.7vh;
+    background-color: #e0e0e0;
+    border-radius: 45%;
+    overflow: hidden;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 640px) {
-  .TitleInputBox{
+  .TitleInputBox {
     position: absolute;
     width: 19vw;
     height: 4vh;
     margin-top: 1%;
     border-radius: 2vw;
-    
   }
   .MainTitle {
     font-size: 1.3em;
+    margin-top: -9%;
   }
   .gap {
     gap: 35px;
@@ -324,7 +353,7 @@ body {
     font-size: 1em;
   }
   .DailyListWrapper {
-     margin-top: 14%;
+    margin-top: 14%;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 15px;
     height: 85%;
@@ -368,39 +397,45 @@ body {
     margin-top: 28%;
     gap: 75px;
   }
-   .MyProfile {
-  cursor: pointer;
-  margin-bottom: 16vh;
-  position: absolute;
-  margin-right: 24vw;
-  width: 5.1vw;
-  height: 3.9vh;
-  background-color: #E0E0E0;
-  border-radius: 45%;
-  overflow: hidden;
-}
-.MyProfileImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-  
-  
+  .MyProfile {
+    cursor: pointer;
+    margin-bottom: 16vh;
+    position: absolute;
+    margin-right: 24vw;
+    width: 5.1vw;
+    height: 3.9vh;
+    background-color: #e0e0e0;
+    border-radius: 45%;
+    overflow: hidden;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .MainContainer {
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5e7d2;
+    position: absolute;
+    margin-top: 21%;
+    min-height: 200vh;
+  }
 }
 
 @media (max-width: 480px) {
-  .TitleInputBox{
+  .TitleInputBox {
     position: absolute;
     width: 25vw;
     height: 3.7vh;
     margin-top: 2%;
     border-radius: 2vw;
-    
   }
   .MainTitle {
     font-size: 1.1em;
-    margin-top: -7%;
-    
+    margin-top: -9%;
   }
   .gap {
     gap: 35px;
@@ -412,7 +447,7 @@ body {
     font-size: 0.9em;
   }
   .DailyListWrapper {
-     margin-top: 14%;
+    margin-top: 14%;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 15px;
     height: 85%;
@@ -456,39 +491,46 @@ body {
     margin-top: 28%;
     gap: 75px;
   }
-   .MyProfile {
-  cursor: pointer;
-  margin-bottom: 21vh;
-  position: absolute;
-  margin-right: 24vw;
-  width: 6.1vw;
-  height: 3.9vh;
-  background-color: #E0E0E0;
-  border-radius: 45%;
-  overflow: hidden;
-}
-.MyProfileImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-  
-  
+  .MyProfile {
+    cursor: pointer;
+    margin-bottom: 21vh;
+    position: absolute;
+    margin-right: 24vw;
+    width: 6.1vw;
+    height: 3.9vh;
+    background-color: #e0e0e0;
+    border-radius: 45%;
+    overflow: hidden;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .MainContainer {
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5e7d2;
+    position: absolute;
+    margin-top: 21%;
+    min-height: 200vh;
+  }
 }
 
 @media (max-width: 400px) {
- .TitleInputBox{
+  .TitleInputBox {
     position: absolute;
     width: 30vw;
     height: 3.2vh;
     margin-top: 2%;
     border-radius: 3vw;
-    
   }
   .MainTitle {
     font-size: 0.9em;
     margin-top: -7%;
-    
   }
   .gap {
     gap: 35px;
@@ -500,7 +542,7 @@ body {
     font-size: 0.76em;
   }
   .DailyListWrapper {
-     margin-top: 14%;
+    margin-top: 14%;
     grid-template-columns: repeat(1, 1fr);
     row-gap: 15px;
     height: 85%;
@@ -525,7 +567,7 @@ body {
     position: absolute;
     margin-top: 10%;
     text-align: center;
-    font-size: 1.5  vh;
+    font-size: 1.5 vh;
   }
 
   .DateText {
@@ -544,22 +586,30 @@ body {
     margin-top: 28%;
     gap: 75px;
   }
-   .MyProfile {
-  
-  cursor: pointer;
-  margin-bottom: 14vh;
-  position: absolute;
-  margin-right: 47vw;
-  width: 8vw;
-  height: 4vh;
-  background-color: #E0E0E0;
-  border-radius: 45%;
-  overflow: hidden;
+  .MyProfile {
+    cursor: pointer;
+    margin-bottom: 14vh;
+    position: absolute;
+    margin-right: 47vw;
+    width: 8vw;
+    height: 4vh;
+    background-color: #e0e0e0;
+    border-radius: 45%;
+    overflow: hidden;
+  }
+  .MyProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .MainContainer {
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5e7d2;
+    position: absolute;
+    margin-top: 20%;
+    min-height: 200vh;
+  }
 }
-.MyProfileImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-}
-
