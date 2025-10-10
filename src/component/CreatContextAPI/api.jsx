@@ -22,6 +22,7 @@ const processQueue = (error) => {
 api.interceptors.response.use(
   (res) => res,
   async (err) => {
+    console.log("인터셉터 에러 발생:", JSON.stringify(err.response?.data));
     const originalRequest = err.config;
 
     // 액세스 토큰 만료

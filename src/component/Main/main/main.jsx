@@ -110,7 +110,7 @@ function Main() {
   return (
     <>
       <div className={styles.SubNavBox}>
-        <p className={styles.SubText}>오늘은 무슨 이야기를 들려주시나요?</p>
+        <p className={styles.SubText}>오늘은 어떤 이야기를 들려주시나요?</p>
       </div>
       <header className={styles.Header}>
         <h2 className={styles.HeadText}>오늘의 주제!</h2>
