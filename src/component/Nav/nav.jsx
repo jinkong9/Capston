@@ -6,9 +6,6 @@ import { handleError } from "../Hook/auth";
 import { useAuth } from "../CreatContextAPI/context";
 
 function Nav() {
-  const [name, setName] = useState("");
-  const [login, setLogin] = useState("Login");
-
   const { isLoading, isLogging, user, logout } = useAuth();
   const navigate = useNavigate();
 

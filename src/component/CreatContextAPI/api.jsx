@@ -7,6 +7,11 @@ const api = axios.create({
 
 let isRefreshing = false;
 let failedQueue = [];
+let onLogout = null;
+
+export const setLogoutHandler = (logoutFn) => {
+  onLogout = logoutFn;
+};
 
 const processQueue = (err) => {
   failedQueue.forEach((prom) => {
@@ -56,7 +61,10 @@ api.interceptors.response.use(
       } catch (refreshErr) {
         console.error("토큰 재발급 실패:", refreshErr);
         processQueue(refreshErr);
-        window.location.href = "/login";
+        if (onLogout) {
+          onLogout();
+        } else alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
+
         return Promise.reject(refreshErr);
       } finally {
         isRefreshing = false;

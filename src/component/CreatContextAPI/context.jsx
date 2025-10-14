@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "./api";
+import api, { setLogoutHandler } from "./api";
 
 const AuthContext = createContext();
 export default function AuthProvider({ children }) {
@@ -9,6 +9,10 @@ export default function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setLogoutHandler(logout);
+  }, []);
 
   useEffect(() => {
     const checkAuthState = async () => {
