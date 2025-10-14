@@ -18,7 +18,7 @@ function UserDiaryList() {
   const [sortState, setSortState] = useState("new");
 
   const filterDiaryList = [...diaryList].filter((diary) =>
-    diary.title.includes(searchKeyword),
+    diary.title.includes(searchKeyword)
   );
   const sortDiaryList = [...filterDiaryList].sort((a, b) => {
     const dateA = new Date(a.created_at);
@@ -39,7 +39,7 @@ function UserDiaryList() {
     fetchData();
   }, []);
   const GoToUserPage = (diary) => {
-    navigate("/users-info", { state: { diary: diary } });
+    navigate("/exinfo", { state: { diary: diary } });
   };
 
   useEffect(() => {
@@ -49,8 +49,8 @@ function UserDiaryList() {
           diaryList.map((diary) =>
             api.get(`/avatars/${diary.author.avatar}`, {
               withCredentials: true,
-            }),
-          ),
+            })
+          )
         );
 
         console.log("프로필 불러오기 성공!");
