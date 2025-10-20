@@ -1,9 +1,26 @@
 import axios from "axios";
+import { Cookies } from "react-cookie";
+
+const cookies = new Cookies();
 
 const api = axios.create({
   baseURL: "https://daisy.wisoft.io/yehwan/app1",
   withCredentials: true,
 });
+
+api.interceptors.request.use(
+  (config) => {
+    const accessToken = cookies.get("access_token");
+
+    // ✅ refresh 요청에는 access_token 안 붙이기
+    if (accessToken && !config.url.includes("/auth/refresh")) {
+      config.headers["Authorization"] = `Bearer ${accessToken}`;
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
 
 let isRefreshing = false;
 let failedQueue = [];
@@ -15,11 +32,8 @@ export const setLogoutHandler = (logoutFn) => {
 
 const processQueue = (err) => {
   failedQueue.forEach((prom) => {
-    if (err) {
-      prom.reject(err);
-    } else {
-      prom.resolve();
-    }
+    if (err) prom.reject(err);
+    else prom.resolve();
   });
   failedQueue = [];
 };
@@ -27,25 +41,23 @@ const processQueue = (err) => {
 api.interceptors.response.use(
   (res) => res,
   async (err) => {
-    console.log("인터셉터 에러 발생:", JSON.stringify(err.response?.data));
     const originalRequest = err.config;
-
-    // originalRequest가 없거나, 재시도가 이미 있다면 더 이상 진행안함
     if (!originalRequest || originalRequest._retry) {
       return Promise.reject(err);
     }
 
-    // errorCode 기준
     if (
       err.response?.status === 401 &&
       err.response?.data?.errorCode === "TOKEN_EXPIRED"
     ) {
       if (isRefreshing) {
-        // 이미 토큰 재발급이 진행 중이라면, 큐에 넣고 대기
         return new Promise((resolve, reject) => {
           failedQueue.push({ resolve, reject });
         })
-          .then(() => api(originalRequest))
+          .then((token) => {
+            originalRequest.headers["Authorization"] = "Bearer " + token;
+            return api(originalRequest);
+          })
           .catch((e) => Promise.reject(e));
       }
 
@@ -54,17 +66,35 @@ api.interceptors.response.use(
 
       try {
         console.log("토큰 재발급을 시도합니다.");
-        await api.post("/auth/refresh", {});
-        console.log("토큰 재발급 성공!");
-        processQueue(null);
-        return api(originalRequest); // 재발급 성공 후, 원래 요청을 다시 실행
+        const refreshToken = cookies.get("refresh_token");
+        const { data } = await api.post(
+          "/auth/refresh",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${refreshToken}`,
+            },
+          },
+        );
+        const newAccessToken = data.access_token;
+        cookies.set("access_token", newAccessToken, {
+          path: "/",
+          maxAge: 3600,
+          sameSite: "None",
+          secure: true,
+        });
+
+        api.defaults.headers.common["Authorization"] =
+          `Bearer ${newAccessToken}`;
+        originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+
+        processQueue(null, newAccessToken);
+        return api(originalRequest);
       } catch (refreshErr) {
         console.error("토큰 재발급 실패:", refreshErr);
-        processQueue(refreshErr);
-        if (onLogout) {
-          onLogout();
-        } else alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
-
+        processQueue(refreshErr, null);
+        if (onLogout) onLogout();
+        else alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
         return Promise.reject(refreshErr);
       } finally {
         isRefreshing = false;

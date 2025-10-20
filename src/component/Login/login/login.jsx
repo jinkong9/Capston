@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import DDlogo from "/DDlogo.webp";
 import style from "./login.module.css";
 import api from "../../CreatContextAPI/api";
 import { useAuth } from "../../CreatContextAPI/context";
+import { useCookies } from "react-cookie";
 
 export default function Home() {
-  const [info, setInfo] = useState({
-    email: "",
-    password: "",
-  });
+  const [info, setInfo] = useState({ email: "", password: "" });
   const { login } = useAuth();
-
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "access_token",
+    "refresh_token",
+  ]);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -21,10 +21,21 @@ export default function Home() {
         email: info.email,
         password: info.password,
       });
-      console.log("success login", res);
+      const { access_token, refresh_token } = res.data;
+      setCookie("access_token", access_token, {
+        path: "/",
+        maxAge: 3600,
+        sameSite: "None",
+        secure: true,
+      });
+      setCookie("refresh_token", refresh_token, {
+        path: "/",
+        maxAge: 604800,
+        sameSite: "None",
+        secure: true,
+      });
       if (res.status === 200) {
         const MeRes = await api.get("/me/info");
-        console.log(MeRes.data);
         if (MeRes.data?.user_info?.full_name) {
           login(MeRes.data.user_info.full_name);
           navigate("/");
@@ -33,9 +44,9 @@ export default function Home() {
         }
       }
     } catch (err) {
+      console.log("ogin err", err);
       if (err.response?.data?.errorCode === "INVALID_CREDENTIAL") {
-        alert("이메일 또는 비밀번호를 확인해주세요. ");
-        console.log("fail", err.response);
+        alert("이메일 또는 비밀번호를 확인해주세요.");
       } else {
         alert("Server Error");
       }
@@ -44,60 +55,37 @@ export default function Home() {
 
   return (
     <div className={style.container}>
-      <div className="logo"></div>
       <p className={style.headertext}>회원님의 정보를 입력해주세요 .</p>
-      <div>
+      <form className={style.form} onSubmit={handleLogin}>
         <div>
-          <input
-            className={style.inputbox}
-            type="email"
-            id="email"
-            name="emailbox"
-            placeholder="이메일을 입력하세요."
-            onChange={(e) => {
-              setInfo({
-                ...info,
-                email: e.target.value,
-              });
-            }}
-          ></input>
+          <div>
+            <input
+              className={style.inputbox}
+              type="email"
+              placeholder="이메일을 입력하세요."
+              onChange={(e) => setInfo({ ...info, email: e.target.value })}
+            />
+          </div>
+          <br />
+          <div>
+            <input
+              className={style.inputbox}
+              type="password"
+              placeholder="비밀번호를 입력하세요."
+              onChange={(e) => setInfo({ ...info, password: e.target.value })}
+            />
+          </div>
+          <div className={style.GuideContainer}>
+            <p className={style.GuideIdMessage}>아직 아이디가 없으신가요?</p>
+            <Link to="/join" className={style.SignUpLink}>
+              회원 가입
+            </Link>
+          </div>
         </div>
-        <br></br>
-        <div>
-          <input
-            className={style.inputbox}
-            type="password"
-            id="password"
-            name="pwbox"
-            placeholder="비밀번호를 입력하세요."
-            onChange={(e) => {
-              setInfo({
-                ...info,
-                password: e.target.value,
-              });
-            }}
-          ></input>
-        </div>
-
-        <div className={style.GuideContainer}>
-          <p className={style.GuideIdMessage}>아직 아이디가 없으신가요?</p>
-          <Link to="/join" className={style.SignUpLink}>
-            회원 가입
-          </Link>
-        </div>
-      </div>
-      <button
-        className={style.submitbutton}
-        type="submit"
-        onClick={handleLogin}
-      >
-        Login
-      </button>
-      <div>
-        <Link to="/findinfo">
-          <button className={style.findbutton}>Find Password</button>
-        </Link>
-      </div>
+        <button className={style.submitbutton} type="submit">
+          Login
+        </button>
+      </form>
     </div>
   );
 }
