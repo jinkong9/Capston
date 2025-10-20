@@ -104,10 +104,10 @@ function Writediary() {
           value={inputData.content}
           onChange={handleChange}
         />
+        <button className={styles.SubmitButton} type="submit">
+          저장하기
+        </button>
       </form>
-      <button className={styles.SubmitButton} type="submit">
-        저장하기
-      </button>
     </div>
   );
 }

@@ -1,13 +1,19 @@
+// context.jsx
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import api, { setLogoutHandler } from "./api";
+import { useCookies } from "react-cookie";
 
 const AuthContext = createContext();
+
 export default function AuthProvider({ children }) {
   const [isLogging, setIsLogging] = useState(false);
   const [user, setUser] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "access_token",
+    "refresh_token",
+  ]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,12 +26,12 @@ export default function AuthProvider({ children }) {
         const res = await api.get("/me/info");
         if (res.data?.user_info?.full_name) {
           setIsLogging(true);
-          setUser(res.data?.user_info?.full_name);
+          setUser(res.data.user_info.full_name);
         }
       } catch (err) {
-        console.log("로그인 필요", err.response);
         setIsLogging(false);
         setUser("");
+        console.log("에러", err.response);
       } finally {
         setIsLoading(false);
       }
@@ -40,14 +46,15 @@ export default function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      const res = await api.post("/auth/logout");
-      console.log(res);
-      navigate("/login");
+      await api.post("/auth/logout");
     } catch (err) {
-      console.log("로그아웃 err", err.response);
+      console.log("logout err", err.response);
     } finally {
+      removeCookie("access_token");
+      removeCookie("refresh_token");
       setIsLogging(false);
       setUser("");
+      navigate("/login");
     }
   };
 
@@ -61,10 +68,9 @@ export default function AuthProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
+
 export function useAuth() {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("범위 오류");
-  }
+  if (context === undefined) throw new Error("범위 오류");
   return context;
 }

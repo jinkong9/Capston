@@ -7,21 +7,7 @@
   justify-content: center;
   background-color: #fcf5e7;
   height: 110vh;
-}
-
-.con {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  max-width: 500px;
-  padding: 0 20px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background-color: #f7f7f7;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  font-family: "Pretendard", sans-serif;
 }
 
 .headertext {
@@ -29,7 +15,11 @@
   margin-bottom: 5%;
   padding-bottom: 1em;
   font-size: 32px;
-  font-family: "Pretendard", sans-serif;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .inputbox {
@@ -41,7 +31,6 @@
   border: 1px solid black;
   border-radius: 50px;
   font-size: 16px;
-  font-family: "Pretendard", sans-serif;
 }
 
 .submitbutton {
@@ -54,106 +43,12 @@
   border: none;
   border-radius: 30px;
   font-size: 16px;
-  font-family: "Pretendard", sans-serif;
   cursor: pointer;
 }
 .submitbutton:hover {
   transform: scale(1.02);
 }
 
-.lodingmessage {
-  font-size: 16px;
-  color: #555;
-}
-
-.findbutton {
-  width: 15em;
-  height: 50px;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f9dcba;
-  color: black;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  font-family: "Pretendard", sans-serif;
-  cursor: pointer;
-}
-
-.findbutton:hover {
-  transform: scale(1.02);
-}
-
-.logo {
-  width: 4em;
-  height: 4em;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.8em;
-}
-
-.loginwrite {
-  font-size: 1.1em;
-  font-weight: bold;
-  padding-bottom: 0.4em;
-}
-
-.logincon {
-  display: flex;
-  align-items: center;
-  width: 30em;
-  height: 2.5em;
-  margin-bottom: 0.6em;
-  background-color: #f2f2f2;
-  border: 1px solid black;
-  border-radius: 25px;
-  font-size: 0.9em;
-  padding-left: 12px;
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-}
-
-.logincon:focus {
-  outline: none;
-  border-color: #f9dcba;
-  box-shadow: 0 0 5px rgba(249, 220, 186, 0.5);
-}
-
-.loginbox {
-  background-color: #f9dcba;
-  width: 100px;
-  height: 40px;
-  border: none;
-  border-radius: 7px;
-  font-size: 14px;
-  margin-top: 0.8em;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.loginbox:hover {
-  background-color: #f5d0a8;
-  transform: scale(1.05);
-}
-
-.joinbox {
-  background-color: #f9dcba;
-  width: 100px;
-  height: 40px;
-  border: none;
-  border-radius: 7px;
-  font-size: 14px;
-  margin-top: 0.8em;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.joinbox:hover {
-  background-color: #f5d0a8;
-  transform: scale(1.05);
-}
 .GuideContainer {
   display: flex;
   flex-direction: column;
@@ -171,103 +66,101 @@
   margin-top: -1%;
 }
 
-
 @media (max-width: 576px) {
   .headertext {
-  margin-top: -10%;
-  margin-bottom: 10%;
-  padding-bottom: 1em;
-  font-size: 31px;
-  font-family: "Pretendard", sans-serif;
-}
+    margin-top: -10%;
+    margin-bottom: 10%;
+    padding-bottom: 1em;
+    font-size: 31px;
+    font-family: "Pretendard", sans-serif;
+  }
 
   .inputbox {
-  width: 23em;
-  height: 6vh;
-  padding: 10px;
-  margin-bottom: 1em;
-  background-color: #f2f2f2;
-  border: 1px solid black;
-  border-radius: 50px;
-  font-size: 16px;
-  font-family: "Pretendard", sans-serif;
-}
+    width: 23em;
+    height: 6vh;
+    padding: 10px;
+    margin-bottom: 1em;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+  }
 
-.submitbutton {
-  width: 15em;
-  height: 50px;
-  margin-top: 90px;
-  padding: 10px;
-  background-color: #a18363;
-  color: black;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  font-family: "Pretendard", sans-serif;
-  cursor: pointer;
-}
-
+  .submitbutton {
+    width: 15em;
+    height: 50px;
+    margin-top: 90px;
+    padding: 10px;
+    background-color: #a18363;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+    cursor: pointer;
+  }
 }
 @media (max-width: 480px) {
- .headertext {
-  margin-top: -10%;
-  margin-bottom: 10%;
-  padding-bottom: 1em;
-  font-size: 30px;
-  font-family: "Pretendard", sans-serif;
-}
+  .headertext {
+    margin-top: -10%;
+    margin-bottom: 10%;
+    padding-bottom: 1em;
+    font-size: 30px;
+    font-family: "Pretendard", sans-serif;
+  }
 
   .inputbox {
-  width: 22em;
-  height: 6vh;
-  padding: 10px;
-  margin-bottom: 1em;
-  background-color: #f2f2f2;
-  border: 1px solid black;
-  border-radius: 50px;
-  font-size: 16px;
-  font-family: "Pretendard", sans-serif;
-}
+    width: 22em;
+    height: 6vh;
+    padding: 10px;
+    margin-bottom: 1em;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+  }
 }
 @media (max-width: 450px) {
   .headertext {
-  margin-top: -10%;
-  margin-bottom: 10%;
-  padding-bottom: 1em;
-  font-size: 26px;
-  font-family: "Pretendard", sans-serif;
-}
+    margin-top: -10%;
+    margin-bottom: 10%;
+    padding-bottom: 1em;
+    font-size: 26px;
+    font-family: "Pretendard", sans-serif;
+  }
 
   .inputbox {
-  width: 18em;
-  height: 6vh;
-  padding: 10px;
-  margin-bottom: 1em;
-  background-color: #f2f2f2;
-  border: 1px solid black;
-  border-radius: 50px;
-  font-size: 16px;
-  font-family: "Pretendard", sans-serif;
+    width: 18em;
+    height: 6vh;
+    padding: 10px;
+    margin-bottom: 1em;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+  }
 }
-}
- @media (max-width: 400px) {
+@media (max-width: 400px) {
   .headertext {
-  margin-top: -10%;
-  margin-bottom: 14%;
-  padding-bottom: 1em;
-  font-size: 25px;
-  font-family: "Pretendard", sans-serif;
-}
+    margin-top: -10%;
+    margin-bottom: 14%;
+    padding-bottom: 1em;
+    font-size: 25px;
+    font-family: "Pretendard", sans-serif;
+  }
 
   .inputbox {
-  width: 17em;
-  height: 6vh;
-  padding: 10px;
-  margin-bottom: 1em;
-  background-color: #f2f2f2;
-  border: 1px solid black;
-  border-radius: 50px;
-  font-size: 16px;
-  font-family: "Pretendard", sans-serif;
+    width: 17em;
+    height: 6vh;
+    padding: 10px;
+    margin-bottom: 1em;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+  }
 }
- }
