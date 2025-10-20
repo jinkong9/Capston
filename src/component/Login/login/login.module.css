@@ -66,6 +66,42 @@
   margin-top: -1%;
 }
 
+@media (max-width: 1024px) {
+  .headertext {
+    margin-top: -10%;
+    margin-bottom: 10%;
+    padding-bottom: 1em;
+    font-size: 31px;
+    font-family: "Pretendard", sans-serif;
+  }
+
+  .inputbox {
+    width: 23em;
+    height: 6vh;
+    padding: 10px;
+    margin-bottom: 1em;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+  }
+
+  .submitbutton {
+    width: 15em;
+    height: 50px;
+    margin-top: 90px;
+    padding: 10px;
+    background-color: #a18363;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: "Pretendard", sans-serif;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 576px) {
   .headertext {
     margin-top: -10%;
